@@ -17,16 +17,18 @@ floatingWindow.addCheckbox('This is a checkbox', 'flag1', false);
 floatingWindow.addSection('Checkboxes');
 
 // These are checkboxes
-floatingWindow.addCheckbox('This is a checkbox', 'flag2', false); // Param 1 is the text displayed. 
-                                                                  // Param 2 is the name of the variable it's state is stored to. 
-                                                                  // Param 3 is the sate when loaded.
-                                                                  // Param 4 is an optional function ran when the checkmark is clicked.
+floatingWindow.addCheckbox('This is a checkbox', 'flag2', false, () => { 
+    console.log("Checkmark 1 is set to");
+});                                                             // Param 1 is the text displayed. 
+                                                                // Param 2 is the name of the variable it's state is stored to. 
+                                                                // Param 3 is the sate when loaded.
+                                                                // Param 4 is an optional function ran onClick.
 floatingWindow.addCheckbox('This is a checkbox', 'flag3', false);
 
 floatingWindow.addSection('Buttons')
 floatingWindow.addLabel('This is a button') 
 //These are buttons
-floatingWindow.addButton('Button 1', () => { //Param 1 is the value. Param 2 is an optional onclick function.
+floatingWindow.addButton('Button 1', () => { //Param 1 is the value displayed in the button. Param 2 is an optional function ran onClick.
     console.log('Button 1 clicked'); 
 });
 floatingWindow.addButton('Button 2', () => {
