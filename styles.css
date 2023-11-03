@@ -1,0 +1,174 @@
+.floating-window{
+    --font-color: white;
+    --main-color: #222222;
+    --secondary-color: #1a1a1a;
+    --outline-color: #404040;
+    --button-color: #2a2a2a;
+    --button-pressed-color: #1a1a1a;
+    --accent-color: pink;
+    --text-hint-color: black;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background: var(--secondary-color);
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 0 1px black;
+    user-select: none;
+    color: var(--font-color);
+    font-family: monospace;
+    text-shadow: -1px -1px 0 var(--text-hint-color), 1px -1px 0 var(--text-hint-color), -1px 1px 0 var(--text-hint-color), 1px 1px 0 var(--text-hint-color), -1px 0 var(--text-hint-color), 1px 0 var(--text-hint-color), 0 -1px var(--text-hint-color), 0 1px var(--text-hint-color);
+    overflow: hidden;
+    position: fixed;
+    z-index: 10000;
+    top:10px;
+    left:10px;
+}
+
+.floating-window ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.floating-window ::-webkit-scrollbar:horizontal{
+    height: 5px;
+}
+
+.floating-window ::-webkit-scrollbar-corner { 
+    background: var(--main-color);
+  }
+
+.floating-window ::-webkit-scrollbar-thumb{
+    background: var(--outline-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 100px;;
+}
+
+.title-bar{
+    background: var(--main-color);
+    border-bottom: 1px solid var(--outline-color);
+    box-shadow: 0 1px black;
+    padding: 2px 4px;
+    z-index: 100;
+}
+
+.floating-window .controls-container{
+    padding: 4px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap:4px;
+    overflow-y:auto;
+    
+}
+
+.floating-window input[type="text"]{
+    -webkit-appearance: none;
+  	appearance:none;
+  	-moz-appearance:none;
+    background: var(--button-color);
+    border: 1px solid var(--outline-color);
+    box-shadow: 0 0 0 1px black;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    text-shadow: inherit;
+    outline: none;
+    padding: 2px 4px;
+    border-radius: 0px;
+    
+}
+
+.floating-window input[type="text"]::placeholder {
+    color: var(--font-color);
+}
+
+.floating-window input[type="text"]:hover, input[type="text"]:focus{
+  box-shadow:0 0 0 1px var(--accent-color);
+}
+
+/*Checkboxes*/
+.checkbox-container{
+    display: inline-flex;
+    align-content: center;
+    gap:4px;
+}
+
+.floating-window input[type="checkbox"]{
+  flex: 0 0 15px;
+  appearance: none;
+  height: 15px;
+  width: 15px;
+  background: var(--button-pressed-color);
+  border: 1px solid var(--outline-color);
+  box-shadow: 0 0 0 1px black;
+  margin: 0px;
+}
+
+.floating-window input[type="checkbox"]:checked{
+  background: var(--accent-color);
+}
+
+.floating-window input[type="checkbox"]:hover{
+  box-shadow: 0 0 0 1px var(--accent-color);
+}
+
+button{
+    background-color: var(--button-color);
+    border: 1px solid var(--outline-color);
+    box-shadow:0 0 0 1px black;
+    color:inherit;
+    font-family:inherit;
+    font-size:inherit;
+    text-shadow:inherit;
+}
+
+button:hover{
+box-shadow:0 0 0 1px var(--accent-color);
+}
+
+button:active{
+background-color: var(--button-pressed-color);
+}
+
+.divider-container label{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom:4px;
+}
+
+.window-divider{
+    border-color: var(--outline-color);
+    margin-bottom: 4px;
+}
+.custom-select label, .custom-select button{
+    display: inline-block;
+    width:100%;
+    text-align: left;
+}
+
+.custom-select label{
+    margin-bottom: 2px;
+}
+.custom-select button:active{
+    box-shadow: 0 0 0 1px var(--accent-color);
+}
+
+.custom-options{
+    background-color: var(--button-pressed-color);
+    border: 1px solid var(--outline-color);
+    box-shadow: 0 0 0 1px black;
+    padding: 2px 4px;
+}
+
+.custom-options div:hover{
+    color: var(--accent-color);
+}
+
+.custom-options-hidden{
+    display: none;;
+}
+
+.show{
+    display: block;
+}
