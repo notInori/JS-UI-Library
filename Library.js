@@ -9,7 +9,7 @@ link.href = 'styles.css'; // Replace with the path to your CSS file
 // Append the link element to the head of the document
 document.head.appendChild(link);
 
-class FloatingWindow {
+class InoriUILib {
     constructor(title, width, height) {
         this.title = title;
         this.width = width;
@@ -219,4 +219,4 @@ class FloatingWindow {
 
 }
 
-export default FloatingWindow;
+export default InoriUILib;
