@@ -3,7 +3,7 @@ import InoriUILib from './Library.js'; //Import UI Library
 // --- Example usage
 
 // --- Creating a window
-const floatingWindow = new InoriUILib('Inori JS UI Library - v1.0', 400, 500, true); // Param 1 is the title. 
+const floatingWindow = new InoriUILib('Inori JS UI Library - v1.0', 400, 500); // Param 1 is the title. 
                                                                      //Param 2 is width of the window. 
                                                                     // Param 3 is height of the window. May add resizing in the future.
                                                                     // Param 4 sets whether the window should be shown on creation. Is true by default

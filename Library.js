@@ -53,16 +53,13 @@ class InoriUILib {
         this.dragElement(this.container, titleBar);
 
         const container = this.container
-        const autoShow = this.autoShow
-
-        setTimeout(function() {
             container.style.top = window.innerHeight / 2- (container.offsetHeight / 2) + "px";
             container.style.left =  window.innerWidth / 2- (container.offsetWidth / 2) + "px";
-        if (autoShow){
+        if (this.autoShow){
             container.classList.remove("hidden")
         }
-        setTimeout(function() {container.style.opacity = '';}, 5);
-          }, 5);
+        setTimeout(function() {container.style.opacity = '';}, 10);
+
         
         
         
