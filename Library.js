@@ -15,8 +15,11 @@ class InoriUILib {
         this.width = width;
         this.height = height;
         this.container = null;
-        this.controlsContainer = null
+        this.controlsContainer = null;
+        this.logWindow = null;
+        this.logControlsContainer = null;
         this.controls = [];
+        this.watermark = null;
         this.autoShow = autoShow;
     }
 
@@ -52,49 +55,126 @@ class InoriUILib {
         this.container.appendChild(this.controlsContainer)
 
         // Make the DIV element draggable:
-        dragElement(this.container);
+        this.dragElement(this.container, titleBar);
+        
+    }
 
-        function dragElement(elmnt) {
-            var pos1 = 0,
-                pos2 = 0,
-                pos3 = 0,
-                pos4 = 0;
+    createLogWindow(height = 300,width = 300) {
+        // Create the container element for the floating window
+        this.logWindow = document.createElement('div');
+        this.logWindow.style.opacity = '0';
 
-            // if present, the header is where you move the DIV from:
-            titleBar.onmousedown = dragMouseDown;
+        this.logWindow.className = 'floating-window';
+        this.logWindow.style.width = height + 'px';
+        this.logWindow.style.height = width + 'px';
+        this.logWindow.style.zIndex = 99;
 
+        // Create a title bar for the window
+        const titleBar = document.createElement('div');
+        titleBar.className = 'title-bar';
+        titleBar.textContent = 'Log';
 
-            function dragMouseDown(e) {
-                e = e || window.event;
-                e.preventDefault();
-                // get the mouse cursor position at startup:
-                pos3 = e.clientX;
-                pos4 = e.clientY;
-                document.onmouseup = closeDragElement;
-                // call a function whenever the cursor moves:
-                document.onmousemove = elementDrag;
+        // Append the title bar to the container
+        this.logWindow.appendChild(titleBar);
+
+        // Append the container to the body or any other parent element
+        document.body.appendChild(this.logWindow);
+
+        this.logControlsContainer = document.createElement('div');
+        this.logControlsContainer.className = 'controls-container';
+
+        this.logWindow.appendChild(this.logControlsContainer)
+
+        // Make the DIV element draggable:
+        this.dragElement(this.logWindow, titleBar);
+
+        const logWindow = this.logWindow;
+
+        setTimeout(function() {
+            logWindow.style.top = window.innerHeight - (logWindow.offsetHeight + 10) + "px";
+            logWindow.style.display = 'none';
+            logWindow.style.opacity = '';
+          }, 5);
+        
+    }
+    
+
+    createWatermark(text = this.title, autoShow = false) {
+        // Create the container element for the floating window
+        this.watermark = document.createElement('div');
+        this.watermark.style.opacity = 0;
+        this.watermark.className = 'floating-window';
+        this.watermark.style.zIndex = 1000000000;
+
+        // Create a title bar for the window
+        const titleBar = document.createElement('div');
+        titleBar.className = 'title-bar';
+        titleBar.textContent = text;
+        titleBar.style.setProperty('text-wrap','nowrap')
+
+        // Append the title bar to the container
+        this.watermark.appendChild(titleBar);
+
+        // Append the container to the body or any other parent element
+        document.body.appendChild(this.watermark);
+        const watermark = this.watermark
+        setTimeout(function() {
+            watermark.style.left = window.innerWidth - (watermark.offsetWidth + 10) + "px";
+            
+            if (autoShow){
+                watermark.style.display = 'flex';
+                watermark.style.opacity = '';
             }
-
-            function elementDrag(e) {
-                e = e || window.event;
-                e.preventDefault();
-                // calculate the new cursor position:
-                pos1 = pos3 - e.clientX;
-                pos2 = pos4 - e.clientY;
-                pos3 = e.clientX;
-                pos4 = e.clientY;
-                // set the element's new position:
-                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            else{
+            watermark.style.display = 'none';
+            watermark.style.opacity = '';
             }
+          }, 5);
+        
+        
 
-            function closeDragElement() {
-                // stop moving when mouse button is released:
-                document.onmouseup = null;
-                document.onmousemove = null;
-            }
+        // Make the DIV element draggable:
+        this.dragElement(this.watermark,titleBar);
+    }
+
+    dragElement(elmnt,titleBar) {
+        var pos1 = 0,
+            pos2 = 0,
+            pos3 = 0,
+            pos4 = 0;
+
+        // if present, the header is where you move the DIV from:
+        titleBar.onmousedown = dragMouseDown;
+
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // get the mouse cursor position at startup:
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            // call a function whenever the cursor moves:
+            document.onmousemove = elementDrag;
         }
 
+        function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // calculate the new cursor position:
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+        }
+
+        function closeDragElement() {
+            // stop moving when mouse button is released:
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
     }
 
     show(){

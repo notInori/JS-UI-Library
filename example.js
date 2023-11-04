@@ -3,7 +3,7 @@ import InoriUILib from './Library.js'; //Import UI Library
 // --- Example usage
 
 // --- Creating a window
-const floatingWindow = new InoriUILib('Example UI', 400, 500); // Param 1 is the title. 
+const floatingWindow = new InoriUILib('Inori JS UI Library - v1.0', 400, 500); // Param 1 is the title. 
                                                                      //Param 2 is width of the window. 
                                                                     // Param 3 is height of the window. May add resizing in the future.
                                                                     // Param 4 sets whether the window should be shown on creation. Is true by default
@@ -74,8 +74,47 @@ else{
 // Settings Section
 floatingWindow.addSection('Settings')
 floatingWindow.addCustomSelect('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blue', 'Pink', 'Purple'], (selectedOption) => {
-    floatingWindow.container.style.setProperty('--accent-color', selectedOption);
+    // floatingWindow.container.style.setProperty('--accent-color', selectedOption);
+    const elements = document.querySelectorAll('.floating-window'); // Select all elements with the class "myClass"
+    elements.forEach(function(element) {
+    element.style.setProperty('--accent-color', selectedOption);
+    });
 });
+
+floatingWindow.createLogWindow();
+
+floatingWindow.addCheckbox('Show Log', 'flag5', false, (isChecked) => {
+    if (isChecked){
+        floatingWindow.logWindow.style.display = '';
+    }
+    else{
+        floatingWindow.logWindow.style.display = 'none';
+    }
+});
+
+floatingWindow.createWatermark('Inori JS UI Library | v1.0');
+
+floatingWindow.addCheckbox('Watermark', 'flag6', false, (isChecked) => {
+    if (isChecked){
+        floatingWindow.watermark.style.display = '';
+    }
+    else{
+        floatingWindow.watermark.style.display = 'none';
+    }
+});
+
+floatingWindow.addTextBox('Watermark Text');// Param 1 is optional hint text that is shown when the textbox is empty.
+floatingWindow.controls[28].addEventListener('input',function(){
+    if (this.value == ""){
+        floatingWindow.watermark.firstElementChild.innerHTML = 'Inori JS UI Library | v1.0'
+    }
+    else{
+        floatingWindow.watermark.firstElementChild.innerHTML = this.value;
+    }
+})
+
+console.log(floatingWindow.controls) // Object list of all controls in UI
+
 
 // --- Setup A Key To Open/Close Menu
 document.addEventListener('keydown', function(event) {
@@ -83,6 +122,8 @@ document.addEventListener('keydown', function(event) {
       floatingWindow.show()
     }
   });
+
+
   
 
 
