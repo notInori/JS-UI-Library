@@ -5,7 +5,7 @@ A simple JS UI library 99% pasted from ChatGPT. Can be used for menu for website
 ### Example Menu
 ![Screenshot of Example Menu](https://github.com/notInori/JS-UI-Library/assets/124441402/0d2037bb-bc25-4fa3-be81-cc4275873884)
 ### Event Log
-![Screenshot of Event Log](https://github.com/notInori/JS-UI-Library/assets/124441402/aab92f32-3aba-4887-bfa6-a6444df6a930)
+![Screenshot of Event Log](https://github.com/notInori/JS-UI-Library/assets/124441402/b7dd89ed-214c-4ca2-b658-bb2f411ae922)
 ### Watermark
 ![Screenshot of Watermark](https://github.com/notInori/JS-UI-Library/assets/124441402/6e9ae5d7-4a9f-46b0-ad84-f836a179e84f)
 
