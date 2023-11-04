@@ -21,7 +21,7 @@ floatingWindow.addCheckbox('This is a checkbox', 'flag2', false, (isChecked) => 
     console.log("Checkmark 1 is set to", isChecked);
   });
                                                                 // Param 1 is the text displayed. 
-                                                                // Param 2 is the name of the variable it's state is stored to. 
+                                                                // Param 2 is the name of the checkbox. 
                                                                 // Param 3 is the sate when loaded.
                                                                 // Param 4 is an optional passed function that is ran onClick.
                                                                 // It also has a callback to retreive it's value but it's recommended to seperate UI and logic.
