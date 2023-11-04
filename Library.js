@@ -98,20 +98,6 @@ class InoriUILib {
     }
 
     show(){
-        // this.container.addEventListener('transitionend', function (event) {
-        //     if (this.style.opacity == 0){
-        //         this.style.display = 'none';
-        //     }
-        //   });
-
-        // if (this.container.style.opacity != 1){
-        //     this.container.style.display = 'flex';
-                 
-        // }
-        // else{
-        //     this.container.style.opacity = 0;
-        // }
-        console.log(this.container.classList.contains('hidden'))
         if (this.container.classList.contains('hidden')){
             this.container.classList.remove('hidden')
         }
