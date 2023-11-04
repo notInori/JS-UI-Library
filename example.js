@@ -87,7 +87,7 @@ floatingWindow.addCheckbox('Set background blue', 'flag4', false);
 console.log(floatingWindow.controls) // Object list of all controls in UI
 // Use floatingWindow.controls[index] to reference the object you want to access
 // Setting a onclick event after declaration.
-floatingWindow.controls[25].addEventListener('click', (event) =>{
+floatingWindow.controls[26].addEventListener('click', (event) =>{
 if (event.target.checked){
     document.documentElement.style.background = 'blue';
 }
@@ -131,7 +131,7 @@ floatingWindow.addCheckbox('Watermark', 'flag6', false, (isChecked) => {
 floatingWindow.addTextBox('Watermark Text');// Param 1 is optional hint text that is shown when the textbox is empty.
 
 setInterval(function(){
-    const watermarkText = floatingWindow.controls[33].value != ""? floatingWindow.controls[33].value : floatingWindow.title
+    const watermarkText = floatingWindow.controls[34].value != ""? floatingWindow.controls[34].value : floatingWindow.title
     floatingWindow.watermark.firstChild.innerHTML = watermarkText + " | v1.0 | " + floatingWindow.getCurrentTime();
 })
 
