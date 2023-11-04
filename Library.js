@@ -72,7 +72,7 @@ class InoriUILib {
         // Create a title bar for the window
         const titleBar = document.createElement('div');
         titleBar.className = 'title-bar';
-        titleBar.textContent = 'Log';
+        titleBar.textContent = 'Event Log';
 
         // Append the title bar to the container
         this.logWindow.appendChild(titleBar);
