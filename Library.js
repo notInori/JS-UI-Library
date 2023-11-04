@@ -4,7 +4,7 @@ var link = document.createElement('link');
 // Set the attributes for the link element
 link.rel = 'stylesheet';
 link.type = 'text/css'; 
-link.href = 'styles.css'; // Replace with the path to your CSS file
+link.href = 'UILibStyles.css'; // Replace with the path to your CSS file
 
 // Append the link element to the head of the document
 document.head.appendChild(link);
