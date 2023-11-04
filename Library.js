@@ -19,6 +19,15 @@ class InoriUILib {
         this.controls = [];
     }
 
+    show(){
+        if (this.container.style.display == 'none'){
+            this.container.style.display = 'flex';
+        }
+        else{
+            this.container.style.display = 'none';
+        }
+    }
+
     createWindow() {
         // Create the container element for the floating window
         this.container = document.createElement('div');

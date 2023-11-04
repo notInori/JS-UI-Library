@@ -74,6 +74,13 @@ floatingWindow.addCustomSelect('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blu
     floatingWindow.container.style.setProperty('--accent-color', selectedOption);
 });
 
+// --- Setup A Key To Open/Close Menu
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      floatingWindow.show()
+    }
+  });
+  
 
 
 
