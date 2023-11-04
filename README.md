@@ -18,10 +18,10 @@ But you're here soo :3
 ![Screenshot of Watermark](https://github.com/notInori/JS-UI-Library/assets/124441402/6e9ae5d7-4a9f-46b0-ad84-f836a179e84f)
 
 ## Example
-[Example Script](https://github.com/notInori/JS-UI-Library/blob/main/example.js)
+[Example Script](https://github.com/notInori/JS-UI-Library/blob/main/Example.js)
 
 ## UI Library
-[Library Script](https://github.com/notInori/JS-UI-Library/blob/main/library.js)
+[Library Script](https://github.com/notInori/JS-UI-Library/blob/main/Library.js)
 
 ## Documentation
 I'll probably get round to writing some better documentation.
