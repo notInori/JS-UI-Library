@@ -24,6 +24,8 @@ floatingWindow.addCheckbox('This is a checkbox', 'flag2', false, (isChecked) => 
                                                                 // Param 2 is the name of the variable it's state is stored to. 
                                                                 // Param 3 is the sate when loaded.
                                                                 // Param 4 is an optional passed function that is ran onClick.
+                                                                // It also has a callback to retreive it's value but it's recommended to seperate UI and logic.
+                                                                // i.e Create a onclick function later using it's 'controls' index to reference the control.
 floatingWindow.addCheckbox('This is a checkbox', 'flag3', false);
 
 floatingWindow.addSection('Buttons')
