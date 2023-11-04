@@ -116,7 +116,7 @@ class InoriUILib {
         this.controlsContainer.appendChild(inputField);
     }
 
-    addCheckbox(labelText, checkboxName, isChecked, onClick) {
+    addCheckbox(labelText, checkboxName, isChecked, onClick = function(){}) {
         // Create a container for the checkbox and label
         const checkboxContainer = document.createElement('div');
         checkboxContainer.className = 'checkbox-container';
@@ -135,7 +135,11 @@ class InoriUILib {
         checkboxContainer.appendChild(checkbox);
         checkboxContainer.appendChild(label);
 
-        checkbox.addEventListener('click', onClick);
+        const onClick2 = function(){};
+
+        checkbox.addEventListener('click', () => {
+            onClick(checkbox.checked);
+        });
 
         // Add the container to the controls array and append it to the window
         this.controls.push(checkboxContainer);
