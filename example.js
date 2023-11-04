@@ -3,7 +3,7 @@ import InoriUILib from './Library.js'; //Import UI Library
 // --- Example usage
 
 // --- Creating a window
-const floatingWindow = new InoriUILib('Inori JS UI Library - v1.0', 400, 500); // Param 1 is the title. 
+const floatingWindow = new InoriUILib('Inori JS UI Library', 400, 500); // Param 1 is the title. 
                                                                      //Param 2 is width of the window. 
                                                                     // Param 3 is height of the window. May add resizing in the future.
                                                                     // Param 4 sets whether the window should be shown on creation. Is true by default
@@ -50,9 +50,28 @@ floatingWindow.addTextBox('Enter text');// Param 1 is optional hint text that is
 
 floatingWindow.addSection('Dropdowns')
 
-floatingWindow.addCustomSelect('Options:', ['Option 1', 'Option 2', 'Option 3'], (selectedOption) => { // These are dropdowns. Param 1 is a label. Param 2 is object list for options. Param 3 is for a passed onclick function.
+floatingWindow.addCustomSelect('Options:', ['Option 1', 'Option 2', 'Option 3'], "Option 1",(selectedOption) => { // These are dropdowns. Param 1 is a label. Param 2 is object list for options. Param 3 is for a passed onclick function.
     console.log(`Selected: ${selectedOption}`);
 });
+
+// Fetching controls
+
+var eventLogType = undefined
+
+floatingWindow.addSection('Event Log Demo');
+floatingWindow.addCustomSelect('Log Type:', ['None', 'Warn', 'Error',], 'None', (selectedOption) => { 
+    eventLogType = selectedOption == "None"? undefined : selectedOption;
+});
+
+floatingWindow.addLabel('Log Message:');
+floatingWindow.addTextBox('Enter text');// Param 1 is optional hint text that is shown when the textbox is empty.
+floatingWindow.addButton('Send Log', sendLog);
+
+function sendLog(){
+    if (floatingWindow.controls[22].value != ""){
+            floatingWindow.log(floatingWindow.controls[22].value, eventLogType)
+    }
+}
 
 // Fetching controls
 
@@ -62,7 +81,7 @@ floatingWindow.addCheckbox('Set background blue', 'flag4', false);
 console.log(floatingWindow.controls) // Object list of all controls in UI
 // Use floatingWindow.controls[index] to reference the object you want to access
 // Setting a onclick event after declaration.
-floatingWindow.controls[20].addEventListener('click', (event) =>{
+floatingWindow.controls[25].addEventListener('click', (event) =>{
 if (event.target.checked){
     document.documentElement.style.background = 'blue';
 }
@@ -73,7 +92,7 @@ else{
 
 // Settings Section
 floatingWindow.addSection('Settings')
-floatingWindow.addCustomSelect('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blue', 'Pink', 'Purple'], (selectedOption) => {
+floatingWindow.addCustomSelect('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blue', 'Pink', 'Purple'], "Pink", (selectedOption) => {
     // floatingWindow.container.style.setProperty('--accent-color', selectedOption);
     const elements = document.querySelectorAll('.floating-window'); // Select all elements with the class "myClass"
     elements.forEach(function(element) {
@@ -104,13 +123,10 @@ floatingWindow.addCheckbox('Watermark', 'flag6', false, (isChecked) => {
 });
 
 floatingWindow.addTextBox('Watermark Text');// Param 1 is optional hint text that is shown when the textbox is empty.
-floatingWindow.controls[28].addEventListener('input',function(){
-    if (this.value == ""){
-        floatingWindow.watermark.firstElementChild.innerHTML = 'Inori JS UI Library | v1.0'
-    }
-    else{
-        floatingWindow.watermark.firstElementChild.innerHTML = this.value;
-    }
+
+setInterval(function(){
+    const watermarkText = floatingWindow.controls[33].value != ""? floatingWindow.controls[33].value : floatingWindow.title
+    floatingWindow.watermark.firstChild.innerHTML = watermarkText + " | v1.0 | " + floatingWindow.getCurrentTime();
 })
 
 console.log(floatingWindow.controls) // Object list of all controls in UI
@@ -122,6 +138,7 @@ document.addEventListener('keydown', function(event) {
       floatingWindow.show()
     }
   });
+
 
 
   

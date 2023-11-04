@@ -193,13 +193,19 @@ class InoriUILib {
         }
     }
 
-    addLabel(text, className) {
+    log(text, type="") {
+        const logTypes = {Error:'red', Warn:'orange', Log:'white'}
+        const typeText = type != "" ? " "+ type : ""
+        // Create a label element with the specified text and class
+        const label = document.createElement('label');
+        label.innerHTML = this.getCurrentTime() + "<span style='color:"+ logTypes[type] +"'>" + typeText +"</span>: "+text;
+        this.logControlsContainer.appendChild(label);
+    }
+
+    addLabel(text) {
         // Create a label element with the specified text and class
         const label = document.createElement('label');
         label.textContent = text;
-        if (className) {
-            label.className = className;
-        }
         this.controls.push(label);
         this.controlsContainer.appendChild(label);
     }
@@ -279,7 +285,7 @@ class InoriUILib {
         this.controlsContainer.appendChild(dividerContainer);
     }
 
-    addCustomSelect(label, options, onSelect) {
+    addCustomSelect(label, options, firstOption="", onSelect) {
         // Create a container for the custom select
         const selectContainer = document.createElement('div');
         selectContainer.className = 'custom-select';
@@ -291,7 +297,7 @@ class InoriUILib {
 
         // Create a button to trigger the custom select
         const selectButton = document.createElement('button');
-        selectButton.textContent = 'Select an option';
+        selectButton.innerHTML = (firstOption != ""? firstOption :'Select an option') + "<span style='display: block; float: right;'>▼</span>";
         selectContainer.appendChild(selectButton);
 
         // Create a container for the custom options
@@ -304,7 +310,7 @@ class InoriUILib {
             option.textContent = optionText;
             option.addEventListener('click', () => {
                 // Handle option selection
-                selectButton.textContent = optionText;
+                selectButton.innerHTML = optionText + "<span style='display: block; float: right;'>▼</span>";
                 selectOptions.classList.remove('show');
                 onSelect(optionText); // Call a provided onSelect callback
             });
@@ -327,6 +333,13 @@ class InoriUILib {
         this.controlsContainer.appendChild(selectContainer);
     }
 
+    getCurrentTime() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        return `${hours}:${minutes}:${seconds}`;
+      }
 
 }
 
