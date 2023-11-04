@@ -57,6 +57,9 @@
     z-index: 100;
 }
 
+label{
+    word-wrap: break-word;
+}
 .floating-window .controls-container{
     padding: 4px;
     flex: 1;
