@@ -142,7 +142,8 @@ class InoriUILib {
         });
 
         // Add the container to the controls array and append it to the window
-        this.controls.push(checkboxContainer);
+        this.controls.push(checkbox);
+        this.controls.push(label)
         this.controlsContainer.appendChild(checkboxContainer);
     }
 

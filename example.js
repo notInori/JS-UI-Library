@@ -51,11 +51,32 @@ floatingWindow.addCustomSelect('Options:', ['Option 1', 'Option 2', 'Option 3'],
     console.log(`Selected: ${selectedOption}`);
 });
 
+// Fetching controls
+
+floatingWindow.addSection('Fetching Controls Demo')
+
+floatingWindow.addCheckbox('Set background blue', 'flag4', false);
+console.log(floatingWindow.controls) // Object list of all controls in UI
+// Use floatingWindow.controls[index] to reference the object you want to access
+// Setting a onclick event after declaration.
+floatingWindow.controls[20].addEventListener('click', (event) =>{
+if (event.target.checked){
+    console.log("hi");
+}
+else{
+    console.log("woo");
+}
+});
+
 // Settings Section
 floatingWindow.addSection('Settings')
 floatingWindow.addCustomSelect('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blue', 'Pink', 'Purple'], (selectedOption) => {
     floatingWindow.container.style.setProperty('--accent-color', selectedOption);
 });
+
+
+
+
 
 
   
