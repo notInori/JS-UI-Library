@@ -66,6 +66,9 @@ floatingWindow.addCustomSelect('Log Type:', ['None', 'Warn', 'Error',], 'None', 
 floatingWindow.addLabel('Log Message:');
 floatingWindow.addTextBox('Enter text');// Param 1 is optional hint text that is shown when the textbox is empty.
 floatingWindow.addButton('Send Log', sendLog);
+floatingWindow.addButton('Clear Log', () => {
+    floatingWindow.logControlsContainer.innerHTML = "";
+});
 
 function sendLog(){
     if (floatingWindow.controls[22].value != ""){
