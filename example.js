@@ -69,7 +69,10 @@ floatingWindow.addButton('Send Log', sendLog);
 
 function sendLog(){
     if (floatingWindow.controls[22].value != ""){
-            floatingWindow.log(floatingWindow.controls[22].value, eventLogType)
+            floatingWindow.log(floatingWindow.controls[22].value, eventLogType);
+    }
+    else{
+        floatingWindow.log("Log text content missing!", 'Error')
     }
 }
 
