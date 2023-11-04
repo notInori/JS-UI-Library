@@ -10,27 +10,27 @@ link.href = 'styles.css'; // Replace with the path to your CSS file
 document.head.appendChild(link);
 
 class InoriUILib {
-    constructor(title, width, height) {
+    constructor(title, width, height, autoShow = true) {
         this.title = title;
         this.width = width;
         this.height = height;
         this.container = null;
         this.controlsContainer = null
         this.controls = [];
-    }
-
-    show(){
-        if (this.container.style.display == 'none'){
-            this.container.style.display = 'flex';
-        }
-        else{
-            this.container.style.display = 'none';
-        }
+        this.autoShow = autoShow;
     }
 
     createWindow() {
         // Create the container element for the floating window
         this.container = document.createElement('div');
+        this.container.style.display = 'none';
+        if (!this.autoShow){
+            this.container.classList.add('hidden');
+            
+        }
+        else{
+            this.container.style.display = '';
+        }
         this.container.className = 'floating-window';
         this.container.style.width = this.width + 'px';
         this.container.style.height = this.height + 'px';
@@ -93,6 +93,31 @@ class InoriUILib {
                 document.onmouseup = null;
                 document.onmousemove = null;
             }
+        }
+
+    }
+
+    show(){
+        // this.container.addEventListener('transitionend', function (event) {
+        //     if (this.style.opacity == 0){
+        //         this.style.display = 'none';
+        //     }
+        //   });
+
+        // if (this.container.style.opacity != 1){
+        //     this.container.style.display = 'flex';
+                 
+        // }
+        // else{
+        //     this.container.style.opacity = 0;
+        // }
+        console.log(this.container.classList.contains('hidden'))
+        if (this.container.classList.contains('hidden')){
+            this.container.classList.remove('hidden')
+        }
+        else{
+            this.container.classList.add('hidden');
+
         }
     }
 

@@ -22,6 +22,12 @@
     z-index: 10000;
     top:10px;
     left:10px;
+    transition: opacity 0.3s;
+}
+
+.hidden{
+    opacity: 0 !important ;
+    pointer-events: none;
 }
 
 .floating-window ::-webkit-scrollbar {
