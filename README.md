@@ -1,5 +1,12 @@
 # JS UI Library
-A simple JS UI library 99% pasted from ChatGPT. Can be used for menu for websites. Idk why'd you want this :3
+A simple, lightweight JS UI Library that can be used for mod menus for websites or games. Importing the module is simple and within 10 minutes you can have a UI ready to go.
+
+It's 99% pasted from ChatGPT idk why'd you want this.  
+But you're here soo :3
+
+## Contents
+- [Screenshots](##Screenshots)
+- [Example](##Example)
 
 ## Screenshots
 ### Example Menu
@@ -14,3 +21,6 @@ A simple JS UI library 99% pasted from ChatGPT. Can be used for menu for website
 
 ## UI Library
 [Library Script](https://github.com/notInori/JS-UI-Library/blob/main/library.js)
+
+## Documentation
+I'll probably get round to writing some better documentation.
