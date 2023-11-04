@@ -61,10 +61,10 @@ console.log(floatingWindow.controls) // Object list of all controls in UI
 // Setting a onclick event after declaration.
 floatingWindow.controls[20].addEventListener('click', (event) =>{
 if (event.target.checked){
-    console.log("hi");
+    document.documentElement.style.background = 'blue';
 }
 else{
-    console.log("woo");
+    document.documentElement.style.background = '';
 }
 });
 
