@@ -5,8 +5,9 @@ It's 99% pasted from ChatGPT idk why'd you want this.
 But you're here soo :3
 
 ## Contents
-- [Screenshots](##Screenshots)
-- [Example](##Example)
+- [Screenshots](#Screenshots)
+- [Example](#Example)
+- [Documentation](#Documentation)
 
 ## Screenshots
 ### Example Menu
