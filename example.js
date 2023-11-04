@@ -102,7 +102,7 @@ floatingWindow.addCustomSelect('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blu
 
 floatingWindow.createLogWindow();
 
-floatingWindow.addCheckbox('Show Log', 'flag5', false, (isChecked) => {
+floatingWindow.addCheckbox('Show Event Log', 'flag5', false, (isChecked) => {
     if (isChecked){
         floatingWindow.logWindow.style.display = '';
     }
