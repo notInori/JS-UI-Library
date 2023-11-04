@@ -26,15 +26,10 @@ class InoriUILib {
     createWindow() {
         // Create the container element for the floating window
         this.container = document.createElement('div');
-        this.container.style.display = 'none';
-        if (!this.autoShow){
-            this.container.classList.add('hidden');
-            
-        }
-        else{
-            this.container.style.display = '';
-        }
-        this.container.className = 'floating-window';
+        this.container.style.opacity = 0;
+
+        this.container.className = 'hidden'
+        this.container.classList.add('floating-window');
         this.container.style.width = this.width + 'px';
         this.container.style.height = this.height + 'px';
 
@@ -56,6 +51,20 @@ class InoriUILib {
 
         // Make the DIV element draggable:
         this.dragElement(this.container, titleBar);
+
+        const container = this.container
+        const autoShow = this.autoShow
+
+        setTimeout(function() {
+            container.style.top = window.innerHeight / 2- (container.offsetHeight / 2) + "px";
+            container.style.left =  window.innerWidth / 2- (container.offsetWidth / 2) + "px";
+        if (autoShow){
+            container.classList.remove("hidden")
+        }
+        setTimeout(function() {container.style.opacity = '';}, 5);
+          }, 5);
+        
+        
         
     }
 
