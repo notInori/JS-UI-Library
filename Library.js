@@ -9,7 +9,7 @@ link.href = 'UILibraryStyles.css'; // Replace with the path to your CSS file
 // Append the link element to the head of the document
 document.head.appendChild(link);
 
-class InoriUILib {
+class InoriUILibrary {
     constructor(title, width, height, autoShow = true) {
         this.title = title;
         this.width = width;
@@ -29,7 +29,7 @@ class InoriUILib {
         this.container.style.opacity = 0;
 
         this.container.className = 'hidden'
-        this.container.classList.add('floating-window');
+        this.container.classList.add('Inori-UI-Library');
         this.container.style.width = this.width + 'px';
         this.container.style.height = this.height + 'px';
 
@@ -70,7 +70,7 @@ class InoriUILib {
         this.logWindow = document.createElement('div');
         this.logWindow.style.opacity = '0';
 
-        this.logWindow.className = 'floating-window';
+        this.logWindow.className = 'Inori-UI-Library';
         this.logWindow.style.width = height + 'px';
         this.logWindow.style.height = width + 'px';
         this.logWindow.style.zIndex = 99;
@@ -109,7 +109,7 @@ class InoriUILib {
         // Create the container element for the floating window
         this.watermark = document.createElement('div');
         this.watermark.style.opacity = 0;
-        this.watermark.className = 'floating-window';
+        this.watermark.className = 'Inori-UI-Library';
         this.watermark.style.zIndex = 1000000000;
 
         // Create a title bar for the window
@@ -343,4 +343,4 @@ class InoriUILib {
 
 }
 
-export default InoriUILib;
+export default InoriUILibrary;

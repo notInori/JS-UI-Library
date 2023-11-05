@@ -1,4 +1,4 @@
-.floating-window{
+.Inori-UI-Library{
     --font-color: white;
     --main-color: #222222;
     --secondary-color: #1a1a1a;
@@ -30,20 +30,20 @@
     pointer-events: none;
 }
 
-.floating-window ::-webkit-scrollbar {
+.Inori-UI-Library ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
 }
 
-.floating-window ::-webkit-scrollbar:horizontal{
+.Inori-UI-Library ::-webkit-scrollbar:horizontal{
     height: 5px;
 }
 
-.floating-window ::-webkit-scrollbar-corner { 
+.Inori-UI-Library ::-webkit-scrollbar-corner { 
     background: var(--main-color);
   }
 
-.floating-window ::-webkit-scrollbar-thumb{
+.Inori-UI-Library ::-webkit-scrollbar-thumb{
     background: var(--outline-color);
     border: 1px solid var(--secondary-color);
     border-radius: 100px;;
@@ -60,7 +60,7 @@
 label{
     word-wrap: break-word;
 }
-.floating-window .controls-container{
+.Inori-UI-Library .controls-container{
     padding: 4px;
     flex: 1;
     display: flex;
@@ -70,7 +70,7 @@ label{
     
 }
 
-.floating-window input[type="text"]{
+.Inori-UI-Library input[type="text"]{
     -webkit-appearance: none;
   	appearance:none;
   	-moz-appearance:none;
@@ -87,11 +87,11 @@ label{
     
 }
 
-.floating-window input[type="text"]::placeholder {
+.Inori-UI-Library input[type="text"]::placeholder {
     color: var(--font-color);
 }
 
-.floating-window input[type="text"]:hover, input[type="text"]:focus{
+.Inori-UI-Library input[type="text"]:hover, input[type="text"]:focus{
   box-shadow:0 0 0 1px var(--accent-color);
 }
 
@@ -102,7 +102,7 @@ label{
     gap:4px;
 }
 
-.floating-window input[type="checkbox"]{
+.Inori-UI-Library input[type="checkbox"]{
   flex: 0 0 15px;
   appearance: none;
   height: 15px;
@@ -113,12 +113,12 @@ label{
   margin: 0px;
 }
 
-.floating-window input[type="checkbox"]:checked{
+.Inori-UI-Library input[type="checkbox"]:checked{
   background: var(--accent-color);
   box-shadow: 0 0 0 1px hsl(0deg 0% 0% / 25%) inset;
 }
 
-.floating-window input[type="checkbox"]:hover{
+.Inori-UI-Library input[type="checkbox"]:hover{
   box-shadow: 0 0 0 1px var(--accent-color);
 }
 
