@@ -83,16 +83,18 @@ function sendLog(){
 
 floatingWindow.addSection('Fetching Controls Demo')
 
-floatingWindow.addCheckbox('Set background blue', 'flag4', false);
+floatingWindow.addCheckbox('Enabled Asolfo Background', 'flag4', false);
 console.log(floatingWindow.controls) // Object list of all controls in UI
 // Use floatingWindow.controls[index] to reference the object you want to access
 // Setting a onclick event after declaration.
 floatingWindow.controls[26].addEventListener('click', (event) =>{
 if (event.target.checked){
-    document.documentElement.style.background = 'blue';
+    floatingWindow.container.style.background = "url('https://i.pinimg.com/originals/80/07/89/8007897740592f98baabd85f2b6b806e.jpg') center center / cover no-repeat";
+    floatingWindow.controlsContainer.style.background = '#00000040';
 }
 else{
-    document.documentElement.style.background = '';
+    floatingWindow.controlsContainer.style.background = '';
+    floatingWindow.container.style.background = '';
 }
 });
 
@@ -100,9 +102,8 @@ else{
 floatingWindow.addSection('Settings')
 floatingWindow.addCustomSelect('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blue', 'Pink', 'Purple'], "Pink", (selectedOption) => {
     // floatingWindow.container.style.setProperty('--accent-color', selectedOption);
-    const elements = document.querySelectorAll('.floating-window'); // Select all elements with the class "myClass"
+    const elements = document.querySelectorAll('.Inori-UI-Library'); // Select all elements with the class "myClass"
     elements.forEach(function(element) {
-    console.log()
     element.style.setProperty('--accent-color', selectedOption);
     });
 });
