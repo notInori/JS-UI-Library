@@ -135,7 +135,7 @@ class InoriUILibrary {
             watermark.style.display = 'none';
             watermark.style.opacity = '';
             }
-          }, 100);
+          }, 1000);
         
         
 
