@@ -59,7 +59,7 @@ floatingWindow.addCustomSelect('Options:', ['Option 1', 'Option 2', 'Option 3'],
 var eventLogType = undefined
 
 floatingWindow.addSection('Event Log Demo');
-floatingWindow.addCustomSelect('Log Type:', ['None', 'Warn', 'Error',], 'None', (selectedOption) => { 
+floatingWindow.addCustomSelect('Log Type:', ['None', 'Warning', 'Error',], 'None', (selectedOption) => { 
     eventLogType = selectedOption == "None"? undefined : selectedOption;
 });
 

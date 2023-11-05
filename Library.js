@@ -194,7 +194,7 @@ class InoriUILibrary {
     }
 
     log(text, type="") {
-        const logTypes = {Error:'red', Warn:'orange', Log:'white'}
+        const logTypes = {Error:'red', Warning:'orange', Log:'white'}
         const typeText = type != "" ? " "+ type : ""
         // Create a label element with the specified text and class
         const label = document.createElement('label');
