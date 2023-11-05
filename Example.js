@@ -83,7 +83,7 @@ function sendLog(){
 
 floatingWindow.addSection('Fetching Controls Demo')
 
-floatingWindow.addCheckbox('Enable Asolfo Background', 'flag4', false);
+floatingWindow.addCheckbox('Enable Astolfo Background', 'flag4', false);
 console.log(floatingWindow.controls) // Object list of all controls in UI
 // Use floatingWindow.controls[index] to reference the object you want to access
 // Setting a onclick event after declaration.
