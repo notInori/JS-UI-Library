@@ -151,16 +151,16 @@ background-color: var(--button-pressed-color);
     border-color: var(--outline-color);
     margin-bottom: 4px;
 }
-.custom-select label, .custom-select button{
+.dropdown label, .dropdown button{
     display: inline-block;
     width:100%;
     text-align: left;
 }
 
-.custom-select label{
+.dropdown label{
     margin-bottom: 2px;
 }
-.custom-select button:active{
+.dropdown button:active{
     box-shadow: 0 0 0 1px var(--accent-color);
 }
 

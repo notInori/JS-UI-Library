@@ -15,13 +15,18 @@ floatingWindow.createWindow(); // Create UI Window
 floatingWindow.addLabel('This is a simple UI Library pasted from ChatGPT.')
 floatingWindow.addSection('This is a section');
 floatingWindow.addLabel('This is a label') 
-floatingWindow.addCheckbox('This is a checkbox', 'flag1', false); 
+floatingWindow.addCheckbox('This is a checkbox', 'flag1', false, (ischecked) => {
+    console.log("Checkmark 1 is set to", ischecked);
+    floatingWindow.log("Checkmark 1 is set to " + ischecked)
+}); 
 
 floatingWindow.addSection('Checkboxes');
 
 // These are checkboxes
 floatingWindow.addCheckbox('This is a checkbox', 'flag2', false, (isChecked) => {
-    console.log("Checkmark 1 is set to", isChecked);
+    console.log("Checkmark 2 is set to", isChecked);
+    floatingWindow.log("Checkmark 2 is set to " + isChecked)
+
   });
                                                                 // Param 1 is the text displayed. 
                                                                 // Param 2 is the name of the checkbox. 
@@ -29,7 +34,11 @@ floatingWindow.addCheckbox('This is a checkbox', 'flag2', false, (isChecked) => 
                                                                 // Param 4 is an optional passed function that is ran onClick.
                                                                 // It also has a callback to retreive it's value but it's recommended to seperate UI and logic.
                                                                 // i.e Create a onclick function later using it's 'controls' index to reference the control.
-floatingWindow.addCheckbox('This is a checkbox', 'flag3', false);
+floatingWindow.addCheckbox('This is a checkbox', 'flag3', false, (isChecked) => {
+    console.log ("Checkmark 3 is set to", isChecked);
+    floatingWindow.log("Checkmark 3 is set to " + isChecked)
+
+});
 
 floatingWindow.addSection('Buttons')
 floatingWindow.addLabel('These are buttons') 
@@ -37,9 +46,11 @@ floatingWindow.addLabel('These are buttons')
 //These are buttons
 floatingWindow.addButton('Button 1', () => { // Param 1 is the value displayed in the button. Param 2 is an optional passed function that is ran onClick.
     console.log('Button 1 clicked'); 
+    floatingWindow.log("Button 1 Clicked")
 });
 floatingWindow.addButton('Button 2', () => {
     console.log('Button 2 clicked');
+    floatingWindow.log("Button 2 Clicked")
 });
 
 floatingWindow.addSection('Textboxes')
@@ -50,8 +61,9 @@ floatingWindow.addTextBox('Enter text');// Param 1 is optional hint text that is
 
 floatingWindow.addSection('Dropdowns')
 
-floatingWindow.addCustomSelect('Options:', ['Option 1', 'Option 2', 'Option 3'], "Option 1",(selectedOption) => { // These are dropdowns. Param 1 is a label. Param 2 is object list for options. Param 3 is for a passed onclick function.
+floatingWindow.adddropdown('Options:', ['Option 1', 'Option 2', 'Option 3'], "Option 1",(selectedOption) => { // These are dropdowns. Param 1 is a label. Param 2 is object list for options. Param 3 is for a passed onclick function.
     console.log(`Selected: ${selectedOption}`);
+    floatingWindow.log(`Selected: ${selectedOption}`);
 });
 
 // Fetching controls
@@ -59,7 +71,7 @@ floatingWindow.addCustomSelect('Options:', ['Option 1', 'Option 2', 'Option 3'],
 var eventLogType = undefined
 
 floatingWindow.addSection('Event Log Demo');
-floatingWindow.addCustomSelect('Log Type:', ['None', 'Warning', 'Error',], 'None', (selectedOption) => { 
+floatingWindow.adddropdown('Log Type:', ['None', 'Warning', 'Error',], 'None', (selectedOption) => { 
     eventLogType = selectedOption == "None"? undefined : selectedOption;
 });
 
@@ -96,11 +108,12 @@ else{
     floatingWindow.controlsContainer.style.background = '';
     floatingWindow.container.style.background = '';
 }
+floatingWindow.log("Astolfo Background is set to "+event.target.checked)
 });
 
 // Settings Section
 floatingWindow.addSection('Settings')
-floatingWindow.addCustomSelect('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blue', 'Pink', 'Purple'], "Pink", (selectedOption) => {
+floatingWindow.adddropdown('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blue', 'Pink', 'Purple'], "Pink", (selectedOption) => {
     // floatingWindow.container.style.setProperty('--accent-color', selectedOption);
     const elements = document.querySelectorAll('.Inori-UI-Library'); // Select all elements with the class "myClass"
     elements.forEach(function(element) {

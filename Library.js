@@ -200,6 +200,7 @@ class InoriUILibrary {
         const label = document.createElement('label');
         label.innerHTML = this.getCurrentTime() + "<span style='color:"+ logTypes[type] +"'>" + typeText +"</span>: "+text;
         this.logControlsContainer.appendChild(label);
+        this.logControlsContainer.scrollTop = this.logControlsContainer.scrollHeight;
     }
 
     addLabel(text) {
@@ -285,54 +286,54 @@ class InoriUILibrary {
         this.controlsContainer.appendChild(dividerContainer);
     }
 
-    addCustomSelect(label, options, firstOption="", onSelect) {
-        // Create a container for the custom select
-        const selectContainer = document.createElement('div');
-        selectContainer.className = 'custom-select';
+    adddropdown(label, options, firstOption="", onSelect) {
+        // Create a container for the custom dropdown
+        const dropdownContainer = document.createElement('div');
+        dropdownContainer.className = 'dropdown';
 
-        // Create a label for the select
+        // Create a label for the dropdown
         if (label != ""){
-        const selectLabel = document.createElement('label');
-        selectLabel.textContent = label;
-        selectContainer.appendChild(selectLabel);
+        const dropdownLabel = document.createElement('label');
+        dropdownLabel.textContent = label;
+        dropdownContainer.appendChild(dropdownLabel);
         }
 
-        // Create a button to trigger the custom select
-        const selectButton = document.createElement('button');
-        selectButton.innerHTML = (firstOption != ""? firstOption :'Select an option') + "<span style='display: block; float: right;'>▼</span>";
-        selectContainer.appendChild(selectButton);
+        // Create a button to trigger the custom dropdown
+        const dropdownButton = document.createElement('button');
+        dropdownButton.innerHTML = (firstOption != ""? firstOption :'dropdown an option') + "<span style='display: block; float: right;'>▼</span>";
+        dropdownContainer.appendChild(dropdownButton);
 
         // Create a container for the custom options
-        const selectOptions = document.createElement('div');
-        selectOptions.className = 'custom-options';
+        const dropdownOptions = document.createElement('div');
+        dropdownOptions.className = 'custom-options';
 
         // Create and add the custom options
         options.forEach((optionText) => {
             const option = document.createElement('div');
             option.textContent = optionText;
             option.addEventListener('click', () => {
-                // Handle option selection
-                selectButton.innerHTML = optionText + "<span style='display: block; float: right;'>▼</span>";
-                selectOptions.classList.remove('show');
+                // Handle option dropdownion
+                dropdownButton.innerHTML = optionText + "<span style='display: block; float: right;'>▼</span>";
+                dropdownOptions.classList.remove('show');
                 onSelect(optionText); // Call a provided onSelect callback
             });
-            selectOptions.appendChild(option);
+            dropdownOptions.appendChild(option);
         });
 
         // Initially, hide the custom options
-        selectOptions.classList.add('custom-options-hidden');
+        dropdownOptions.classList.add('custom-options-hidden');
 
-        // Add an event listener to the select button to toggle options visibility
-        selectButton.addEventListener('click', () => {
-            selectOptions.classList.toggle('show');
+        // Add an event listener to the dropdown button to toggle options visibility
+        dropdownButton.addEventListener('click', () => {
+            dropdownOptions.classList.toggle('show');
         });
 
         // Append the custom options container to the container
-        selectContainer.appendChild(selectOptions);
+        dropdownContainer.appendChild(dropdownOptions);
 
-        // Add the custom select container to the controls array and the window
-        this.controls.push(selectContainer);
-        this.controlsContainer.appendChild(selectContainer);
+        // Add the custom dropdown container to the controls array and the window
+        this.controls.push(dropdownContainer);
+        this.controlsContainer.appendChild(dropdownContainer);
     }
 
     getCurrentTime() {
