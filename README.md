@@ -11,7 +11,7 @@ But you're here soo :3
 
 ## Screenshots
 ### Example Menu
-![Screenshot of Example Menu](https://github.com/notInori/JS-UI-Library/assets/124441402/0d2037bb-bc25-4fa3-be81-cc4275873884)
+![Screenshot of Menu](https://github.com/notInori/JS-UI-Library/assets/124441402/5b4e64a4-cf24-4397-8952-b3767df57995)
 ### Event Log
 ![Screenshot of Event Log](https://github.com/notInori/JS-UI-Library/assets/124441402/b7dd89ed-214c-4ca2-b658-bb2f411ae922)
 ### Watermark
