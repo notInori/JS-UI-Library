@@ -220,7 +220,7 @@ class InoriUILibrary {
         this.controlsContainer.appendChild(button);
     }
 
-    addTextBox(placeholder) {
+    addTextBox(placeholder = "") {
         // Create an input field control and add it to the window
         const inputField = document.createElement('input');
         inputField.setAttribute('type', 'text');
@@ -286,7 +286,7 @@ class InoriUILibrary {
         this.controlsContainer.appendChild(dividerContainer);
     }
 
-    adddropdown(label, options, firstOption="", onSelect) {
+    addDropdown(label, options, firstOption="", onSelect) {
         // Create a container for the custom dropdown
         const dropdownContainer = document.createElement('div');
         dropdownContainer.className = 'dropdown';
