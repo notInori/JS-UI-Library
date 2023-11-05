@@ -32,7 +32,7 @@ floatingWindow.addCheckbox('This is a checkbox', 'flag2', false, (isChecked) => 
 floatingWindow.addCheckbox('This is a checkbox', 'flag3', false);
 
 floatingWindow.addSection('Buttons')
-floatingWindow.addLabel('This is a button') 
+floatingWindow.addLabel('These are buttons') 
 
 //These are buttons
 floatingWindow.addButton('Button 1', () => { // Param 1 is the value displayed in the button. Param 2 is an optional passed function that is ran onClick.
