@@ -291,9 +291,11 @@ class InoriUILibrary {
         selectContainer.className = 'custom-select';
 
         // Create a label for the select
+        if (label != ""){
         const selectLabel = document.createElement('label');
         selectLabel.textContent = label;
         selectContainer.appendChild(selectLabel);
+        }
 
         // Create a button to trigger the custom select
         const selectButton = document.createElement('button');

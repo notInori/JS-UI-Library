@@ -102,6 +102,7 @@ floatingWindow.addCustomSelect('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blu
     // floatingWindow.container.style.setProperty('--accent-color', selectedOption);
     const elements = document.querySelectorAll('.floating-window'); // Select all elements with the class "myClass"
     elements.forEach(function(element) {
+    console.log()
     element.style.setProperty('--accent-color', selectedOption);
     });
 });
