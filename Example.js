@@ -160,7 +160,7 @@ exampleWindow.addCheckbox('Show Event Log', 'flag5', false, (isChecked) => {
 // window.createWatermark(text)
 // text is text shown in the watermark
 
-exampleWindow.createWatermark('Inori JS UI Library | v1.0'); // Creates a watermark
+exampleWindow.createWatermark('Inori JS UI Library | v1.0','right'); // Creates a watermark
 
 exampleWindow.addCheckbox('Watermark', 'flag6', false, (isChecked) => {
     if (isChecked){
@@ -176,6 +176,18 @@ exampleWindow.addTextbox(undefined,'Watermark Text');// Param 1 is optional hint
 setInterval(function(){
     const watermarkText = exampleWindow.controls[26][2].value != ""? exampleWindow.controls[26][2].value : exampleWindow.title
     exampleWindow.watermark.firstChild.innerHTML = watermarkText + " | v1.0 | " + exampleWindow.getCurrentTime();
+})
+
+exampleWindow.addDropdown("Watermark Alignment",["Left","Right"],"Right",(selectedOption) => {
+    exampleWindow.watermarkAlignment = selectedOption.toLowerCase();
+    exampleWindow.watermark.style = 'left: unset; right: unset;';
+    if (exampleWindow.watermarkAlignment == 'right'){
+        exampleWindow.watermark.style.right = '10px';
+    }
+    else{
+        exampleWindow.watermark.style.left = '10px';
+    }
+    exampleWindow.log(exampleWindow.watermarkAlignment)
 })
 
 exampleWindow.addButton("Unload UI",exampleWindow.destroy)
