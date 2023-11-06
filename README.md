@@ -24,4 +24,4 @@ But you're here soo :3
 [Library Script](https://github.com/notInori/JS-UI-Library/blob/main/Library.js)
 
 ## Documentation
-I'll probably get round to writing some better documentation.
+[Documentation](https://github.com/notInori/JS-UI-Library/blob/main/Documentation.md)
