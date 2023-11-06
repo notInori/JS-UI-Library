@@ -2,6 +2,7 @@
 
 ## Contents
 - [Variables](#Variables)
+- [Functions](#Functions)
 - [Importing the UI Library](#importing-the-ui-library)
 - [Creating a UI Class Instance](#creating-a-ui-class-instance)
     - [Constructor](#constructor)
@@ -15,8 +16,22 @@
     - [Moving the watermark](#moving-the-watermark)
     - [Chaning the watermark](#changing-the-watermark)
 - [Event Log](#event-log)
-    - [Creating an Event Log Window](#creating-an-event-log-window)
+    - [Creating an Event Log Window](#creating-an-event-log-window)  
+    - [Type of Logs](#types-of-logs)
+
 ## Variables
+
+## Functions
+
+| Function                 | Purpose                                          | Usage                                     |
+|--------------------------|--------------------------------------------------|-------------------------------------------|
+| window.createWindow()    | Creates the main window for the UI Library.      |                                           |
+| window.createLogWindow() | Creates the event log window for the UI Library. |                                           |
+| window.createWatermark() | Creates the watermark for the UI Library.        | window.createWatermark(text,autoShow)     |
+| window.dragElement()     | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle) |
+| window.show()            | Shows/Hides the main window.                     |                                           |
+| window.log()             | Creates a log entry in the Event Log.            | window.log(Message,logType)               |
+| window.getCurrentTime()  | Returns the current time in the format HH:MM:SS  |                                           |
 
 ## Importing the UI Library
 Firstly, to create a new UI Class instance you must import the UI library. It is recommended that you download a copy of [Library.js](https://github.com/notInori/JS-UI-Library/blob/main/Library.js) and that you host it alongside your website.
@@ -64,7 +79,25 @@ Replace `'Escape'` with the key that you want to bind the menu to.
 
 ## Window Controls
 
+### Types of Controls
+
+| Type of Control | Function      | Parameters                           |
+|-----------------|---------------|--------------------------------------|
+| Label           | addLabel()    | text                                 |
+| Button          | addButton()   | text,onClick                         |
+| Textbox         | addTextBox()  | label,placeholder                    |
+| Checkbox        | addCheckbox() | label,checkboxName,isChecked,onClick |
+| Section         | addSection()  | text                                 |
+| Dropdown        | addDropDown   | text,options,firstOption,onSelect    |
+
 ### Adding Controls
+
+To add a control we do:
+```js
+window.addControl(param1, param2, param3)
+```
+
+We can then add parameters to the control which can include names, data, and callback functions ran when the control is interacted with.
 
 ### Removing Controls
 
@@ -111,3 +144,39 @@ Therefore to change the text you can change that property.
 ## Event Log
 
 ### Creating an Event Log Window
+To create an event log we can use use the `window.createLogWindow()` function.This will create the event log window.  
+This is not shown by default and it is recommended that you create a checkbox in the main menu to show it.
+
+#### Function
+```js
+window.createLogWindow(title, width, height, autoShow)
+```
+#### Arguments   
+`title`(optional) - The title of the window that is created. If set to `undefined`will be set to the default of `Event Log`.  
+`width`(optional) - Sets the width of the log window. Setting `undefined` will make it 300 px.    
+`height`(optional) - Sets the height of the window. Setting `undefined` will make it 300 px.  
+`autoShow`(optional) - Whether the watermark should be displayed when it's created. It is set to `True` by default.
+
+### Creating a Log
+To create a log you can use this `window.log()` function.
+
+The log message will be in the format of.
+```
+[Time in format HH:MM:SS] [Optional Log Type] : [Log Message]
+```
+
+#### Function
+```js
+window.log(text, logType)
+```
+
+#### Arguments
+`text` - This is the text that will be shown with the log.  
+`logType`(optional) - Sets the type of log. Will have type "None" if left `undefined`.
+
+### Types of Logs
+| Type    | Tag     | Tag Colour |
+|---------|---------|------------|
+| None    | N/A     | N/A        |
+| Warning | Warning | Orange     |
+| Error   | Error   | Red        |
