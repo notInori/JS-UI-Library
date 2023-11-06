@@ -21,6 +21,7 @@ class InoriUILibrary {
         this.eventLogContainer = null;
         this.controls = [];
         this.watermark = null;
+        this.watermarkAlignment = 'right';
         
     }
 
@@ -104,12 +105,14 @@ class InoriUILibrary {
     }
     
 
-    createWatermark(text = this.title, autoShow = false) {
+    createWatermark(text = this.title, alignment="right", autoShow = false) {
         // Create the container element for the floating window
         this.watermark = document.createElement('div');
         this.watermark.style.opacity = 0;
         this.watermark.className = 'Inori-UI-Library';
         this.watermark.style.zIndex = 1000000000;
+
+        this.watermarkAlignment = alignment;
 
         // Create a title bar for the window
         const titleBar = document.createElement('div');
@@ -117,21 +120,28 @@ class InoriUILibrary {
         titleBar.textContent = text;
         titleBar.style.setProperty('text-wrap','nowrap')
 
+        if (alignment != 'right'){
+            this.watermark.style.left = 'unset';
+        }
         // Append the title bar to the container
         this.watermark.appendChild(titleBar);
 
         // Append the container to the body or any other parent element
         document.body.appendChild(this.watermark);
         const watermark = this.watermark
-        setTimeout(function() {
-            watermark.style.left = window.innerWidth - (watermark.offsetWidth + 10) + "px";
-            
-            if (!autoShow){
-                watermark.classList.add("hidden")
-            }
-            watermark.style.opacity = '';
-          }, 1000);
-        
+
+        if (alignment != 'right'){
+            watermark.style.left = '10px';
+        }
+        else{
+            watermark.style.left = 'unset';
+            watermark.style.right = '10px';
+        }
+        if (!autoShow){
+            watermark.classList.add("hidden")
+        }
+        watermark.style.opacity = '';
+     
         
 
         // Make the DIV element draggable:
@@ -142,7 +152,9 @@ class InoriUILibrary {
         var pos1 = 0,
             pos2 = 0,
             pos3 = 0,
-            pos4 = 0;
+            pos4 = 0,
+            watermark = this.watermark,
+            watermarkAlignment = this.watermarkAlignment;
 
         // if present, the header is where you move the DIV from:
         titleBar.onmousedown = dragMouseDown;
@@ -168,7 +180,16 @@ class InoriUILibrary {
             pos4 = e.clientY;
             // set the element's new position:
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            if (elmnt == watermark && watermarkAlignment == 'right'){
+                elmnt.style.right = window.innerWidth - (elmnt.offsetLeft - pos1) - elmnt.offsetWidth + "px";
+
+            }
+            else{
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+
+                // elmnt.style.left = 'unset';
+            }
+            
         }
 
         function closeDragElement() {
