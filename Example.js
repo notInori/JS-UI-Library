@@ -178,6 +178,8 @@ setInterval(function(){
     exampleWindow.watermark.firstChild.innerHTML = watermarkText + " | v1.0 | " + exampleWindow.getCurrentTime();
 })
 
+exampleWindow.addButton("Destroy",exampleWindow.destroy)
+
 console.log(exampleWindow.controls) // Object list of all controls in UI
 
 // --- Setup A Key To Open/Close Menu
