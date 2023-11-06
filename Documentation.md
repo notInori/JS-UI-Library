@@ -34,7 +34,7 @@
 | window.getCurrentTime()  | Returns the current time in the format HH:MM:SS  |                                           |
 
 ## Importing the UI Library
-Firstly, to create a new UI Class instance you must import the UI library. It is recommended that you download a copy of [Library.js](https://github.com/notInori/JS-UI-Library/blob/main/Library.js) and that you host it alongside your website.
+Firstly, to create a new UI Class instance you must import the UI library. It is recommended that you download a copy of [Library.js](https://github.com/notInori/JS-UI-Library/blob/main/Library.js) and host it alongside your website.
 
 Then at the start of your script import the library like this:  
 ```js
