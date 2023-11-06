@@ -7,12 +7,14 @@
     --button-pressed-color: #1a1a1a;
     --accent-color: pink;
     --text-hint-color: black;
+    --box-shadow: 0 0 0 1px black;
+    /*--box-shadow: -1px -1px 0 var(--text-hint-color), 1px -1px 0 var(--text-hint-color), -1px 1px 0 var(--text-hint-color), 1px 1px 0 var(--text-hint-color), -1px 0 var(--text-hint-color), 1px 0 var(--text-hint-color), 0 -1px var(--text-hint-color), 0 1px var(--text-hint-color);*/
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     background: var(--secondary-color);
     border: 1px solid var(--accent-color);
-    box-shadow: 0 0 0 1px black;
+    box-shadow: var(--box-shadow);
     user-select: none;
     color: var(--font-color);
     font-family: monospace;
@@ -25,7 +27,7 @@
     transition: opacity 0.3s;
 }
 
-.Inori-UI-Library .hidden{
+.hidden{
     opacity: 0 !important ;
     pointer-events: none;
 }
@@ -76,7 +78,7 @@
   	-moz-appearance:none;
     background: var(--button-color);
     border: 1px solid var(--outline-color);
-    box-shadow: 0 0 0 1px black;
+    box-shadow: var(--box-shadow);
     font-family: inherit;
     font-size: inherit;
     color: inherit;
@@ -111,7 +113,7 @@
   width: 15px;
   background: var(--button-pressed-color);
   border: 1px solid var(--outline-color);
-  box-shadow: 0 0 0 1px black;
+  box-shadow: var(--box-shadow);
   margin: 0px;
 }
 
@@ -169,7 +171,7 @@ background-color: var(--button-pressed-color);
 .Inori-UI-Library .custom-options{
     background-color: var(--button-pressed-color);
     border: 1px solid var(--outline-color);
-    box-shadow: 0 0 0 1px black;
+    box-shadow: var(--box-shadow);
     padding: 2px 4px;
 }
 
