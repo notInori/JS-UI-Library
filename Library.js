@@ -144,6 +144,7 @@ class InoriUILibrary {
         titleBar.textContent = text;
         titleBar.style.setProperty('text-wrap','nowrap');
         titleBar.style.borderBottom = "none";
+        titleBar.style.boxShadow = "none";
 
         if (alignment != 'right'){
             this.watermark.style.left = 'unset';
