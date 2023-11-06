@@ -22,6 +22,20 @@ class InoriUILibrary {
         this.controls = [];
         this.watermark = null;
         this.watermarkAlignment = 'right';
+        this.shadowBody = document.createElement('div');
+        this.shadowRoot = this.shadowBody.attachShadow({ mode: 'closed' });
+        // Create a link element
+        var link = document.createElement('link');
+
+        // Set the attributes for the link element
+        link.rel = 'stylesheet';
+        link.type = 'text/css'; 
+        link.href = 'UILibraryStyles.css'; // Replace with the path to your CSS file
+
+        // Append the link element to the head of the document
+        this.shadowRoot.appendChild(link);
+        
+        document.body.appendChild(this.shadowBody);
         
     }
 
@@ -44,7 +58,7 @@ class InoriUILibrary {
         this.container.appendChild(titleBar);
 
         // Append the container to the body or any other parent element
-        document.body.appendChild(this.container);
+        this.shadowRoot.appendChild(this.container);
 
         this.controlsContainer = document.createElement('div');
         this.controlsContainer.className = 'controls-container';
@@ -92,7 +106,7 @@ class InoriUILibrary {
         this.eventLogWindow.appendChild(titleBar);
 
         // Append the container to the body or any other parent element
-        document.body.appendChild(this.eventLogWindow);
+        this.shadowRoot.appendChild(this.eventLogWindow);
 
         this.eventLogContainer = document.createElement('div');
         this.eventLogContainer.className = 'controls-container';
@@ -138,7 +152,7 @@ class InoriUILibrary {
         this.watermark.appendChild(titleBar);
 
         // Append the container to the body or any other parent element
-        document.body.appendChild(this.watermark);
+        this.shadowRoot.appendChild(this.watermark);
         const watermark = this.watermark
 
         if (alignment != 'right'){
