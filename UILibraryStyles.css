@@ -25,7 +25,7 @@
     transition: opacity 0.3s;
 }
 
-.hidden{
+.Inori-UI-Library .hidden{
     opacity: 0 !important ;
     pointer-events: none;
 }
@@ -49,7 +49,7 @@
     border-radius: 100px;;
 }
 
-.title-bar{
+.Inori-UI-Library .title-bar{
     background: var(--main-color);
     border-bottom: 1px solid var(--outline-color);
     box-shadow: 0 1px black;
@@ -57,7 +57,7 @@
     z-index: 100;
 }
 
-label{
+.Inori-UI-Library label{
     word-wrap: break-word;
 }
 .Inori-UI-Library .controls-container{
@@ -98,7 +98,7 @@ label{
 }
 
 /*Checkboxes*/
-.checkbox-container{
+.Inori-UI-Library .checkbox-container{
     display: inline-flex;
     align-content: center;
     gap:4px;
@@ -124,7 +124,7 @@ label{
   box-shadow: 0 0 0 1px var(--accent-color);
 }
 
-button{
+.Inori-UI-Library button{
     background-color: var(--button-color);
     border: 1px solid var(--outline-color);
     box-shadow:0 0 0 1px black;
@@ -134,53 +134,53 @@ button{
     text-shadow:inherit;
 }
 
-button:hover{
+.Inori-UI-Library button:hover{
 box-shadow:0 0 0 1px var(--accent-color);
 }
 
-button:active{
+.Inori-UI-Library button:active{
 background-color: var(--button-pressed-color);
 }
 
-.divider-container label{
+.Inori-UI-Library .divider-container label{
     display: inline-block;
     width: 100%;
     text-align: center;
     margin-bottom:4px;
 }
 
-.window-divider{
+.Inori-UI-Library .window-divider{
     border-color: var(--outline-color);
     margin-bottom: 4px;
 }
-.dropdown label, .dropdown button, .textbox-container label{
+.Inori-UI-Library .dropdown label, .Inori-UI-Library .dropdown button, .Inori-UI-Library .textbox-container label{
     display: inline-block;
     width:100%;
     text-align: left;
 }
 
-.dropdown label, .textbox-container label{
+.Inori-UI-Library .dropdown label, .Inori-UI-Library .textbox-container label{
     margin-bottom: 2px;
 }
-.dropdown button:active{
+.Inori-UI-Library .dropdown button:active{
     box-shadow: 0 0 0 1px var(--accent-color);
 }
 
-.custom-options{
+.Inori-UI-Library .custom-options{
     background-color: var(--button-pressed-color);
     border: 1px solid var(--outline-color);
     box-shadow: 0 0 0 1px black;
     padding: 2px 4px;
 }
 
-.custom-options div:hover{
+.Inori-UI-Library .custom-options div:hover{
     color: var(--accent-color);
 }
 
-.custom-options-hidden{
+.Inori-UI-Library .custom-options-hidden{
     display: none;;
 }
 
-.show{
+.Inori-UI-Library .show{
     display: block;
 }
