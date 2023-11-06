@@ -61,7 +61,7 @@ class InoriUILibrary {
         setTimeout(function() {container.style.opacity = '';}, 10);
     }
 
-    createLogWindow(title = "Event Log", width = 300,height = 300, autoShow=False) {
+    createLogWindow(title = "Event Log", width = 300,height = 300, autoShow=false) {
         // Create the container element for the floating window
         this.logWindow = document.createElement('div');
         this.logWindow.style.opacity = '0';
