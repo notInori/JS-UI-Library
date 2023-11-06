@@ -1,7 +1,7 @@
 # Inori JS UI Library Documentation
 
 ## Contents
-- [Variables](#Variables)
+- [Global Variables](#global-variables)
 - [Functions](#Functions)
 - [Importing the UI Library](#importing-the-ui-library)
 - [Creating a UI Class Instance](#creating-a-ui-class-instance)
@@ -19,14 +19,22 @@
     - [Creating an Event Log Window](#creating-an-event-log-window)  
     - [Type of Logs](#types-of-logs)
 
-## Variables
-
+## Global Variables
+|                          | Type            | Functions                                             | Usage                                                                                                                       |
+|--------------------------|-----------------|-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| window                   | UI Class Object | .createWindow<br>.createLogWindow<br>.createWatermark | .title = window title<br>.height = height of window<br>.width = width of window<br>.autoShow = shows the window when loaded |
+| window.container         | HTML Object     |                                                       | Object for UI Window                                                                                                        |
+| window.controlsContainer | HTML Object     |                                                       | Object for Window Controls                                                                                                  |
+| window.eventLogWindow    | HTML Object     |                                                       | Object for Event Log Window                                                                                                 |
+| window.eventLogContainer | HTML Object     |                                                       | Object for Event Log Window Logs                                                                                            |
+| window.controls          | Object List     |                                                       | Contains references to all controls in main window.                                                                         |
+| window.watermark         | HTML Object     |                                                       | Object for watermark                                                                                                        |
 ## Functions
 
 | Function                 | Purpose                                          | Usage                                     |
 |--------------------------|--------------------------------------------------|-------------------------------------------|
 | window.createWindow()    | Creates the main window for the UI Library.      |                                           |
-| window.createLogWindow() | Creates the event log window for the UI Library. |                                           |
+| window.createEventLogWindow() | Creates the event log window for the UI Library. |                                           |
 | window.createWatermark() | Creates the watermark for the UI Library.        | window.createWatermark(text,autoShow)     |
 | window.dragElement()     | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle) |
 | window.show()            | Shows/Hides the main window.                     |                                           |
@@ -90,6 +98,56 @@ Replace `'Escape'` with the key that you want to bind the menu to.
 | Section         | addSection()  | text                                 |
 | Dropdown        | addDropDown   | text,options,firstOption,onSelect    |
 
+#### Labels
+```js
+window.addLabel(text)
+```
+##### Arguments
+`text` - Sets the text content of the the label.  
+
+#### Buttons
+```js
+window.addButton(text, onClick)
+```
+##### Arguments
+`text` - Sets the text value of the button.  
+`onClick` - Callback function for the button is pressed.
+
+#### Textbox
+```js
+window.addTextbox(label, placeholder)
+```
+
+##### Arguments
+`label`(optional) - Sets a label for the textbox.  
+`placeholder`(optional) - Sets placeholder text for the input when it is empty.
+
+#### Checkbox
+```js
+window.addCheckbox(label, checkboxName, isChecked, onClick)
+```
+
+##### Arguments
+`label` - Sets the label for the checkbox.  
+`checkboxName` - Sets the name of the checkbox input.  
+`isChecked`(optional) - Sets whether the checkbox is set to true on load. Default is `false` or unchecked.  
+`onClick`(optional) - Callback function for when the checkbox has been clicked. Can pass the state of the checkbox as parameter.
+
+#### Sections
+```js
+window.addSection(text)
+```
+`text` - Sets the text for a section divider.
+
+#### Dropdowns
+```js
+window.addDropdown(text, options,firstOption, onSelect)
+```
+`text`(optional) - Sets the label for the dropdown.  
+`options` - Object list for the options given in dropdown.  
+`firstOption` - Sets first option set in dropdown on load.  
+`onSelect`(optional) - Callback function for when an option is picked. Can pass the selected option as parameter.  
+
 ### Adding Controls
 
 To add a control we do:
@@ -116,6 +174,24 @@ For controls that have multiple elements and use a object list in the controls i
 window.controls[index][0].style.display = 'none'
 ```
 
+## Showing and Hiding Windows
+
+The `window.show()` function can be used to show/hide the main window.  
+The other windows do not have this function, however the can still be hidden and shown by adding and removing the CSS class `.hidden`. 
+
+### Hiding Windows
+
+```js
+window.classList.add('hidden')
+```
+
+### Showing Windows
+```js
+window.classList.remove('hidden')
+```
+
+This can be done with both the watermark and the eventlog by referencing them instead. The watermark can be referenced by `window.watermark` and the event log as `window.eventLogWindow`.
+
 ## Watermarks
 
 ### Referencing the watermark
@@ -133,23 +209,23 @@ window.createWatermark(text,autoShow)
 `text`(optional) - The text that will be displayed when it is created.  
 `autoShow`(optional) - Whether the watermark should be displayed when it's created. It is set to `True` by default.
 
-### Moving the watermark
+### Moving The Watermark
 The watermark is positioned `fixed` using `top` and `left` styles to control it's position on screen.  
 To change you can change you can change `window.watermark.style.top` to move it vertically and `window.watermark.style.left` to change it horizontally.
 
-### Changing the watermark text
+### Changing The Watermark Text
 The text inside being referenced as `window.watermark.firstChild.innerHTML`.
 Therefore to change the text you can change that property.
 
 ## Event Log
 
 ### Creating an Event Log Window
-To create an event log we can use use the `window.createLogWindow()` function.This will create the event log window.  
+To create an event log we can use use the `window.createEventLogWindow()` function.This will create the event log window.  
 This is not shown by default and it is recommended that you create a checkbox in the main menu to show it.
 
 #### Function
 ```js
-window.createLogWindow(title, width, height, autoShow)
+window.createEventLogWindow(title, width, height, autoShow)
 ```
 #### Arguments   
 `title`(optional) - The title of the window that is created. If set to `undefined`will be set to the default of `Event Log`.  
@@ -180,3 +256,10 @@ window.log(text, logType)
 | None    | N/A     | N/A        |
 | Warning | Warning | Orange     |
 | Error   | Error   | Red        |
+
+### Clearing the Event Log
+To clear the Event Log we can simple just set the `.innerHTML` of the `window.eventLogContainer` to null. This will remove all logs within it.  
+
+```js
+window.eventLogContainer.innerHTML = "";
+```
