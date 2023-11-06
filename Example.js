@@ -64,14 +64,14 @@ exampleWindow.addButton('Button 2', () => {
 });
 
 exampleWindow.addSection('Textboxes')
-exampleWindow.addLabel('This is an input field:')
 
 // These are text fields
-// window.addTextBox(hintText)
+// window.addTextBox(label, hintText)
+// label is optional and is the label shown for the textbox
 // hintText is optional and shows when the textbox is empty.
 // You can add a label with window.addLabel for a more traditional look which is done just before
 
-exampleWindow.addTextBox('Enter text'); // Create a textbox with the hint "Enter text"
+exampleWindow.addTextBox('This is an input field:', 'Enter text'); // Create a textbox with the label "This is an input field:" with the hint "Enter text"
 
 exampleWindow.addSection('Dropdowns')
 
@@ -104,11 +104,11 @@ exampleWindow.addButton('Clear Log', () => {
 });
 
 function sendLog(){
-    if (exampleWindow.controls[18][2].value != ""){
+    if (exampleWindow.controls[17][2].value != ""){
         // window.log(text, warningType)
         // warningType is optional and produced a normal log when undefined.
         // supported warningTypes include Warning and Error
-        exampleWindow.log(exampleWindow.controls[18][2].value, eventLogType); 
+        exampleWindow.log(exampleWindow.controls[17][2].value, eventLogType); 
     }
     else{
         exampleWindow.log("Log text content missing!", 'Error')  // Example of error thrown. We have set it to throw an eror if the user tries to print a log without a message.
@@ -125,7 +125,7 @@ console.log(exampleWindow.controls) // Object list of all controls in UI
 // Use exampleWindow.controls[index] to reference the object you want to access
 
 // Example of setting a onclick event after declaration.
-exampleWindow.controls[22][1].addEventListener('click', (event) =>{
+exampleWindow.controls[21][1].addEventListener('click', (event) =>{
 if (event.target.checked){
     exampleWindow.container.style.background = "url('https://i.pinimg.com/originals/80/07/89/8007897740592f98baabd85f2b6b806e.jpg') center center / cover no-repeat";
     exampleWindow.controlsContainer.style.background = '#00000040';
@@ -165,7 +165,7 @@ exampleWindow.createWatermark('Inori JS UI Library | v1.0'); // Creates a waterm
 exampleWindow.addCheckbox('Watermark', 'flag6', false, (isChecked) => {
     if (isChecked){
         exampleWindow.watermark.style.display = ''; // watermark can be referenced as window.watermark.
-    }                                                // might add autoshow param and .show function
+    }                                                // might add .show function
     else{
         exampleWindow.watermark.style.display = 'none';
     }
@@ -174,7 +174,7 @@ exampleWindow.addCheckbox('Watermark', 'flag6', false, (isChecked) => {
 exampleWindow.addTextBox('Watermark Text');// Param 1 is optional hint text that is shown when the textbox is empty.
 
 setInterval(function(){
-    const watermarkText = exampleWindow.controls[27][2].value != ""? exampleWindow.controls[27][2].value : exampleWindow.title
+    const watermarkText = exampleWindow.controls[26][2].value != ""? exampleWindow.controls[26][2].value : exampleWindow.title
     exampleWindow.watermark.firstChild.innerHTML = watermarkText + " | v1.0 | " + exampleWindow.getCurrentTime();
 })
 
