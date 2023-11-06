@@ -12,6 +12,7 @@
     - [Types of Controls](#types-of-controls)
     - [Adding Controls](#adding-controls)
     - [Removing Controls](#removing-controls)
+    - [Referencing Controls](#referencing-controls)
 - [Showing and Hiding Windows](#showing-and-hiding-windows)
 - [Watermarks](#watermarks)
     - [Referencing the watermark](#referencing-the-watermark)
