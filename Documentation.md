@@ -8,7 +8,9 @@
 Firstly, to create a new UI Class instance you must import the UI library. It is recommended that you download a copy of [Library.js](https://github.com/notInori/JS-UI-Library/blob/main/Library.js) and that you host it alongside your website.
 
 Then at the start of your script import the library like this:  
-`import InoriUILibrary from './Library.js';`  
+```js
+ import InoriUILibrary from './Library.js';
+ ```  
 Replace the path at the end with the one for your copy.
 
 ## Creating A UI Class Instance
@@ -17,7 +19,9 @@ To create a new UI Library instance you use the class constuctor like this.
 We will be using `window` as the name of your object for storing an instance of the UI Library class.
 
 ### Constructor
-`const window = new InoriUILibrary(titleName, width, height, autoShow)`
+```js
+const window = new InoriUILibrary(titleName, width, height, autoShow)
+```
 #### Arguments  
 `titleName` - The title of the window that will be created.  
 `width` - Sets the width of the window.  
@@ -32,8 +36,9 @@ This will create the main menu window. It will only show automatically if the au
 ## Show Menu Key
 To bind a key to show the menu we can use the `window.show()` function which went invoked shows or hides the menu depending on whether it is visible.
 We can add a `keydown` eventListener to bind a key to this function.  
+
 For example:
-```
+```js
 document.addEventListener('keydown', function(event) {  
     if (event.key === 'Escape') {  
       window.show()  
@@ -55,10 +60,14 @@ However if removing a control while the script is running is more difficult.
 It is recommended to hide the control instead to prevent issues with code to relies on the controls object list.  
 
 For controls that have a direct reference in the control list  
-`window.controls[index].style.display = 'none'`  
+```js
+window.controls[index].style.display = 'none'
+```  
 
 For controls that have multiple elements and use a object list in the controls index we can use `[0]` after the index:  
-`window.controls[index][0].style.display = 'none'`
+```js
+window.controls[index][0].style.display = 'none'
+```
 
 ## Watermarks
 
@@ -69,11 +78,13 @@ The HTML object containing the watermark is referenced as `window.watermark`
 ### Creating a watermark
 To create a watermark we use the `window.createWatermark()` function.
 
-#### Parameters
-`window.createWatermark(text,autoShow)`  
+#### Function
+```js
+window.createWatermark(text,autoShow)
+```  
 #### Arguments  
 `text`(optional) - The text that will be displayed when it is created.  
-`autoShow`(optional) - Whether the watermark should be displayed when it's created. Set `True` by default.
+`autoShow`(optional) - Whether the watermark should be displayed when it's created. It is set to `True` by default.
 
 ### Moving the watermark
 The watermark is positioned `fixed` using `top` and `left` styles to control it's position on screen.  
