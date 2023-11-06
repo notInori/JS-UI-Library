@@ -148,12 +148,7 @@ exampleWindow.addDropdown('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blue', '
 });
 
 exampleWindow.addCheckbox('Show Event Log', 'flag5', false, (isChecked) => {
-    if (isChecked){
-        exampleWindow.eventLogWindow.classList.remove("hidden")
-    }
-    else{
-        exampleWindow.eventLogWindow.classList.add("hidden");
-    }
+    exampleWindow.show(exampleWindow.eventLogWindow, isChecked)
 });
 
 // Creating a watermark
@@ -163,19 +158,14 @@ exampleWindow.addCheckbox('Show Event Log', 'flag5', false, (isChecked) => {
 exampleWindow.createWatermark('Inori JS UI Library | v1.0','right'); // Creates a watermark
 
 exampleWindow.addCheckbox('Watermark', 'flag6', false, (isChecked) => {
-    if (isChecked){
-        exampleWindow.watermark.classList.remove("hidden"); // watermark can be referenced as window.watermark.
-    }                                                // might add .show function
-    else{
-        exampleWindow.watermark.classList.add("hidden");
-    }
+    exampleWindow.show(exampleWindow.watermark,isChecked)
 });
 
 exampleWindow.addTextbox(undefined,'Watermark Text');// Param 1 is optional hint text that is shown when the textbox is empty.
 
 setInterval(function(){
     const watermarkText = exampleWindow.controls[26][2].value != ""? exampleWindow.controls[26][2].value : exampleWindow.title
-    exampleWindow.watermark.firstChild.innerHTML = watermarkText + " | v1.0 | " + exampleWindow.getCurrentTime();
+    exampleWindow.changeWatermarkText(watermarkText + " | v1.0 | " + exampleWindow.getCurrentTime());
 })
 
 exampleWindow.addDropdown("Watermark Alignment",["Left","Right"],"Right",(selectedOption) => {
@@ -189,3 +179,5 @@ console.log(exampleWindow.controls) // Object list of all controls in UI
 
 // --- Setup A Key To Open/Close Menu
 exampleWindow.bindMenuKey('Escape')
+
+exampleWindow.addButton("Show Event Log",() => {exampleWindow.show(exampleWindow.eventLogWindow)})
