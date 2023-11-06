@@ -37,7 +37,7 @@
 | window.eventLogWindow    | HTML Object     |                                                       | Object for Event Log Window                                                                                                 |
 | window.eventLogContainer | HTML Object     |                                                       | Object for Event Log Window Logs                                                                                            |
 | window.watermark         | HTML Object     |                                                       | Object for watermark                                                                                                        |  
-|window.watermarkAlignment | String          |                                                       | Sets the text alignment of the watermark. Can be set 'left' or
+|window.watermarkAlignment | String          |                                                       | Sets the text alignment of the watermark. Can be set 'left', 'right', or auto
 
 ## Functions
 | Function                          | Purpose                                          | Usage                                      |
