@@ -171,7 +171,7 @@ exampleWindow.addCheckbox('Watermark', 'flag6', false, (isChecked) => {
     }
 });
 
-exampleWindow.addTextBox('Watermark Text');// Param 1 is optional hint text that is shown when the textbox is empty.
+exampleWindow.addTextBox(undefined,'Watermark Text');// Param 1 is optional hint text that is shown when the textbox is empty.
 
 setInterval(function(){
     const watermarkText = exampleWindow.controls[26][2].value != ""? exampleWindow.controls[26][2].value : exampleWindow.title
