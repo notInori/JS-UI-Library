@@ -261,12 +261,13 @@ window.createEventLogWindow(title, width, height, autoShow)
 `autoShow`(optional) - Whether the watermark should be displayed when it's created. It is set to `True` by default.
 
 ### Creating a Log
-To create a log you can use this `window.log()` function.
 
-Log messages are displayed in the format of.
+Log messages are displayed in the format of:
 ```
 [Time in format HH:MM:SS] [Optional Log Type] : [Log Message]
 ```
+
+To create a log you can use the `window.log()` function.
 
 #### Function
 ```js
