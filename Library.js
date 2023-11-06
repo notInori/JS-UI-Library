@@ -59,10 +59,6 @@ class InoriUILibrary {
             container.classList.remove("hidden")
         }
         setTimeout(function() {container.style.opacity = '';}, 10);
-
-        
-        
-        
     }
 
     createLogWindow(title = "Event Log", width = 300,height = 300, autoShow=False) {
