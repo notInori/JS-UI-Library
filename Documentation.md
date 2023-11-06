@@ -59,7 +59,7 @@ To remove a control we can simple just remove the line that was used to create t
 However if removing a control while the script is running is more difficult.  
 It is recommended to hide the control instead to prevent issues with code to relies on the controls object list.  
 
-For controls that have a direct reference in the control list  
+For controls that have an index in the `controls` object list  
 ```js
 window.controls[index].style.display = 'none'
 ```  
