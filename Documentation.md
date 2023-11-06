@@ -18,7 +18,8 @@
     - [Referencing the watermark](#referencing-the-watermark)
     - [Creating a watermark](#creating-a-watermark)
     - [Moving the watermark](#moving-the-watermark)
-    - [Changing the watermark](#changing-the-watermark)
+    - [Changing the watermark Text](#changing-the-watermark-text)
+    - [Changing Watermark Alignment After Creation](#changing-watermark-alignment-after-creation)
 - [Event Log](#event-log)
     - [Creating an Event Log Window](#creating-an-event-log-window)  
     - [Creating a Log](#creating-a-log)
@@ -34,20 +35,24 @@
 | window.controlsContainer | HTML Object     |                                                       | Object for Window Controls                                                                                                  |
 | window.eventLogWindow    | HTML Object     |                                                       | Object for Event Log Window                                                                                                 |
 | window.eventLogContainer | HTML Object     |                                                       | Object for Event Log Window Logs                                                                                            |
-| window.controls          | Object List     |                                                       | Contains references to all controls in main window.                                                                         |
-| window.watermark         | HTML Object     |                                                       | Object for watermark                                                                                                        |
+| window.controls          | Object List     |                                                       | Contains references to all controls in main window                                                                         |
+| window.watermark         | HTML Object     |                                                       | Object for watermark                                                                                                        |  
+|window.watermarkAlignment | String          |                                                       | Sets the text alignment of the watermark. Can be set 'left' or
 
 ## Functions
-| Function                      | Purpose                                          | Usage                                     |
-|-------------------------------|--------------------------------------------------|-------------------------------------------|
-| window.createWindow()         | Creates the main window for the UI Library.      | window.createWindow()                     |
-| window.createEventLogWindow() | Creates the event log window for the UI Library. | window.createEventLogWindow()             |
-| window.createWatermark()      | Creates the watermark for the UI Library.        | window.createWatermark(text,autoShow)     |
-| window.dragElement()          | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle) |
-| window.show()                 | Shows/Hides the main window.                     | window.show()                             |
-| window.log()                  | Creates a log entry in the Event Log.            | window.log(Message,logType)               |
-| window.getCurrentTime()       | Returns the current time in the format HH:MM:SS  | window.getCurrentTime()                   |
-| window.destroy                | Destroys all UI                                  | window.destroy()                          |
+| Function                          | Purpose                                          | Usage                                      |
+|-----------------------------------|--------------------------------------------------|--------------------------------------------|
+| window.createWindow()             | Creates the main window for the UI Library.      | window.createWindow()                      |
+| window.createEventLogWindow()     | Creates the event log window for the UI Library. | window.createEventLogWindow()              |
+| window.createWatermark()          | Creates the watermark for the UI Library.        | window.createWatermark(text,autoShow)      |  
+| window.changeWatermarkText()      | Changes the text of the watermark                | window.changeWatermarkText(text)           |
+| window.changeWatermarkAlignment() | Changes the watermark alignment.                 | window.changeWatermarkAlignment(alignment) |
+| window.dragElement()              | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle)  |
+| window.show()                     | Shows/Hides the main window.                     | window.show()                              |
+| window.log()                      | Creates a log entry in the Event Log.            | window.log(Message,logType)                |
+| window.getCurrentTime()           | Returns the current time in the format HH:MM:SS  | window.getCurrentTime()                    |
+| window.bindMenuKey()              | Binds a key for showing/hiding the menu          | window.bindMenuKey(key)                    |
+| window.destroy                    | Destroys all UI                                  | window.destroy()                           |
 
 ## Importing the UI Library
 Firstly, to create a new UI Class instance you must import the UI library. It is recommended that you download a copy of [Library.js](https://github.com/notInori/JS-UI-Library/blob/main/Library.js) and host it alongside your website.
@@ -79,19 +84,18 @@ To create a window we simple use the `window.createWindow()` function.
 This will create the main menu window. It will only show automatically if the autoShow flag is set to true. If not it is recommended to bind a show key.
 
 ## Binding Show Menu Key
-To bind a key to show the menu we can use the `window.show()` function which went invoked shows or hides the menu depending on whether it is visible.
-We can add a `keydown` eventListener to bind a key to this function.  
+We can bind a key to show/hide the menu with the `window.bindMenuKey()` function. This is recommnded if you have set the `window.autoShow` property to `false` as it is needed to be able to be able open the menu.
 
-For example:
+#### Function
+
 ```js
-document.addEventListener('keydown', function(event) {  
-    if (event.key === 'Escape') {  
-      window.show()  
-    }
-});
+window.bindMenuKey(key)
 ```
 
-Replace `'Escape'` with the key that you want to bind the menu to.
+#### Arguments
+`key` - this is the key that you want to bind thet menu show/hide function to.  
+
+If you need to find the proper key value for a key. They are all listed [here](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values).
 
 ## Window Controls
 
@@ -107,6 +111,7 @@ Replace `'Escape'` with the key that you want to bind the menu to.
 | Dropdown        | addDropDown   | text, options, firstOption, onSelect    |
 
 #### Labels
+##### Function
 ```js
 window.addLabel(text)
 ```
@@ -114,6 +119,7 @@ window.addLabel(text)
 `text` - Sets the text content of the the label.  
 
 #### Buttons
+##### Function
 ```js
 window.addButton(text, onClick)
 ```
@@ -122,6 +128,7 @@ window.addButton(text, onClick)
 `onClick` - Callback function for the button is pressed.
 
 #### Textbox
+##### Function
 ```js
 window.addTextbox(label, placeholder)
 ```
@@ -131,6 +138,7 @@ window.addTextbox(label, placeholder)
 `placeholder`(optional) - Sets placeholder text for the input when it is empty.
 
 #### Checkbox
+##### Function
 ```js
 window.addCheckbox(label, checkboxName, isChecked, onClick)
 ```
@@ -142,12 +150,14 @@ window.addCheckbox(label, checkboxName, isChecked, onClick)
 `onClick`(optional) - Callback function for when the checkbox has been clicked. Can pass the state of the checkbox as parameter.
 
 #### Sections
+##### Function
 ```js
 window.addSection(text)
 ```
 `text` - Sets the text for a section divider.
 
 #### Dropdowns
+##### Function
 ```js
 window.addDropdown(text, options,firstOption, onSelect)
 ```
@@ -230,19 +240,46 @@ To create a watermark we use the `window.createWatermark()` function.
 
 #### Function
 ```js
-window.createWatermark(text,autoShow)
+window.createWatermark(text, alignment, autoShow)
 ```  
 #### Arguments  
 `text`(optional) - The text that will be displayed when it is created.  
-`autoShow`(optional) - Whether the watermark should be displayed when it's created. It is set to `True` by default.
-
+`autoShow`(optional) - Whether the watermark should be displayed when it's created. It is set to `True` by default.  
+`alignment`(optional) - Controls text and control expansion alignemnt. Can be set to `left` or `right` but set to `right` by default
 ### Moving The Watermark
 The watermark is positioned `fixed` using `top` and `left` styles to control it's position on screen.  
 To change you can change you can change `window.watermark.style.top` to move it vertically and `window.watermark.style.left` to change it horizontally.
 
 ### Changing The Watermark Text
-The text inside being referenced as `window.watermark.firstChild.innerHTML`.
-Therefore to change the text you can change that property.
+The text within the watermark can be changed with the `window.changeWatermarkText()` function.
+
+#### Function
+```js
+window.changeWatermarkText(text)
+```
+#### Arguments
+`text` - Sets the text to any string.
+
+### Changing Watermark Alignment After Creation
+The alignment of the watermark can be set on creation to `right` or `left`. This controls the alignment of the text in the control and also the horizontal direction the watermark expands. It can also be changed after it has been created from two methods:
+
+#### Recommended
+The recommended way of changing the alignment of the watermark is by using the `window.changeWatermarkAlignment()` function. This will change the alignment as well as reposition the watermark to the left or right edges of the screen.
+
+##### Function
+```js
+window.changeWatermarkAlignment(alignment)
+```
+##### Arguments
+`alignment`(optional) - This can be set to `left`, `right` or `auto`. It defaults to auto which switches to the opposite of it's current alignment. i.e if `window.watermarkAlignment` is `left` it will be changed to `right`.
+
+#### Direct
+To change the alignment of the watermark without repositioning it you can directly change the `window.watermarkAlignment` property. It can be set to `left` or `right`.
+If an invalid value is entered it will default to being right aligned.
+You can change it like this
+```js
+window.watermarkAlignment = 'left' // or 'right';
+```
 
 ## Event Log
 
