@@ -178,7 +178,7 @@ setInterval(function(){
     exampleWindow.watermark.firstChild.innerHTML = watermarkText + " | v1.0 | " + exampleWindow.getCurrentTime();
 })
 
-exampleWindow.addButton("Destroy",exampleWindow.destroy)
+exampleWindow.addButton("Unload UI",exampleWindow.destroy)
 
 console.log(exampleWindow.controls) // Object list of all controls in UI
 
