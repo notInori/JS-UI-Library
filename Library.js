@@ -14,13 +14,14 @@ class InoriUILibrary {
         this.title = title;
         this.width = width;
         this.height = height;
+        this.autoShow = autoShow;
         this.container = null;
         this.controlsContainer = null;
         this.eventLogWindow = null;
         this.eventLogContainer = null;
         this.controls = [];
         this.watermark = null;
-        this.autoShow = autoShow;
+        
     }
 
     createWindow() {
@@ -264,7 +265,7 @@ class InoriUILibrary {
         });
 
         // Add the container to the controls array and append it to the window
-        this.controls.push([checkboxContainer,checkbox,label]);
+        this.controls.push([checkboxContainer,label,checkbox]);
         this.controlsContainer.appendChild(checkboxContainer);
     }
 

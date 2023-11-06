@@ -125,7 +125,7 @@ console.log(exampleWindow.controls) // Object list of all controls in UI
 // Use exampleWindow.controls[index] to reference the object you want to access
 
 // Example of setting a onclick event after declaration.
-exampleWindow.controls[21][1].addEventListener('click', (event) =>{
+exampleWindow.controls[21][2].addEventListener('click', (event) =>{
 if (event.target.checked){
     exampleWindow.container.style.background = "url('https://i.pinimg.com/originals/80/07/89/8007897740592f98baabd85f2b6b806e.jpg') center center / cover no-repeat";
     exampleWindow.controlsContainer.style.background = '#00000040';
