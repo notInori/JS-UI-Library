@@ -22,8 +22,8 @@ class InoriUILibrary {
         this.controls = [];
         this.watermark = null;
         this.watermarkAlignment = 'right';
-        this.shadowBody = document.createElement('div');
-        this.shadowRoot = this.shadowBody.attachShadow({ mode: 'closed' });
+        this.shadowDOMContainer = document.createElement('div');
+        this.shadowRoot = this.shadowDOMContainer.attachShadow({ mode: 'closed' });
         // Create a link element
         var link = document.createElement('link');
 
@@ -35,7 +35,7 @@ class InoriUILibrary {
         // Append the link element to the head of the document
         this.shadowRoot.appendChild(link);
         
-        document.body.appendChild(this.shadowBody);
+        document.body.appendChild(this.shadowDOMContainer);
         
     }
 

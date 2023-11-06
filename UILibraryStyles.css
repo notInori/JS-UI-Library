@@ -129,7 +129,7 @@
 .Inori-UI-Library button{
     background-color: var(--button-color);
     border: 1px solid var(--outline-color);
-    box-shadow:0 0 0 1px black;
+    box-shadow: var(--box-shadow);
     color:inherit;
     font-family:inherit;
     font-size:inherit;
