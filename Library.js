@@ -128,7 +128,6 @@ class InoriUILibrary {
         
     }
     
-
     createWatermark(text = this.title, alignment="right", autoShow = false) {
         // Create the container element for the floating window
         this.watermark = document.createElement('div');
@@ -143,7 +142,8 @@ class InoriUILibrary {
         const titleBar = document.createElement('div');
         titleBar.className = 'title-bar';
         titleBar.textContent = text;
-        titleBar.style.setProperty('text-wrap','nowrap')
+        titleBar.style.setProperty('text-wrap','nowrap');
+        titleBar.style.borderBottom = "none";
 
         if (alignment != 'right'){
             this.watermark.style.left = 'unset';
