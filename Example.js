@@ -179,14 +179,8 @@ setInterval(function(){
 })
 
 exampleWindow.addDropdown("Watermark Alignment",["Left","Right"],"Right",(selectedOption) => {
-    exampleWindow.watermarkAlignment = selectedOption.toLowerCase();
-    exampleWindow.watermark.style = 'left: unset; right: unset;';
-    if (exampleWindow.watermarkAlignment == 'right'){
-        exampleWindow.watermark.style.right = '10px';
-    }
-    else{
-        exampleWindow.watermark.style.left = '10px';
-    }
+    exampleWindow.changeWatermarkAlignment(selectedOption.toLowerCase());
+
 })
 
 exampleWindow.addButton("Unload UI",exampleWindow.destroy)
@@ -194,8 +188,4 @@ exampleWindow.addButton("Unload UI",exampleWindow.destroy)
 console.log(exampleWindow.controls) // Object list of all controls in UI
 
 // --- Setup A Key To Open/Close Menu
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      exampleWindow.show()
-    }
-});
+exampleWindow.bindMenuKey('Escape')
