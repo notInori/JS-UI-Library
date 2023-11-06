@@ -16,8 +16,8 @@ class InoriUILibrary {
         this.height = height;
         this.container = null;
         this.controlsContainer = null;
-        this.logWindow = null;
-        this.logControlsContainer = null;
+        this.eventLogWindow = null;
+        this.eventLogContainer = null;
         this.controls = [];
         this.watermark = null;
         this.autoShow = autoShow;
@@ -61,15 +61,15 @@ class InoriUILibrary {
         setTimeout(function() {container.style.opacity = '';}, 10);
     }
 
-    createLogWindow(title = "Event Log", width = 300,height = 300, autoShow=false) {
+    createEventLogWindow(title = "Event Log", width = 300,height = 300, autoShow=false) {
         // Create the container element for the floating window
-        this.logWindow = document.createElement('div');
-        this.logWindow.style.opacity = '0';
+        this.eventLogWindow = document.createElement('div');
+        this.eventLogWindow.style.opacity = '0';
 
-        this.logWindow.className = 'Inori-UI-Library';
-        this.logWindow.style.width = height + 'px';
-        this.logWindow.style.height = width + 'px';
-        this.logWindow.style.zIndex = 99;
+        this.eventLogWindow.className = 'Inori-UI-Library';
+        this.eventLogWindow.style.width = height + 'px';
+        this.eventLogWindow.style.height = width + 'px';
+        this.eventLogWindow.style.zIndex = 99;
 
         // Create a title bar for the window
         const titleBar = document.createElement('div');
@@ -77,25 +77,27 @@ class InoriUILibrary {
         titleBar.textContent = title;
 
         // Append the title bar to the container
-        this.logWindow.appendChild(titleBar);
+        this.eventLogWindow.appendChild(titleBar);
 
         // Append the container to the body or any other parent element
-        document.body.appendChild(this.logWindow);
+        document.body.appendChild(this.eventLogWindow);
 
-        this.logControlsContainer = document.createElement('div');
-        this.logControlsContainer.className = 'controls-container';
+        this.eventLogContainer = document.createElement('div');
+        this.eventLogContainer.className = 'controls-container';
 
-        this.logWindow.appendChild(this.logControlsContainer)
+        this.eventLogWindow.appendChild(this.eventLogContainer)
 
         // Make the DIV element draggable:
-        this.dragElement(this.logWindow, titleBar);
+        this.dragElement(this.eventLogWindow, titleBar);
 
-        const logWindow = this.logWindow;
+        const eventLogWindow = this.eventLogWindow;
 
         setTimeout(function() {
-            logWindow.style.top = window.innerHeight - (logWindow.offsetHeight + 10) + "px";
-            logWindow.style.display = 'none';
-            logWindow.style.opacity = '';
+            eventLogWindow.style.top = window.innerHeight - (eventLogWindow.offsetHeight + 10) + "px";
+            if (!autoShow){
+                eventLogWindow.classList.add("hidden")
+            }
+            eventLogWindow.style.opacity = '';
           }, 5);
         
     }
@@ -123,14 +125,10 @@ class InoriUILibrary {
         setTimeout(function() {
             watermark.style.left = window.innerWidth - (watermark.offsetWidth + 10) + "px";
             
-            if (autoShow){
-                watermark.style.display = 'flex';
-                watermark.style.opacity = '';
+            if (!autoShow){
+                watermark.classList.add("hidden")
             }
-            else{
-            watermark.style.display = 'none';
             watermark.style.opacity = '';
-            }
           }, 1000);
         
         
@@ -195,8 +193,8 @@ class InoriUILibrary {
         // Create a label element with the specified text and class
         const label = document.createElement('label');
         label.innerHTML = this.getCurrentTime() + "<span style='color:"+ logTypes[type] +"'>" + typeText +"</span>: "+text;
-        this.logControlsContainer.appendChild(label);
-        this.logControlsContainer.scrollTop = this.logControlsContainer.scrollHeight;
+        this.eventLogContainer.appendChild(label);
+        this.eventLogContainer.scrollTop = this.eventLogContainer.scrollHeight;
     }
 
     addLabel(text) {
@@ -240,7 +238,7 @@ class InoriUILibrary {
         this.controlsContainer.appendChild(textBoxContainer);
     }
 
-    addCheckbox(labelText, checkboxName, isChecked, onClick = function(){}) {
+    addCheckbox(labelText, checkboxName, isChecked = false, onClick = function(){}) {
         // Create a container for the checkbox and label
         const checkboxContainer = document.createElement('div');
         checkboxContainer.className = 'checkbox-container';

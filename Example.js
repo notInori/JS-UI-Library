@@ -88,7 +88,7 @@ exampleWindow.addDropdown('Options:', ['Option 1', 'Option 2', 'Option 3'], "Opt
 
 // Event Log Demo
 
-exampleWindow.createLogWindow(); // Creates an Event Log Window
+exampleWindow.createEventLogWindow(); // Creates an Event Log Window
 
 var eventLogType = undefined
 
@@ -100,7 +100,7 @@ exampleWindow.addDropdown('Log Type:', ['None', 'Warning', 'Error',], 'None', (s
 exampleWindow.addTextbox('Log Message:', 'Enter text');
 exampleWindow.addButton('Send Log', sendLog);
 exampleWindow.addButton('Clear Log', () => {
-    exampleWindow.logControlsContainer.innerHTML = "";
+    exampleWindow.eventLogContainer.innerHTML = "";
 });
 
 function sendLog(){
@@ -149,10 +149,10 @@ exampleWindow.addDropdown('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blue', '
 
 exampleWindow.addCheckbox('Show Event Log', 'flag5', false, (isChecked) => {
     if (isChecked){
-        exampleWindow.logWindow.style.display = '';
+        exampleWindow.eventLogWindow.classList.remove("hidden")
     }
     else{
-        exampleWindow.logWindow.style.display = 'none';
+        exampleWindow.eventLogWindow.classList.add("hidden");
     }
 });
 
@@ -164,10 +164,10 @@ exampleWindow.createWatermark('Inori JS UI Library | v1.0'); // Creates a waterm
 
 exampleWindow.addCheckbox('Watermark', 'flag6', false, (isChecked) => {
     if (isChecked){
-        exampleWindow.watermark.style.display = ''; // watermark can be referenced as window.watermark.
+        exampleWindow.watermark.classList.remove("hidden"); // watermark can be referenced as window.watermark.
     }                                                // might add .show function
     else{
-        exampleWindow.watermark.style.display = 'none';
+        exampleWindow.watermark.classList.add("hidden");
     }
 });
 
