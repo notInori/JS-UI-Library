@@ -216,7 +216,7 @@ class InoriUILibrary {
         this.controlsContainer.appendChild(button);
     }
 
-    addTextBox(label="" , placeholder = "") {
+    addTextbox(label="" , placeholder = "") {
         // Create an input field control and add it to the window
         const textBoxContainer = document.createElement('div');
         textBoxContainer.className = "textbox-container";

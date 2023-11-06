@@ -66,12 +66,12 @@ exampleWindow.addButton('Button 2', () => {
 exampleWindow.addSection('Textboxes')
 
 // These are text fields
-// window.addTextBox(label, hintText)
+// window.addTextbox(label, hintText)
 // label is optional and is the label shown for the textbox
 // hintText is optional and shows when the textbox is empty.
 // You can add a label with window.addLabel for a more traditional look which is done just before
 
-exampleWindow.addTextBox('This is an input field:', 'Enter text'); // Create a textbox with the label "This is an input field:" with the hint "Enter text"
+exampleWindow.addTextbox('This is an input field:', 'Enter text'); // Create a textbox with the label "This is an input field:" with the hint "Enter text"
 
 exampleWindow.addSection('Dropdowns')
 
@@ -97,7 +97,7 @@ exampleWindow.addDropdown('Log Type:', ['None', 'Warning', 'Error',], 'None', (s
     eventLogType = selectedOption == "None"? undefined : selectedOption;
 });
 
-exampleWindow.addTextBox('Log Message:', 'Enter text');
+exampleWindow.addTextbox('Log Message:', 'Enter text');
 exampleWindow.addButton('Send Log', sendLog);
 exampleWindow.addButton('Clear Log', () => {
     exampleWindow.logControlsContainer.innerHTML = "";
@@ -171,7 +171,7 @@ exampleWindow.addCheckbox('Watermark', 'flag6', false, (isChecked) => {
     }
 });
 
-exampleWindow.addTextBox(undefined,'Watermark Text');// Param 1 is optional hint text that is shown when the textbox is empty.
+exampleWindow.addTextbox(undefined,'Watermark Text');// Param 1 is optional hint text that is shown when the textbox is empty.
 
 setInterval(function(){
     const watermarkText = exampleWindow.controls[26][2].value != ""? exampleWindow.controls[26][2].value : exampleWindow.title
