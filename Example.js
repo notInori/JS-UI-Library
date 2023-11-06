@@ -187,7 +187,6 @@ exampleWindow.addDropdown("Watermark Alignment",["Left","Right"],"Right",(select
     else{
         exampleWindow.watermark.style.left = '10px';
     }
-    exampleWindow.log(exampleWindow.watermarkAlignment)
 })
 
 exampleWindow.addButton("Unload UI",exampleWindow.destroy)
