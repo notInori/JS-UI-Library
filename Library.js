@@ -77,7 +77,8 @@ class InoriUILibrary {
         this.eventLogWindow = document.createElement('div');
         this.eventLogWindow.style.opacity = '0';
 
-        this.eventLogWindow.className = 'Inori-UI-Library';
+        this.eventLogWindow.className = 'hidden';
+        this.eventLogWindow.classList.add('Inori-UI-Library');
         this.eventLogWindow.style.width = height + 'px';
         this.eventLogWindow.style.height = width + 'px';
         this.eventLogWindow.style.zIndex = 99;
@@ -105,8 +106,8 @@ class InoriUILibrary {
 
         setTimeout(function() {
             eventLogWindow.style.top = window.innerHeight - (eventLogWindow.offsetHeight + 10) + "px";
-            if (!autoShow){
-                eventLogWindow.classList.add("hidden")
+            if (autoShow){
+                eventLogWindow.classList.remove("hidden")
             }
             eventLogWindow.style.opacity = '';
           }, 5);
@@ -118,7 +119,8 @@ class InoriUILibrary {
         // Create the container element for the floating window
         this.watermark = document.createElement('div');
         this.watermark.style.opacity = 0;
-        this.watermark.className = 'Inori-UI-Library';
+        this.watermark.className = 'hidden';
+        this.watermark.classList.add('Inori-UI-Library');
         this.watermark.style.zIndex = 1000000000;
 
         this.watermarkAlignment = alignment;
@@ -146,10 +148,10 @@ class InoriUILibrary {
             watermark.style.left = 'unset';
             watermark.style.right = '10px';
         }
-        if (!autoShow){
-            watermark.classList.add("hidden")
+        if (autoShow){
+            watermark.classList.remove("hidden")
         }
-        watermark.style.opacity = '';
+        setTimeout(()=>{watermark.style.opacity = '';},5)
 
         // Make the DIV element draggable:
         this.dragElement(this.watermark,titleBar);
