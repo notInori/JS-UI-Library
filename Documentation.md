@@ -15,7 +15,7 @@
     - [Moving the watermark](#moving-the-watermark)
     - [Chaning the watermark](#changing-the-watermark)
 - [Event Log](#event-log)
-    - [Creating an Event Log](#creating-an-event-log)
+    - [Creating an Event Log Window](#creating-an-event-log-window)
 ## Variables
 
 ## Importing the UI Library
