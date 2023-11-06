@@ -24,6 +24,7 @@
     - [Creating a Log](#creating-a-log)
     - [Type of Logs](#types-of-logs)
     - [Clearing the Event Log](#clearing-the-event-log)
+- [Destroying the UI](#destroying-the-ui)
 
 ## Global Variables
 |                          | Type            | Functions                                             | Usage                                                                                                                       |
@@ -35,17 +36,18 @@
 | window.eventLogContainer | HTML Object     |                                                       | Object for Event Log Window Logs                                                                                            |
 | window.controls          | Object List     |                                                       | Contains references to all controls in main window.                                                                         |
 | window.watermark         | HTML Object     |                                                       | Object for watermark                                                                                                        |
-## Functions
 
-| Function                 | Purpose                                          | Usage                                     |
-|--------------------------|--------------------------------------------------|-------------------------------------------|
-| window.createWindow()    | Creates the main window for the UI Library.      |                                           |
-| window.createEventLogWindow() | Creates the event log window for the UI Library. |                                           |
-| window.createWatermark() | Creates the watermark for the UI Library.        | window.createWatermark(text,autoShow)     |
-| window.dragElement()     | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle) |
-| window.show()            | Shows/Hides the main window.                     |                                           |
-| window.log()             | Creates a log entry in the Event Log.            | window.log(Message,logType)               |
-| window.getCurrentTime()  | Returns the current time in the format HH:MM:SS  |                                           |
+## Functions
+| Function                      | Purpose                                          | Usage                                     |
+|-------------------------------|--------------------------------------------------|-------------------------------------------|
+| window.createWindow()         | Creates the main window for the UI Library.      | window.createWindow()                     |
+| window.createEventLogWindow() | Creates the event log window for the UI Library. | window.createEventLogWindow()             |
+| window.createWatermark()      | Creates the watermark for the UI Library.        | window.createWatermark(text,autoShow)     |
+| window.dragElement()          | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle) |
+| window.show()                 | Shows/Hides the main window.                     | window.show()                             |
+| window.log()                  | Creates a log entry in the Event Log.            | window.log(Message,logType)               |
+| window.getCurrentTime()       | Returns the current time in the format HH:MM:SS  | window.getCurrentTime()                   |
+| window.destroy                | Destroys all UI                                  | window.destroy()                          |
 
 ## Importing the UI Library
 Firstly, to create a new UI Class instance you must import the UI library. It is recommended that you download a copy of [Library.js](https://github.com/notInori/JS-UI-Library/blob/main/Library.js) and host it alongside your website.
@@ -288,3 +290,10 @@ To clear the Event Log we can simple just set the `.innerHTML` of the `window.ev
 ```js
 window.eventLogContainer.innerHTML = "";
 ```
+
+## Destroying the UI
+If you want to completely remove the UI you can use:
+```js
+window.destroy()
+```
+This will remove every window including the main menu, event log and the watermark. However, the module script that was used to load the UI will remain and has to be removed by a seperate script.
