@@ -1,7 +1,8 @@
 # Inori JS UI Library Documentation
 
 ## Contents
-- [Installation](#Variables)
+- [Variables](##Variables)
+- [Importing the UI Library](##Importing the UI Library)
 
 ## Variables
 
