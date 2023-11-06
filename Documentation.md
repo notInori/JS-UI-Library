@@ -7,7 +7,7 @@
     - [Constructor](#constructor)
 - [Creating a Window](#creating-a-window)
 - [Binding Show Menu Key](#binding-show-menu-key)
-- [Window Controls]
+- [Window Controls](#window-controls)
     - [Adding Controls](#adding-controls)
     - [Removing Controls](#removing-controls)
 - [Watermarks](#watermarks)
