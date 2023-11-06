@@ -3,6 +3,8 @@
 ## Contents
 - [Variables](#Variables)
 - [Importing the UI Library](#importing-the-ui-library)
+- [Creating a UI Class Instance](#creating-a-ui-class-instance)
+    - [Constructor](#constructor)
 
 ## Variables
 
