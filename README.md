@@ -11,14 +11,11 @@ But you're here soo :3
 
 ## Screenshots
 ### Example Menu
-![Screenshot of Menu](https://github.com/notInori/JS-UI-Library/assets/124441402/89ff7d9d-3d9d-4c1a-adad-e9e83e0a7124)
-
+![Scrrenshot of Menu](https://github.com/notInori/JS-UI-Library/assets/124441402/3626c13d-248f-44cf-be60-630e07449b1b)
 ### Event Log
-![Screenshot of Event Log](https://github.com/notInori/JS-UI-Library/assets/124441402/e41ca384-e88b-443b-b5a5-6575da46a28b)
-
+![Screenshot of Event Log](https://github.com/notInori/JS-UI-Library/assets/124441402/869da6ca-f288-4a75-b8ae-c5a6b8a592a6)
 ### Watermark
-![Screenshot of Watermark](https://github.com/notInori/JS-UI-Library/assets/124441402/2ef4358e-1b64-4865-bc2b-620eee668258)
-
+![Screenshot of Watermark](https://github.com/notInori/JS-UI-Library/assets/124441402/b24122dd-9095-49e1-a90d-677120e79155)
 
 ## Example
 [Example Repl](https://js-ui-library.notinori.repl.co)  
