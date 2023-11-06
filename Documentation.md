@@ -5,7 +5,16 @@
 - [Importing the UI Library](#importing-the-ui-library)
 - [Creating a UI Class Instance](#creating-a-ui-class-instance)
     - [Constructor](#constructor)
-
+- [Creating a Window](#creating-a-window)
+- [Binding Show Menu Key](#binding-show-menu-key)
+- [Window Controls]
+    - [Adding Controls](#adding-controls)
+    - [Removing Controls](#removing-controls)
+- [Watermarks](#watermarks)
+- [Creating a watermark](#creating-a-watermark)
+- [Moving the watermark](#moving-the-watermark)
+- [Chaning the watermark](#changing-the-watermark)
+- [Event Log](#event-log) 
 ## Variables
 
 ## Importing the UI Library
@@ -37,7 +46,7 @@ const window = new InoriUILibrary(titleName, width, height, autoShow)
 To create a window we simple use the `window.createWindow()` function.
 This will create the main menu window. It will only show automatically if the autoShow flag is set to true. If not it is recommended to bind a show key.
 
-## Show Menu Key
+## Binding Show Menu Key
 To bind a key to show the menu we can use the `window.show()` function which went invoked shows or hides the menu depending on whether it is visible.
 We can add a `keydown` eventListener to bind a key to this function.  
 
