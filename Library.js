@@ -65,7 +65,7 @@ class InoriUILibrary {
         
     }
 
-    createLogWindow(height = 300,width = 300) {
+    createLogWindow(title = "Event Log", width = 300,height = 300, autoShow=False) {
         // Create the container element for the floating window
         this.logWindow = document.createElement('div');
         this.logWindow.style.opacity = '0';
@@ -78,7 +78,7 @@ class InoriUILibrary {
         // Create a title bar for the window
         const titleBar = document.createElement('div');
         titleBar.className = 'title-bar';
-        titleBar.textContent = 'Event Log';
+        titleBar.textContent = title;
 
         // Append the title bar to the container
         this.logWindow.appendChild(titleBar);
