@@ -63,6 +63,15 @@ class InoriUILibrary {
         setTimeout(function() {container.style.opacity = '';}, 10);
     }
 
+    bindMenuKey(key = ""){
+        const container = this
+        document.addEventListener('keydown', function(event) {  
+            if (event.key == key) {  
+                container.show()  
+            }
+        });
+    }
+
     createEventLogWindow(title = "Event Log", width = 300,height = 300, autoShow=false) {
         // Create the container element for the floating window
         this.eventLogWindow = document.createElement('div');
@@ -148,6 +157,25 @@ class InoriUILibrary {
         this.dragElement(this.watermark,titleBar);
     }
 
+    changeWatermarkAlignment(alignment = 'auto'){
+        this.watermark.style = 'left: unset; right: unset;';
+        if (alignment == 'auto'){
+        this.watermarkAlignment = this.watermarkAlignment == 'right'? 'left' : 'right';
+        this.style.right = this.watermarkAlignment == 'right' ? '10px' : 'unset';
+        }
+        else if (alignment == 'left'){
+            this.watermarkAlignment = 'left';
+        }
+        else{
+            this.watermarkAlignment = 'right'
+            this.watermark.style.right = '10px'
+        }
+    }
+
+    changeWatermarkText(text = ""){
+        this.watermark.firstChild.innerHTML(text)
+    }
+
     dragElement(elmnt,titleBar) {
         var pos1 = 0,
             pos2 = 0,
@@ -182,12 +210,9 @@ class InoriUILibrary {
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             if (elmnt == watermark && watermarkAlignment == 'right'){
                 elmnt.style.right = window.innerWidth - (elmnt.offsetLeft - pos1) - elmnt.offsetWidth + "px";
-
             }
             else{
                 elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-
-                // elmnt.style.left = 'unset';
             }
             
         }
