@@ -1,4 +1,4 @@
-# Inori JS UI Library
+# Inori JS UI Library Documentation
 
 ## Contents
 
@@ -35,13 +35,13 @@ We can add a `keydown` eventListener to bind a key to this function.
 For example:
 ```
 document.addEventListener('keydown', function(event) {  
-    if (event.key === 'Key') {  
+    if (event.key === 'Escape') {  
       window.show()  
     }
 });
 ```
 
-Replace `'Key'` with the key that you want to bind the menu to.
+Replace `'Escape'` with the key that you want to bind the menu to.
 
 ## Window Controls
 
