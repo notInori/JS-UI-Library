@@ -263,7 +263,7 @@ window.createEventLogWindow(title, width, height, autoShow)
 ### Creating a Log
 To create a log you can use this `window.log()` function.
 
-Log message are displayed in the format of.
+Log messages are displayed in the format of.
 ```
 [Time in format HH:MM:SS] [Optional Log Type] : [Log Message]
 ```
