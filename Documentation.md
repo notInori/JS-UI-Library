@@ -97,14 +97,14 @@ Replace `'Escape'` with the key that you want to bind the menu to.
 
 ### Types of Controls
 
-| Type of Control | Function      | Parameters                           |
-|-----------------|---------------|--------------------------------------|
-| Label           | addLabel()    | text                                 |
-| Button          | addButton()   | text,onClick                         |
-| Textbox         | addTextBox()  | label,placeholder                    |
-| Checkbox        | addCheckbox() | label,checkboxName,isChecked,onClick |
-| Section         | addSection()  | text                                 |
-| Dropdown        | addDropDown   | text,options,firstOption,onSelect    |
+| Type of Control | Function      | Parameters                              |
+|-----------------|---------------|-----------------------------------------|
+| Label           | addLabel()    | text                                    |
+| Button          | addButton()   | text, onClick                           |
+| Textbox         | addTextBox()  | label, placeholder                      |
+| Checkbox        | addCheckbox() | label, checkboxName, isChecked, onClick |
+| Section         | addSection()  | text                                    |
+| Dropdown        | addDropDown   | text, options, firstOption, onSelect    |
 
 #### Labels
 ```js
