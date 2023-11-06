@@ -11,10 +11,11 @@
     - [Adding Controls](#adding-controls)
     - [Removing Controls](#removing-controls)
 - [Watermarks](#watermarks)
-- [Creating a watermark](#creating-a-watermark)
-- [Moving the watermark](#moving-the-watermark)
-- [Chaning the watermark](#changing-the-watermark)
-- [Event Log](#event-log) 
+    - [Creating a watermark](#creating-a-watermark)
+    - [Moving the watermark](#moving-the-watermark)
+    - [Chaning the watermark](#changing-the-watermark)
+- [Event Log](#event-log)
+    - [Creating an Event Log](#creating-an-event-log)
 ## Variables
 
 ## Importing the UI Library
