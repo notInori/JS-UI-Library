@@ -9,15 +9,20 @@
 - [Creating a Window](#creating-a-window)
 - [Binding Show Menu Key](#binding-show-menu-key)
 - [Window Controls](#window-controls)
+    - [Types of Controls](#types-of-controls)
     - [Adding Controls](#adding-controls)
     - [Removing Controls](#removing-controls)
+- [Showing and Hiding Windows](#showing-and-hiding-windows)
 - [Watermarks](#watermarks)
+    - [Referencing the watermark](#referencing-the-watermark)
     - [Creating a watermark](#creating-a-watermark)
     - [Moving the watermark](#moving-the-watermark)
-    - [Chaning the watermark](#changing-the-watermark)
+    - [Changing the watermark](#changing-the-watermark)
 - [Event Log](#event-log)
     - [Creating an Event Log Window](#creating-an-event-log-window)  
+    - [Creating a Log](#creating-a-log)
     - [Type of Logs](#types-of-logs)
+    - [Clearing the Event Log](#clearing-the-event-log)
 
 ## Global Variables
 |                          | Type            | Functions                                             | Usage                                                                                                                       |
@@ -173,6 +178,25 @@ For controls that have multiple elements and use a object list in the controls i
 ```js
 window.controls[index][0].style.display = 'none'
 ```
+
+### Referencing Controls
+All controls are added to a global object list called `window.controls`. To reference a control you can do `window.controls[index]`. To get the index of a control you can run `console.log(window.controls)` at the end of a script.
+
+#### Special Controls
+Some controls are made of multiple componenets. When these are referenced through controls it will provide you with another object list.  
+So far this includes:
+- checkboxes
+- textboxes
+- dropdowns
+
+When you access these controls with an index you are given another object list.
+
+| Index | Control         | Control Type                         | Usage                                       |
+|-------|-----------------|--------------------------------------|---------------------------------------------|
+| 0     | Parent HTML DIV | HTML DIV                             | Returns the HTML DIV Container for Controls |
+| 1     | Label           | Text Label                           | Returns the label                           |
+| 2     | Input           | checkmark/ input field/ dropdown box | Return the input of the control             |
+
 
 ## Showing and Hiding Windows
 
