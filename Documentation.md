@@ -33,9 +33,9 @@
 | window                   | UI Class Object | .createWindow<br>.createLogWindow<br>.createWatermark | .title = window title<br>.height = height of window<br>.width = width of window<br>.autoShow = shows the window when loaded |
 | window.container         | HTML Object     |                                                       | Object for UI Window                                                                                                        |
 | window.controlsContainer | HTML Object     |                                                       | Object for Window Controls                                                                                                  |
+| window.controls          | Object List     |                                                       | Contains references to all controls in main window                                                                         |
 | window.eventLogWindow    | HTML Object     |                                                       | Object for Event Log Window                                                                                                 |
 | window.eventLogContainer | HTML Object     |                                                       | Object for Event Log Window Logs                                                                                            |
-| window.controls          | Object List     |                                                       | Contains references to all controls in main window                                                                         |
 | window.watermark         | HTML Object     |                                                       | Object for watermark                                                                                                        |  
 |window.watermarkAlignment | String          |                                                       | Sets the text alignment of the watermark. Can be set 'left' or
 
@@ -48,7 +48,7 @@
 | window.changeWatermarkText()      | Changes the text of the watermark                | window.changeWatermarkText(text)           |
 | window.changeWatermarkAlignment() | Changes the watermark alignment.                 | window.changeWatermarkAlignment(alignment) |
 | window.dragElement()              | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle)  |
-| window.show()                     | Shows/Hides the main window.                     | window.show()                              |
+| window.show()                     | Shows/Hides UI Windows                           | window.show(targetWindow,visible)       |
 | window.log()                      | Creates a log entry in the Event Log.            | window.log(Message,logType)                |
 | window.getCurrentTime()           | Returns the current time in the format HH:MM:SS  | window.getCurrentTime()                    |
 | window.bindMenuKey()              | Binds a key for showing/hiding the menu          | window.bindMenuKey(key)                    |
@@ -213,21 +213,19 @@ When you access these controls with an index you are given another object list.
 
 ## Showing and Hiding Windows
 
-The `window.show()` function can be used to show/hide the main window.  
-The other windows do not have this function, however the can still be hidden and shown by adding and removing the CSS class `.hidden`. 
+The `window.show()` function can be used to show/hide the main window.
+It can also be used to show/hide other windows too by passing them as a paramater.
 
-### Hiding Windows
-
+#### Function
 ```js
-window.classList.add('hidden')
+window.show(targetWindow, visible)
 ```
 
-### Showing Windows
-```js
-window.classList.remove('hidden')
-```
+#### Arguments
 
-This can be done with both the watermark and the eventlog by referencing them instead. The watermark can be referenced by `window.watermark` and the event log as `window.eventLogWindow`.
+`window`(optional) - This can be set an UI Window Object. When left blank it targets the main UI window. For example, `window.eventLogWindow` and `window.watermark` can be passed as parameters here.  
+`visible`(optional) - This can set to `true`, `false` or `'auto'`. Leaving it undefined will set it to `'auto'` which switches the visible state the opposite of what it is currently is. i.e `true` gets turned into `false`.
+
 
 ## Watermarks
 
@@ -271,7 +269,7 @@ The recommended way of changing the alignment of the watermark is by using the `
 window.changeWatermarkAlignment(alignment)
 ```
 ##### Arguments
-`alignment`(optional) - This can be set to `left`, `right` or `auto`. It defaults to auto which switches to the opposite of it's current alignment. i.e if `window.watermarkAlignment` is `left` it will be changed to `right`.
+`alignment`(optional) - This can be set to `'left'`, `'right'` or `'auto'`. It defaults to auto which switches to the opposite of it's current alignment. i.e if `window.watermarkAlignment` is `'left'` it will be changed to `'right'`.
 
 #### Direct
 To change the alignment of the watermark without repositioning it you can directly change the `window.watermarkAlignment` property. It can be set to `left` or `right`.
