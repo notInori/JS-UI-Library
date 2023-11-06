@@ -220,13 +220,28 @@ class InoriUILibrary {
         this.controlsContainer.appendChild(button);
     }
 
-    addTextBox(placeholder = "") {
+    addTextBox(label="" , placeholder = "") {
         // Create an input field control and add it to the window
+        const textBoxContainer = document.createElement('div');
+        textBoxContainer.className = "textbox-container";
+        const textBoxLabel = document.createElement('label');
+        textBoxLabel
+        if (label != ""){
+            textBoxLabel.textContent = label;
+        }
+        else{
+            textBoxLabel.style.display = 'none';
+        }
+
         const inputField = document.createElement('input');
         inputField.setAttribute('type', 'text');
         inputField.setAttribute('placeholder', placeholder);
-        this.controls.push(inputField);
-        this.controlsContainer.appendChild(inputField);
+
+        textBoxContainer.append(textBoxLabel)
+        textBoxContainer.append(inputField)
+
+        this.controls.push([textBoxContainer, textBoxLabel, inputField]);
+        this.controlsContainer.appendChild(textBoxContainer);
     }
 
     addCheckbox(labelText, checkboxName, isChecked, onClick = function(){}) {
@@ -255,8 +270,7 @@ class InoriUILibrary {
         });
 
         // Add the container to the controls array and append it to the window
-        this.controls.push(checkbox);
-        this.controls.push(label)
+        this.controls.push([checkboxContainer,checkbox,label]);
         this.controlsContainer.appendChild(checkboxContainer);
     }
 
@@ -286,17 +300,21 @@ class InoriUILibrary {
         this.controlsContainer.appendChild(dividerContainer);
     }
 
-    addDropdown(label, options, firstOption="", onSelect) {
+    addDropdown(label="", options=[""], firstOption="Choose an option", onSelect = function(){}) {
         // Create a container for the custom dropdown
         const dropdownContainer = document.createElement('div');
         dropdownContainer.className = 'dropdown';
 
         // Create a label for the dropdown
-        if (label != ""){
         const dropdownLabel = document.createElement('label');
+        if (label !=""){
         dropdownLabel.textContent = label;
-        dropdownContainer.appendChild(dropdownLabel);
         }
+        else{
+            dropdownLabel.style.display = 'none';
+        }
+
+        dropdownContainer.appendChild(dropdownLabel);
 
         // Create a button to trigger the custom dropdown
         const dropdownButton = document.createElement('button');
@@ -332,7 +350,7 @@ class InoriUILibrary {
         dropdownContainer.appendChild(dropdownOptions);
 
         // Add the custom dropdown container to the controls array and the window
-        this.controls.push(dropdownContainer);
+        this.controls.push([dropdownContainer,dropdownLabel,dropdownButton]);
         this.controlsContainer.appendChild(dropdownContainer);
     }
 

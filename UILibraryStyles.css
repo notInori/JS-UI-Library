@@ -84,6 +84,8 @@ label{
     outline: none;
     padding: 2px 4px;
     border-radius: 0px;
+    box-sizing: border-box;
+    width:100%;
     
 }
 
@@ -151,13 +153,13 @@ background-color: var(--button-pressed-color);
     border-color: var(--outline-color);
     margin-bottom: 4px;
 }
-.dropdown label, .dropdown button{
+.dropdown label, .dropdown button, .textbox-container label{
     display: inline-block;
     width:100%;
     text-align: left;
 }
 
-.dropdown label{
+.dropdown label, .textbox-container label{
     margin-bottom: 2px;
 }
 .dropdown button:active{

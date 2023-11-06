@@ -97,19 +97,18 @@ exampleWindow.addDropdown('Log Type:', ['None', 'Warning', 'Error',], 'None', (s
     eventLogType = selectedOption == "None"? undefined : selectedOption;
 });
 
-exampleWindow.addLabel('Log Message:');
-exampleWindow.addTextBox('Enter text');
+exampleWindow.addTextBox('Log Message:', 'Enter text');
 exampleWindow.addButton('Send Log', sendLog);
 exampleWindow.addButton('Clear Log', () => {
     exampleWindow.logControlsContainer.innerHTML = "";
 });
 
 function sendLog(){
-    if (exampleWindow.controls[22].value != ""){
+    if (exampleWindow.controls[18][2].value != ""){
         // window.log(text, warningType)
         // warningType is optional and produced a normal log when undefined.
         // supported warningTypes include Warning and Error
-        exampleWindow.log(exampleWindow.controls[22].value, eventLogType); 
+        exampleWindow.log(exampleWindow.controls[18][2].value, eventLogType); 
     }
     else{
         exampleWindow.log("Log text content missing!", 'Error')  // Example of error thrown. We have set it to throw an eror if the user tries to print a log without a message.
@@ -126,7 +125,7 @@ console.log(exampleWindow.controls) // Object list of all controls in UI
 // Use exampleWindow.controls[index] to reference the object you want to access
 
 // Example of setting a onclick event after declaration.
-exampleWindow.controls[26].addEventListener('click', (event) =>{
+exampleWindow.controls[22][1].addEventListener('click', (event) =>{
 if (event.target.checked){
     exampleWindow.container.style.background = "url('https://i.pinimg.com/originals/80/07/89/8007897740592f98baabd85f2b6b806e.jpg') center center / cover no-repeat";
     exampleWindow.controlsContainer.style.background = '#00000040';
@@ -140,6 +139,7 @@ exampleWindow.log("Astolfo Background set to "+event.target.checked)
 
 // Settings Section
 exampleWindow.addSection('Settings')
+
 exampleWindow.addDropdown('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blue', 'Pink', 'Purple'], "Pink", (selectedOption) => {
     const elements = document.querySelectorAll('.Inori-UI-Library'); // All window instances are isolated and therefore the accent color must be changed for each window individually
     elements.forEach(function(element) {
@@ -174,7 +174,7 @@ exampleWindow.addCheckbox('Watermark', 'flag6', false, (isChecked) => {
 exampleWindow.addTextBox('Watermark Text');// Param 1 is optional hint text that is shown when the textbox is empty.
 
 setInterval(function(){
-    const watermarkText = exampleWindow.controls[34].value != ""? exampleWindow.controls[34].value : exampleWindow.title
+    const watermarkText = exampleWindow.controls[27][2].value != ""? exampleWindow.controls[27][2].value : exampleWindow.title
     exampleWindow.watermark.firstChild.innerHTML = watermarkText + " | v1.0 | " + exampleWindow.getCurrentTime();
 })
 
