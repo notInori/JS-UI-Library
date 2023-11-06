@@ -170,7 +170,6 @@ setInterval(function(){
 
 exampleWindow.addDropdown("Watermark Alignment",["Left","Right"],"Right",(selectedOption) => {
     exampleWindow.changeWatermarkAlignment(selectedOption.toLowerCase());
-
 })
 
 exampleWindow.addButton("Unload UI",exampleWindow.destroy)
@@ -179,5 +178,3 @@ console.log(exampleWindow.controls) // Object list of all controls in UI
 
 // --- Setup A Key To Open/Close Menu
 exampleWindow.bindMenuKey('Escape')
-
-exampleWindow.addButton("Show Event Log",() => {exampleWindow.show(exampleWindow.eventLogWindow)})
