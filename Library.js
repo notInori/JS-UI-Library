@@ -150,8 +150,6 @@ class InoriUILibrary {
             watermark.classList.add("hidden")
         }
         watermark.style.opacity = '';
-     
-        
 
         // Make the DIV element draggable:
         this.dragElement(this.watermark,titleBar);
@@ -173,7 +171,7 @@ class InoriUILibrary {
     }
 
     changeWatermarkText(text = ""){
-        this.watermark.firstChild.innerHTML(text)
+        this.watermark.firstChild.innerHTML = text;
     }
 
     dragElement(elmnt,titleBar) {
@@ -224,14 +222,17 @@ class InoriUILibrary {
         }
     }
 
-    show(){
-        if (this.container.classList.contains('hidden')){
-            this.container.classList.remove('hidden')
+    show(targetWindow=this.container, visibile='auto'){
+        if (visibile == 'auto'){
+            targetWindow.classList.toggle('hidden');
+        }
+        else if (visibile == false){
+            targetWindow.classList.add('hidden');
         }
         else{
-            this.container.classList.add('hidden');
-
+            targetWindow.classList.remove('hidden')
         }
+        
     }
 
     log(text, type="") {
