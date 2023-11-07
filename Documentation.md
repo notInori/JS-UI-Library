@@ -31,6 +31,8 @@
 |                          | Type            | Functions                                             | Usage                                                                                                                       |
 |--------------------------|-----------------|-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | window                   | UI Class Object | .createWindow<br>.createLogWindow<br>.createWatermark | .title = window title<br>.height = height of window<br>.width = width of window<br>.autoShow = shows the window when loaded |
+| window.shadowDOMContainer | HTML Object    |                                                       | HTML Object that contains the shadow DOM.
+| window.shadowRoot        | HTML Shadow DOM |                                                       | HTML Shadow Root for UI Library
 | window.container         | HTML Object     |                                                       | Object for UI Window                                                                                                        |
 | window.controlsContainer | HTML Object     |                                                       | Object for Window Controls                                                                                                  |
 | window.controls          | Object List     |                                                       | Contains references to all controls in main window                                                                         |
@@ -65,7 +67,7 @@ Replace the path at the end with the one for your copy.
 
 ## Creating A UI Class Instance
 
-To create a new UI Library instance you use the class constuctor like this.
+Before you can create a GUI you must create an instance of the UI Library class. You can do this with the class constructor.  
 We will be using `window` as the name of your object for storing an instance of the UI Library class.
 
 ### Constructor
@@ -78,6 +80,9 @@ const window = new InoriUILibrary(titleName, width, height, autoShow)
 `height` - Sets the height of the window.  
 `autoShow`(optional) - Whether the watermark should be displayed when it's created. Set to `True` by default.
 
+This also creates a shadow DOM which is used to isolate the CSS for the UI Library from any website you want to use the UI Library inside of. The object reference for the root of this shadow DOM is `window.shadowRoot`. The object reference for the shadow DOM container div is `window.shadowDOMContainer`.  
+
+These will rarely be used as the UI library provides methods of accessing all controls in the UI.
 
 ## Creating a Window
 To create a window we simple use the `window.createWindow()` function.
