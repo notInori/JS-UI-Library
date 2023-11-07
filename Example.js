@@ -172,7 +172,9 @@ exampleWindow.addDropdown("Watermark Alignment",["Left","Right"],"Right",(select
     exampleWindow.changeWatermarkAlignment(selectedOption.toLowerCase());
 })
 
-exampleWindow.addButton("Unload UI",exampleWindow.destroy)
+exampleWindow.addButton("Unload UI",() => {
+    exampleWindow.destroy();
+})
 
 console.log(exampleWindow.controls) // Object list of all controls in UI
 

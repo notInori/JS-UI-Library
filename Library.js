@@ -9,7 +9,7 @@ link.href = 'UILibraryStyles.css'; // Replace with the path to your CSS file
 // Append the link element to the head of the document
 document.head.appendChild(link);
 
-class InoriUILibrary {
+class InoriUILibrary{
     constructor(title, width, height, autoShow = true) {
         this.title = title;
         this.width = width;
@@ -23,7 +23,7 @@ class InoriUILibrary {
         this.watermark = null;
         this.watermarkAlignment = 'right';
         this.shadowDOMContainer = document.createElement('div');
-        this.shadowRoot = this.shadowDOMContainer.attachShadow({ mode: 'closed' });
+        this.shadowRoot = this.shadowDOMContainer.attachShadow({ mode: 'open' });
         // Create a link element
         var link = document.createElement('link');
 
@@ -36,6 +36,7 @@ class InoriUILibrary {
         this.shadowRoot.appendChild(link);
         
         document.body.appendChild(this.shadowDOMContainer);
+        console.log(this.shadowRoot)
         
     }
 
@@ -331,6 +332,7 @@ class InoriUILibrary {
         // Add the container to the controls array and append it to the window
         this.controls.push([checkboxContainer,label,checkbox]);
         this.controlsContainer.appendChild(checkboxContainer);
+
     }
 
     addSection(text) {
@@ -422,11 +424,9 @@ class InoriUILibrary {
     }
     
     destroy(){
-        const UIWindows = document.querySelectorAll(".Inori-UI-Library");
-        UIWindows.forEach((window) =>{
-            window.parentElement.removeChild(window);
-        })
+        this.shadowDOMContainer.remove()
     }
+
 }
 
 export default InoriUILibrary;
