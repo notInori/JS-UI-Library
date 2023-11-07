@@ -74,7 +74,7 @@ class InoriUILibrary{
         if (this.autoShow){
             container.classList.remove("hidden")
         }
-        setTimeout(function() {container.style.opacity = '';}, 10);
+        setTimeout(function() {container.style.opacity = '';}, 500);
     }
 
     bindMenuKey(key = ""){
@@ -124,7 +124,7 @@ class InoriUILibrary{
                 eventLogWindow.classList.remove("hidden")
             }
             eventLogWindow.style.opacity = '';
-          }, 5);
+          }, 500);
         
     }
     
@@ -166,7 +166,7 @@ class InoriUILibrary{
         if (autoShow){
             watermark.classList.remove("hidden")
         }
-        setTimeout(()=>{watermark.style.opacity = '';},5)
+        setTimeout(()=>{watermark.style.opacity = '';},500)
 
         // Make the DIV element draggable:
         this.dragElement(this.watermark,titleBar);
