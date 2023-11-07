@@ -378,3 +378,16 @@ If you want to completely remove the UI you can use:
 window.destroy()
 ```
 This will remove every window including the main menu, event log and the watermark. However, the module script that was used to load the UI will remain and has to be removed by a seperate script.
+
+### Issues
+Due to the use of a shadow DOM to protect the UI, the function can be unreliable. The recommended way of using this function is with an arrow function.  
+
+Here is an example of it being used with a button:
+
+#### Function
+
+```js
+window.addButton("Unload UI", () => {
+    window.destroy();
+});
+```
