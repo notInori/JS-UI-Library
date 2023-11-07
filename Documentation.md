@@ -14,6 +14,9 @@
     - [Removing Controls](#removing-controls)
     - [Referencing Controls](#referencing-controls)
 - [Showing and Hiding Windows](#showing-and-hiding-windows)
+- [Extra Library Functions](#extra-library-functions)
+    - [dragElement()](#dragelement)
+    - [getCurrentTime()](#getcurrenttime)
 - [Watermarks](#watermarks)
     - [Referencing the watermark](#referencing-the-watermark)
     - [Creating a watermark](#creating-a-watermark)
@@ -42,24 +45,26 @@
 |window.watermarkAlignment | String          |                                                       | Sets the text alignment of the watermark. Can be set 'left', 'right', or 'auto'
 
 ## Functions
-| Function                          | Purpose                                          | Usage                                      |
-|-----------------------------------|--------------------------------------------------|--------------------------------------------|
-| window.createWindow()             | Creates the main window for the UI Library.      | window.createWindow()                      |
-| window.createEventLogWindow()     | Creates the event log window for the UI Library. | window.createEventLogWindow()              |
-| window.createWatermark()          | Creates the watermark for the UI Library.        | window.createWatermark(text,autoShow)      |  
-| window.changeWatermarkText()      | Changes the text of the watermark                | window.changeWatermarkText(text)           |
-| window.changeWatermarkAlignment() | Changes the watermark alignment.                 | window.changeWatermarkAlignment(alignment) |
-| window.dragElement()              | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle)  |
-| window.show()                     | Shows/Hides UI Windows                           | window.show(targetWindow,visible)       |
-| window.log()                      | Creates a log entry in the Event Log.            | window.log(Message,logType)                |
-| window.getCurrentTime()           | Returns the current time in the format HH:MM:SS  | window.getCurrentTime()                    |
-| window.bindMenuKey()              | Binds a key for showing/hiding the menu          | window.bindMenuKey(key)                    |
-| window.destroy                    | Destroys all UI                                  | window.destroy()                           |
+| Function                                                                          | Purpose                                          | Usage                                      |
+|-----------------------------------------------------------------------------------|--------------------------------------------------|--------------------------------------------|
+| [window.createWindow()](#creating-a-window)                                       | Creates the main window for the UI Library.      | window.createWindow()                      |
+| [window.createEventLogWindow()](#creating-an-event-log-window)                    | Creates the event log window for the UI Library. | window.createEventLogWindow()              |
+| [window.createWatermark()](#creating-a-watermark)                                 | Creates the watermark for the UI Library.        | window.createWatermark(text,autoShow)      |  
+| [window.changeWatermarkText()](#changing-the-watermark-text)                      | Changes the text of the watermark                | window.changeWatermarkText(text)           |
+| [window.changeWatermarkAlignment()](#changing-watermark-alignment-after-creation) | Changes the watermark alignment.                 | window.changeWatermarkAlignment(alignment) |
+| window.dragElement()                                                              | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle)  |
+| [window.show()](#showing-and-hiding-windows)                                      | Shows/Hides UI Windows                           | window.show(targetWindow,visible)          |
+| [window.log()](#creating-a-log)                                                   | Creates a log entry in the Event Log.            | window.log(Message,logType)                |
+| window.getCurrentTime()                                                           | Returns the current time in the format HH:MM:SS  | window.getCurrentTime()                    |
+| [window.bindMenuKey()](#binding-show-menu-key)                                    | Binds a key for showing/hiding the menu          | window.bindMenuKey(key)                    |
+| [window.destroy](#destroying-the-ui)                                              | Destroys all UI                                  | window.destroy()                           |
 
 ## Importing the UI Library
 Firstly, to create a new UI Class instance you must import the UI library. It is recommended that you download a copy of [Library.js](https://github.com/notInori/JS-UI-Library/blob/main/Library.js) and host it alongside your website.
 
-Then at the start of your script import the library like this:  
+Then at the start of your script import the library using an import statement like this:
+
+#### Function
 ```js
  import InoriUILibrary from './Library.js';
  ```  
@@ -88,6 +93,11 @@ These will rarely be used as the UI library provides methods of accessing all co
 To create a window we simple use the `window.createWindow()` function.
 This will create the main menu window. It will only show automatically if the autoShow flag is set to true. If not it is recommended to bind a show key.
 
+#### Function
+```js
+window.createWindow()
+```
+
 ## Binding Show Menu Key
 We can bind a key to show/hide the menu with the `window.bindMenuKey()` function. This is recommnded if you have set the `window.autoShow` property to `false` as it is needed to be able to be able open the menu.
 
@@ -106,16 +116,16 @@ If you need to find the proper key value for a key. They are all listed [here](h
 
 ### Types of Controls
 
-| Type of Control | Function      | Parameters                              |
-|-----------------|---------------|-----------------------------------------|
-| Label           | addLabel()    | text                                    |
-| Button          | addButton()   | text, onClick                           |
-| Textbox         | addTextBox()  | label, placeholder                      |
-| Checkbox        | addCheckbox() | label, checkboxName, isChecked, onClick |
-| Section         | addSection()  | text                                    |
-| Dropdown        | addDropDown   | text, options, firstOption, onSelect    |
+| Type of Control       | Function      | Parameters                              |
+|-----------------------|---------------|-----------------------------------------|
+| [Label](#label)       | addLabel()    | text                                    |
+| [Button](#button)     | addButton()   | text, onClick                           |
+| [Textbox](#textbox)   | addTextBox()  | label, placeholder                      |
+| [Checkbox](#checkbox) | addCheckbox() | label, checkboxName, isChecked, onClick |
+| [Section](#section)   | addSection()  | text                                    |
+| [Dropdown](#dropdown) | addDropDown   | text, options, firstOption, onSelect    |
 
-#### Labels
+#### Label
 ##### Function
 ```js
 window.addLabel(text)
@@ -123,7 +133,7 @@ window.addLabel(text)
 ##### Arguments
 `text` - Sets the text content of the the label.  
 
-#### Buttons
+#### Button
 ##### Function
 ```js
 window.addButton(text, onClick)
@@ -154,14 +164,14 @@ window.addCheckbox(label, checkboxName, isChecked, onClick)
 `isChecked`(optional) - Sets whether the checkbox is set to true on load. Default is `false` or unchecked.  
 `onClick`(optional) - Callback function for when the checkbox has been clicked. Can pass the state of the checkbox as parameter.
 
-#### Sections
+#### Section
 ##### Function
 ```js
 window.addSection(text)
 ```
 `text` - Sets the text for a section divider.
 
-#### Dropdowns
+#### Dropdown
 ##### Function
 ```js
 window.addDropdown(text, options,firstOption, onSelect)
@@ -215,7 +225,10 @@ When you access these controls with an index you are given another object list.
 | 1     | Label           | Text Label                           | Returns the label                           |
 | 2     | Input           | checkmark/ input field/ dropdown box | Return the input of the control             |
 
-
+They can be accessed like this:
+```js
+window.controls[index][innerIndex]
+```
 ## Showing and Hiding Windows
 
 The `window.show()` function can be used to show/hide the main window.
@@ -231,7 +244,33 @@ window.show(targetWindow, visible)
 `window`(optional) - This can be set an UI Window Object. When left blank it targets the main UI window. For example, `window.eventLogWindow` and `window.watermark` can be passed as parameters here.  
 `visible`(optional) - This can set to `true`, `false` or `'auto'`. Leaving it undefined will set it to `'auto'` which switches the visible state the opposite of what it is currently is. i.e `true` gets turned into `false`.
 
+## Extra Library Functions
 
+These are extra functions that library provides that may be useful to you.
+
+### dragElement()
+
+This function makes any HTML DIV Element passed to it draggable that has `fixed` positioning. Elements stay in the same place regardless of scroll position.  
+It uses css properties `top` and `left` for positioning elements on screen.
+
+#### Function
+
+```js
+window.dragElement(draggableElement,draggableHandle)
+```
+
+#### Arguments
+`draggableElement` - This is the element that is made draggable. It must have `fixed` positioning to be able to be moved.  
+`draggableHandle` - This is the element that is used to drag the `draggableElement` around. It is recommended that this be a static element within the `draggableElement`.
+
+### getCurrentTime()
+
+This function returns the current time in the format HH:MM:SS as a string. This can be used inside of objects to include the time with them such as strings. This is used for returning log times in Event Log Messsages by the UI Library.
+
+#### Function
+```js
+window.getCurrentTime()
+```
 ## Watermarks
 
 ### Referencing the watermark
