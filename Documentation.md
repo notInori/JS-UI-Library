@@ -52,10 +52,10 @@
 | [window.createWatermark()](#creating-a-watermark)                                 | Creates the watermark for the UI Library.        | window.createWatermark(text,autoShow)      |  
 | [window.changeWatermarkText()](#changing-the-watermark-text)                      | Changes the text of the watermark                | window.changeWatermarkText(text)           |
 | [window.changeWatermarkAlignment()](#changing-watermark-alignment-after-creation) | Changes the watermark alignment.                 | window.changeWatermarkAlignment(alignment) |
-| window.dragElement()                                                              | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle)  |
+| [window.dragElement()](#dragelement)                                              | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle)  |
 | [window.show()](#showing-and-hiding-windows)                                      | Shows/Hides UI Windows                           | window.show(targetWindow,visible)          |
 | [window.log()](#creating-a-log)                                                   | Creates a log entry in the Event Log.            | window.log(Message,logType)                |
-| window.getCurrentTime()                                                           | Returns the current time in the format HH:MM:SS  | window.getCurrentTime()                    |
+| [window.getCurrentTime()](#getcurrenttime)                                        | Returns the current time in the format HH:MM:SS  | window.getCurrentTime()                    |
 | [window.bindMenuKey()](#binding-show-menu-key)                                    | Binds a key for showing/hiding the menu          | window.bindMenuKey(key)                    |
 | [window.destroy](#destroying-the-ui)                                              | Destroys all UI                                  | window.destroy()                           |
 
@@ -342,6 +342,7 @@ window.createEventLogWindow(title, width, height, autoShow)
 ### Creating a Log
 
 Log messages are displayed in the format of:
+
 ```
 [Time in format HH:MM:SS] [Optional Log Type] : [Log Message]
 ```
