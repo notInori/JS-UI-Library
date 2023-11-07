@@ -36,7 +36,6 @@ class InoriUILibrary{
         this.shadowRoot.appendChild(link);
         
         document.body.appendChild(this.shadowDOMContainer);
-        console.log(this.shadowRoot)
         
     }
 
