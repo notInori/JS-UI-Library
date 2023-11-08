@@ -15,6 +15,7 @@
     - [Referencing Controls](#referencing-controls)
 - [Showing and Hiding Windows](#showing-and-hiding-windows)
 - [Extra Library Functions](#extra-library-functions)
+    - [setAccentColor()](#setaccentcolor)
     - [dragElement()](#dragelement)
     - [getCurrentTime()](#getcurrenttime)
 - [Watermark](#watermark)
@@ -49,12 +50,14 @@
 |-----------------------------------------------------------------------------------|--------------------------------------------------|--------------------------------------------|
 | [window.createWindow()](#creating-a-window)                                       | Creates the main window for the UI Library.      | window.createWindow()                      |
 | [window.createEventLogWindow()](#creating-an-event-log-window)                    | Creates the event log window for the UI Library. | window.createEventLogWindow()              |
+| [window.clearEventLog()](#clearing-the-event-log)                                 | Clears all messages in the Event Log             | window.clearEventLog()                     |
 | [window.createWatermark()](#creating-a-watermark)                                 | Creates the watermark for the UI Library.        | window.createWatermark(text,autoShow)      |  
 | [window.changeWatermarkText()](#changing-the-watermark-text)                      | Changes the text of the watermark                | window.changeWatermarkText(text)           |
 | [window.changeWatermarkAlignment()](#changing-watermark-alignment-after-creation) | Changes the watermark alignment.                 | window.changeWatermarkAlignment(alignment) |
 | [window.dragElement()](#dragelement)                                              | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle)  |
 | [window.show()](#showing-and-hiding-windows)                                      | Shows/Hides UI Windows                           | window.show(targetWindow,visible)          |
 | [window.log()](#creating-a-log)                                                   | Creates a log entry in the Event Log.            | window.log(Message,logType)                |
+| [window.setAccentColor](#setaccentcolor)                                          | Changes the accent color for the UI              | window.changeAccentColor(newColor)         |
 | [window.getCurrentTime()](#getcurrenttime)                                        | Returns the current time in the format HH:MM:SS  | window.getCurrentTime()                    |
 | [window.bindMenuKey()](#binding-show-menu-key)                                    | Binds a key for showing/hiding the menu          | window.bindMenuKey(key)                    |
 | [window.destroy](#destroying-the-ui)                                              | Destroys all UI                                  | window.destroy()                           |
@@ -279,6 +282,17 @@ window.show(targetWindow, visible)
 ## Extra Library Functions
 
 These are extra functions that library contains that may be useful to you.
+
+### setAccentColor()
+
+This functions lets you change the CSS variable `--accent-color` which is responsible for the accent color of the UI which is used on hovered or active controls as well as the border of windows.
+
+#### Function
+```js
+window.setAccentColor(newColor)
+```
+#### Arguments
+`newColor` - The new color you want to set as the accent color. This can be a HTML color or a hex color value.
 
 ### dragElement()
 
