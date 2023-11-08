@@ -13,6 +13,9 @@
     - [Adding Controls](#adding-controls)
     - [Removing Controls](#removing-controls)
     - [Referencing Controls](#referencing-controls)
+    - [Retreiving Values](#retreiving-input-values)
+        - [Value Properties of Controls](#value-properties-of-controls)
+        - [Dropdown Limiations](#dropdown-limitations)
 - [Showing and Hiding Windows](#showing-and-hiding-windows)
 - [Extra Library Functions](#extra-library-functions)
     - [setAccentColor()](#setaccentcolor)
@@ -254,19 +257,30 @@ This can be combined with `.innerHTML` to allow you to change text value of the 
 windows.controls[index].lastChildElement.innerHTML = 'New Section Title';
 ```
 
-### Retreiving Values
+### Retreiving Input Values 
 For most controls you can simply reference the input element for the control and read its value. As most input controls are made up multiple elements you can reference them like this:
 ```js
 window.controls[indexOfControl][1]
 ```
 To get it's value you simple read the property corresponding to the type of control:  
 
-| Control  | Property for Input State             | Result Type |
-|----------|--------------------------------------|-------------|
-| Textbox  | window.controls[index][1].value      | String      |
-| Checkbox | window.controls[index][1].checked    | Boolean     |
-| Dropdown | window.controls.[index][1].innerHTML | String      |
+#### Value Properties of Controls
 
+| Control  | Property for Input State                            | Result Type |
+|----------|-----------------------------------------------------|-------------|
+| Textbox  | window.controls[index][1].value                     | String      |
+| Checkbox | window.controls[index][1].checked                   | Boolean     |
+| Dropdown | window.controls.[index][1].textContent.slice(0, -1) | String      |
+
+#### Dropdown Limitations
+
+When the value of a dropdown. It will return with a down arrow character at the end of it inside of a `<span>` if `.innerHTML`. This is due to how the inside of the dropdown is formatted.  
+To fix this we can use the `.textContent` to retreive just the text value of the button and then use the `.slice` function to remove the arrow from the end of the string.
+
+For example:
+```js
+window.controls[index][1].textContent.slice(0, -1)
+```
 
 ## Showing and Hiding Windows
 
