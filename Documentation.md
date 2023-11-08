@@ -274,7 +274,7 @@ To get it's value you simple read the property corresponding to the type of cont
 
 #### Dropdown Limitations
 
-When the value of a dropdown. It will return with a down arrow character at the end of it inside of a `<span>` if `.innerHTML`. This is due to how the inside of the dropdown is formatted.  
+When you retreive value of a dropdown with `.innerHTML`, it will return with a down arrow character at the end of it inside of a `<span>` if `.innerHTML`. This is due to how the inside of the dropdown is formatted.  
 To fix this we can use the `.textContent` to retreive just the text value of the button and then use the `.slice` function to remove the arrow from the end of the string.
 
 For example:
