@@ -246,7 +246,7 @@ window.show(targetWindow, visible)
 
 ## Extra Library Functions
 
-These are extra functions that library provides that may be useful to you.
+These are extra functions that library contains that may be useful to you.
 
 ### dragElement()
 
@@ -326,8 +326,8 @@ window.watermarkAlignment = 'left' // or 'right';
 ## Event Log
 
 ### Creating an Event Log Window
-To create an event log we can use use the `window.createEventLogWindow()` function.This will create the event log window.  
-This is not shown by default and it is recommended that you create a checkbox in the main menu to show it.
+To create the event log window we can use use the `window.createEventLogWindow()` function. The window created is not shown by default and it is recommended that you bind the show function `window.show(this.eventLogWindow)` to a control in the mind window. For usage of the command, see [Showing and Hiding Windows](#showing-and-hiding-windows).
+
 
 #### Function
 ```js
