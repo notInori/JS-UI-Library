@@ -208,10 +208,12 @@ window.controls[index][0].style.display = 'none'
 ```
 
 ### Referencing Controls
-All controls are added to a global object list called `window.controls`. To reference a control you can do `window.controls[index]`. To get the index of a control you can run `console.log(window.controls)` at the end of a script.
+All controls are added to a global object list called `window.controls`.  
+To reference a control you can do `window.controls[index]`.  
+To get the index of a control you can run `console.log(window.controls)` at the end of a script.
 
 #### Special Controls
-Some controls are made of multiple componenets. When these are referenced through controls it will provide you with another object list.  
+Most input controls are made of multiple componenets. When these are referenced through the `controls` list, it will provide you with another object list.  
 So far this includes:
 - checkboxes
 - textboxes
@@ -229,6 +231,36 @@ They can be accessed like this:
 ```js
 window.controls[index][innerIndex]
 ```
+
+#### Limiations
+Not all controls can properly be referenced. 
+These include:
+- Section
+
+When these are referenced using the `controls` list it will return the parent DIV of the control. For example to access the label of the section control you must use the property `.lastChildElement`.  
+
+```js
+window.controls[index].lastChildElement
+```
+This can be combined with `.innerHTML` to allow you to change text value of the section header.
+```js
+windows.controls[index].lastChildElement.innerHTML = 'New Section Title';
+```
+
+### Retreiving Values
+For most controls you can simply reference the input element for the control and read its value. As most input controls are made up multiple elements you can reference them like this:
+```js
+window.controls[indexOfControl][1]
+```
+To get it's value you simple read the property corresponding to the type of control:  
+
+| Control  | Property for Input State             | Result Type |
+|----------|--------------------------------------|-------------|
+| Textbox  | window.controls[index][1].value      | String      |
+| Checkbox | window.controls[index][1].checked    | Boolean     |
+| Dropdown | window.controls.[index][1].innerHTML | String      |
+
+
 ## Showing and Hiding Windows
 
 The `window.show()` function can be used to show/hide the main window.
