@@ -127,6 +127,10 @@ class InoriUILibrary{
           }, 500);
         
     }
+
+    clearEventLog(){
+        this.eventLogContainer.innerHTML = '';
+    }
     
     createWatermark(text = this.title, alignment="right", autoShow = false) {
         // Create the container element for the floating window
