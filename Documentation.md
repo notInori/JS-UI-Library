@@ -29,7 +29,11 @@
     - [Creating a Log](#creating-a-log)
     - [Type of Logs](#types-of-logs)
     - [Clearing the Event Log](#clearing-the-event-log)
+- [Customising the UI](#customizing-the-ui)
+    - [Changing the Colors](#changing-the-colors)
+    - [UI Library CSS Vars](#ui-library-css-vars)
 - [Destroying the UI](#destroying-the-ui)
+
 
 ## Global Variables
 |                          | Type            | Functions                                             | Usage                                                                                                                       |
@@ -63,7 +67,7 @@
 | [window.destroy](#destroying-the-ui)                                              | Destroys all UI                                  | window.destroy()                           |
 
 ## Importing the UI Library
-Firstly, to create a new UI Class instance you must import the UI library. It is recommended that you download a copy of [Library.js](https://github.com/notInori/JS-UI-Library/blob/main/Library.js) and host it alongside your website.
+Firstly, to create a new UI Class instance you must import the UI library. It is recommended that you download a copy of [Library.js](https://github.com/notInori/JS-UI-Library/blob/main/Library.js) and [UILibraryStyles.css](https://github.com/notInori/JS-UI-Library/blob/main/UILibraryStyles.css) and host them both alongside your website.
 
 Then at the start of your script import the library using an import statement like this:
 
@@ -417,6 +421,29 @@ To clear the Event Log we can simple just set the `.innerHTML` of the `window.ev
 ```js
 window.eventLogContainer.innerHTML = "";
 ```
+
+## Customizing the UI  
+The UI Library can be modified from the `UILibraryStyles.css` file.  
+
+### Changing the Colors
+To make the UI Library easier to customize, most of the theme can be changed by just changing css vars in the `.Inori-UI-Library` class.  
+
+### UI Library CSS Vars
+| CSS Var                   | Property                                | Property Usage                                                     |
+|---------------------------|-----------------------------------------|--------------------------------------------------------------------|
+| --main-color              | Main Background Color                   | This is used as the background color for the titlebar.             |
+| --secondary-color         | Secondary Background Color              | This is used as the background color for the content of a window.  |
+| --outline-color           | Outline Color For Controls              | This is the outline color for controls as well the header divider. |
+| --main-control-color      | Main Background Color For Controls      | This is the background color of most controls                      |
+| --button-pressed-color    | Secondary Background Color For Controls | This is the background color of checkboxes and pressed buttons.    |
+| --secondary-control-color | Main Accent Color                       | Used for window outline and active or hovered over controls.       |
+| --font-color              | Font Color                              | Color for all fonts                                                |
+| --font-stroke-color       | Font Stroke/Outline                     | Outline for all text                                               |
+| --control-box-shadow      | HTML Box Shadow Properties              | Use to add shadow/extra outline around controls.                   |
+
+### Extra Notes
+`--text-hint-color` is used to add stroking/outline to fonts. You can set this to transparent to remove it, but it's recommended to leave as is.  
+`--box-shadow` allows for manipulation of the shadow around controls. It is structured like this `offsetX offsetY blur spread color`. Is recomended to leave this as is.
 
 ## Destroying the UI
 If you want to completely remove the UI you can use:
