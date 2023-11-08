@@ -243,6 +243,13 @@ class InoriUILibrary{
         }
     }
 
+    setAccentColor(newColor){
+        const windowInstances = this.shadowRoot.querySelectorAll('.Inori-UI-Library'); // All window instances are isolated and therefore the accent color must be changed for each window individually
+        windowInstances.forEach(function(UIWindow) {
+            UIWindow.style.setProperty('--accent-color', newColor);
+        });
+    }
+
     show(targetWindow=this.container, visibile='auto'){
         if (visibile == 'auto'){
             targetWindow.classList.toggle('hidden');
