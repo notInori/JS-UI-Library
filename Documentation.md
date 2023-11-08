@@ -17,7 +17,7 @@
 - [Extra Library Functions](#extra-library-functions)
     - [dragElement()](#dragelement)
     - [getCurrentTime()](#getcurrenttime)
-- [Watermarks](#watermarks)
+- [Watermark](#watermark)
     - [Referencing the watermark](#referencing-the-watermark)
     - [Creating a watermark](#creating-a-watermark)
     - [Moving the watermark](#moving-the-watermark)
@@ -303,7 +303,7 @@ This function returns the current time in the format HH:MM:SS as a string. This 
 ```js
 window.getCurrentTime()
 ```
-## Watermarks
+## Watermark
 
 ### Referencing the watermark
 Only one watermark is allowed per instance of the UI Class.
