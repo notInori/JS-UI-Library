@@ -100,7 +100,7 @@ exampleWindow.addDropdown('Log Type:', ['None', 'Warning', 'Error',], 'None', (s
 exampleWindow.addTextbox('Log Message:', 'Enter text');
 exampleWindow.addButton('Send Log', sendLog);
 exampleWindow.addButton('Clear Log', () => {
-    exampleWindow.eventLogContainer.innerHTML = "";
+    exampleWindow.clearEventLog();
 });
 
 function sendLog(){
