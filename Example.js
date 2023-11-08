@@ -141,10 +141,7 @@ exampleWindow.log("Astolfo Background set to "+event.target.checked)
 exampleWindow.addSection('Settings')
 
 exampleWindow.addDropdown('Accent Color:', ['Red', 'Orange', 'Yellow', 'Blue', 'Pink', 'Purple'], "Pink", (selectedOption) => {
-    const elements = exampleWindow.shadowRoot.querySelectorAll('.Inori-UI-Library'); // All window instances are isolated and therefore the accent color must be changed for each window individually
-    elements.forEach(function(element) {
-        element.style.setProperty('--accent-color', selectedOption);
-    });
+    exampleWindow.setAccentColor(selectedOption)
 });
 
 exampleWindow.addCheckbox('Show Event Log', 'flag5', false, (isChecked) => {
