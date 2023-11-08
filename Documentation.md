@@ -219,11 +219,11 @@ So far this includes:
 
 When you access these controls with an index you are given another object list.
 
-| Index | Control         | Control Type                         | Usage                                       |
-|-------|-----------------|--------------------------------------|---------------------------------------------|
-| 0     | Parent HTML DIV | HTML DIV                             | Returns the HTML DIV Container for Controls |
-| 1     | Label           | Text Label                           | Returns the label                           |
-| 2     | Input           | checkmark/ input field/ dropdown box | Return the input of the control             |
+| Index | Control         | Control Type                           | Usage                                       |
+|-------|-----------------|----------------------------------------|---------------------------------------------|
+| 0     | Parent HTML DIV | HTML DIV                               | Returns the HTML DIV Container for Controls |
+| 1     | Label           | Text Label                             |  Returns the label                          |
+| 2     | Input           | checkmark / input field / dropdown box | Return the input of the control             |
 
 They can be accessed like this:
 ```js
