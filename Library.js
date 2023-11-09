@@ -333,8 +333,6 @@ class InoriUILibrary{
         checkboxContainer.appendChild(checkbox);
         checkboxContainer.appendChild(label);
 
-        const onClick2 = function(){};
-
         checkbox.addEventListener('click', () => {
             onClick(checkbox.checked);
         });
