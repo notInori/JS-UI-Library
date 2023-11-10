@@ -143,7 +143,7 @@ box-shadow:0 0 0 1px var(--accent-color);
 }
 
 .Inori-UI-Library button:active{
-background-color: var(--secondary-control-color);
+background: var(--secondary-control-color);
 }
 
 .Inori-UI-Library .divider-container label{
@@ -171,7 +171,7 @@ background-color: var(--secondary-control-color);
 }
 
 .Inori-UI-Library .custom-options{
-    background-color: var(--secondary-control-color);
+    background: var(--secondary-control-color);
     border: 1px solid var(--outline-color);
     box-shadow: var(--control-box-shadow);
     padding: 2px 4px;
