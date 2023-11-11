@@ -413,6 +413,12 @@ class InoriUILibrary{
         // Add an event listener to the dropdown button to toggle options visibility
         dropdownButton.addEventListener('click', () => {
             dropdownOptions.classList.toggle('show');
+            if (dropdownOptions.classList.contains("show")) {
+                dropdownButton.innerHTML = dropdownButton.textContent.slice(0, -1) + "<span style='display: block; float: right;'>▲</span>";
+            } else {
+                dropdownButton.innerHTML = dropdownButton.textContent.slice(0, -1) + "<span style='display: block; float: right;'>▼</span>";
+            }
+            
         });
 
         // Append the custom options container to the container
