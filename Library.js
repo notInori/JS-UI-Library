@@ -93,8 +93,8 @@ class InoriUILibrary{
 
         this.eventLogWindow.className = 'hidden';
         this.eventLogWindow.classList.add('Inori-UI-Library');
-        this.eventLogWindow.style.width = height + 'px';
-        this.eventLogWindow.style.height = width + 'px';
+        this.eventLogWindow.style.width = width + 'px';
+        this.eventLogWindow.style.height = height + 'px';
         this.eventLogWindow.style.zIndex = 99;
 
         // Create a title bar for the window
