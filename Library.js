@@ -191,7 +191,7 @@ class InoriUILibrary{
         }
     }
 
-    changeWatermarkText(text = ""){
+    setWatermarkText(text = ""){
         this.watermark.firstChild.innerHTML = text;
     }
 
