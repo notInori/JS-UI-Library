@@ -30,7 +30,6 @@ exampleWindow.addLabel('This is a label')
 // Create checkbox
 exampleWindow.addCheckbox('This is a checkbox', 'flag1', false, (ischecked) => { // Passed state through callback function
     // Log click event and state of the checkmark using passed state
-    console.log("Checkmark 1 set to", ischecked);
     exampleWindow.log("Checkmark 1 set to " + ischecked)
 }); 
 
@@ -51,14 +50,12 @@ exampleWindow.addSection('Checkboxes');
 // Create an example checkbox
 exampleWindow.addCheckbox('This is a checkbox', 'flag2', false, (isChecked) => {  // Passing the state of the checkmark through callback function
     // Log click event and state of the checkmark using passed state
-    console.log("Checkmark 2 set to", isChecked);
     exampleWindow.log("Checkmark 2 set to " + isChecked)
 });
 
 // Create another example checkbox
 exampleWindow.addCheckbox('This is a checkbox', 'flag3', false, (isChecked) => {
-    // Log the state of the checkmark using passed state
-    console.log ("Checkmark 3 set to", isChecked);
+    // Log click event and state of the checkmark using passed state
     exampleWindow.log("Checkmark 3 set to " + isChecked)
 });
 
@@ -76,15 +73,13 @@ exampleWindow.addLabel('These are buttons')
 
 // Create an example button
 exampleWindow.addButton('Button 1', () => { 
-    // Callback function used log to eventLog and console that button was pressed.
-    console.log('Button 1 clicked'); 
+    // Callback function used log to eventLog and that button was pressed.
     exampleWindow.log("Button 1 Clicked") 
 });
 
 // Create an example button
 exampleWindow.addButton('Button 2', () => {
-    // Callback function used log to eventLog and console that button was pressed.
-    console.log('Button 2 clicked');
+    // Callback function used log to eventLog and that button was pressed.
     exampleWindow.log("Button 2 Clicked")
 });
 
@@ -116,7 +111,6 @@ exampleWindow.addSection('Dropdowns')
 // Creating a dropdown with dummy options
 exampleWindow.addDropdown('Options:', ['Option 1', 'Option 2', 'Option 3'], "Option 1",(selectedOption) => {
     // Logging chosen option to demonstrate it working using passed value through callback
-    console.log(`Selected: ${selectedOption}`);
     exampleWindow.log(`Selected: ${selectedOption}`);
 });
 
