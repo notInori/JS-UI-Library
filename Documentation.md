@@ -59,7 +59,7 @@
 | [window.createEventLogWindow()](#creating-an-event-log-window)                    | Creates the event log window for the UI Library. | window.createEventLogWindow()              |
 | [window.clearEventLog()](#clearing-the-event-log)                                 | Clears all messages in the Event Log             | window.clearEventLog()                     |
 | [window.createWatermark()](#creating-a-watermark)                                 | Creates the watermark for the UI Library.        | window.createWatermark(text,autoShow)      |  
-| [window.changeWatermarkText()](#changing-the-watermark-text)                      | Changes the text of the watermark                | window.changeWatermarkText(text)           |
+| [window.setWatermarkText()](#changing-the-watermark-text)                         | Changes the text of the watermark                | window.setWatermarkText(text)           |
 | [window.changeWatermarkAlignment()](#changing-watermark-alignment-after-creation) | Changes the watermark alignment.                 | window.changeWatermarkAlignment(alignment) |
 | [window.dragElement()](#dragelement)                                              | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle)  |
 | [window.show()](#showing-and-hiding-windows)                                      | Shows/Hides UI Windows                           | window.show(targetWindow,visible)          |
@@ -357,11 +357,11 @@ The watermark is positioned `fixed` using `top` and `left` styles to control it'
 To change you can change you can change `window.watermark.style.top` to move it vertically and `window.watermark.style.left` to change it horizontally.
 
 ### Changing The Watermark Text
-The text within the watermark can be changed with the `window.changeWatermarkText()` function.
+The text within the watermark can be changed with the `window.setWatermarkText()` function.
 
 #### Function
 ```js
-window.changeWatermarkText(text)
+window.setWatermarkText(text)
 ```
 #### Arguments
 `text` - Sets the text to any string.
