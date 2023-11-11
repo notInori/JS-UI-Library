@@ -202,17 +202,15 @@ exampleWindow.addDropdown("Watermark Alignment",["Left","Right"],"Right",(select
     exampleWindow.setWatermarkAlignment(selectedOption.toLowerCase());
 })
 
-// Buttons for linking back to repo and documentation
-exampleWindow.addSection("Info")
-exampleWindow.addButton("Github Page", function() { window.location.href = "https://github.com/notInori/JS-UI-Library" })
-exampleWindow.addButton("Documentation", function() { window.location.href = "https://github.com/notInori/JS-UI-Library/blob/main/Documentation.md" })
-
 // Destroying the UI
 exampleWindow.addButton("Unload UI",() => {
     exampleWindow.destroy(); // This function must be placed in an arrow function to work
 })
 
-
+// Buttons for linking back to repo and documentation
+exampleWindow.addSection("Info")
+exampleWindow.addButton("Github Page", function() { window.location.href = "https://github.com/notInori/JS-UI-Library" })
+exampleWindow.addButton("Documentation", function() { window.location.href = "https://github.com/notInori/JS-UI-Library/blob/main/Documentation.md" })
 
 console.log(exampleWindow.controls) // Object list of all controls in UI
 
