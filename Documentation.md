@@ -50,7 +50,7 @@
 | window.eventLogWindow    | HTML Object     |                                                       | Object for Event Log Window                                                                                                 |
 | window.eventLogContainer | HTML Object     |                                                       | Object for Event Log Window Logs                                                                                            |
 | window.watermark         | HTML Object     |                                                       | Object for watermark                                                                                                        |  
-|window.watermarkAlignment | String          |                                                       | Sets the text alignment of the watermark. Can be set 'left', 'right', or 'auto'
+|window.watermarkAlignment | String          |                                                       | Sets alignment of text in the watermark.
 
 ## Functions
 | Function                                                                          | Purpose                                          | Usage                                      |
@@ -126,14 +126,23 @@ If you need to find the proper key value for a key. They are all listed [here](h
 
 ### Types of Controls
 
-| Type of Control       | Function      | Parameters                              |
-|-----------------------|---------------|-----------------------------------------|
-| [Label](#label)       | addLabel()    | text                                    |
-| [Button](#button)     | addButton()   | text, onClick                           |
-| [Textbox](#textbox)   | addTextBox()  | label, placeholder                      |
-| [Checkbox](#checkbox) | addCheckbox() | label, checkboxName, isChecked, onClick |
-| [Section](#section)   | addSection()  | text                                    |
-| [Dropdown](#dropdown) | addDropDown   | text, options, firstOption, onSelect    |
+| Type of Control       | Usage                                          | Function      | Parameters                              |
+|-----------------------|------------------------------------------------|---------------|-----------------------------------------|
+| [Label](#label)       | Displays text                                  | addLabel()    | text                                    |
+| [Button](#button)     | Creates a button that runs a function onClick. | addButton()   | text, onClick                           |
+| [Textbox](#textbox)   | Allow the user to input text                   | addTextBox()  | label, placeholder                      |
+| [Checkbox](#checkbox) | A control that has a true and false state      | addCheckbox() | label, checkboxName, isChecked, onClick |
+| [Section](#section)   | Creates a divider for seperating sections      | addSection()  | text                                    |
+| [Dropdown](#dropdown) | Allow the user to pick from a list of options  | addDropDown() | text, options, firstOption, onSelect    |
+
+### Adding Controls
+
+To add a control we do:
+```js
+window.addControl(param1, param2, param3...)
+```
+
+We can then add parameters to the control which can include names, data, and callback functions ran when the control is interacted with.
 
 #### Label
 ##### Function
@@ -191,15 +200,6 @@ window.addDropdown(text, options,firstOption, onSelect)
 `firstOption` - Sets first option set in dropdown on load.  
 `onSelect`(optional) - Callback function for when an option is picked. Can pass the selected option as parameter.  
 
-### Adding Controls
-
-To add a control we do:
-```js
-window.addControl(param1, param2, param3)
-```
-
-We can then add parameters to the control which can include names, data, and callback functions ran when the control is interacted with.
-
 ### Removing Controls
 
 To remove a control we can simple just remove the line that was used to create the control.  
@@ -242,7 +242,7 @@ They can be accessed like this:
 window.controls[index][innerIndex]
 ```
 
-#### Limiations
+#### Limitations
 Not all controls can properly be referenced. 
 These include:
 - Section
@@ -443,17 +443,17 @@ The UI Library can be modified from the `UILibraryStyles.css` file.
 To make the UI Library easier to customize, most of the theme can be changed by just changing css vars in the `.Inori-UI-Library` class.  
 
 ### UI Library CSS Vars
-| CSS Var                   | Property                                | Property Usage                                                     |
-|---------------------------|-----------------------------------------|--------------------------------------------------------------------|
-| --main-color              | Main Background Color                   | This is used as the background color for the titlebar.             |
-| --secondary-color         | Secondary Background Color              | This is used as the background color for the content of a window.  |
-| --outline-color           | Outline Color For Controls              | This is the outline color for controls as well the header divider. |
-| --main-control-color      | Main Background Color For Controls      | This is the background color of most controls                      |
-| --button-pressed-color    | Secondary Background Color For Controls | This is the background color of checkboxes and pressed buttons.    |
-| --secondary-control-color | Main Accent Color                       | Used for window outline and active or hovered over controls.       |
-| --font-color              | Font Color                              | Color for all fonts                                                |
-| --font-stroke-color       | Font Stroke/Outline                     | Outline for all text                                               |
-| --control-box-shadow      | HTML Box Shadow Properties              | Use to add shadow/extra outline around controls.                   |
+| CSS Var                   | Property                                | Property Usage                                                     | Property Values                                      |
+|---------------------------|-----------------------------------------|--------------------------------------------------------------------|------------------------------------------------------|
+| --main-color              | Main Background Color                   | This is used as the background color for the titlebar.             | Anything the CSS property `background` can be set to |
+| --secondary-color         | Secondary Background Color              | This is used as the background color for the content of a window.  | Anything the CSS property `background` can be set to |
+| --outline-color           | Outline Color For Controls              | This is the outline color for controls as well the header divider. | Anything the CSS property `color` can be set to      |
+| --main-control-color      | Main Background Color For Controls      | This is the background color of most controls                      | Anything the CSS property `background` can be set to |
+| --button-pressed-color    | Secondary Background Color For Controls | This is the background color of checkboxes and pressed buttons.    | Anything the CSS property `background` can be set to |
+| --secondary-control-color | Main Accent Color                       | Used for window outline and active or hovered over controls.       | Anything the CSS property `background` can be set to |
+| --font-color              | Font Color                              | Color for all fonts                                                | Anything the CSS property `color` can be set to      |
+| --font-stroke-color       | Font Stroke/Outline                     | Outline for all text                                               | Anything the CSS property `color` can be set to      |
+| --control-box-shadow      | HTML Box Shadow Properties              | Use to add shadow/extra outline around controls.                   | Anything the CSS property `box-shadow` can be set to |
 
 ### Extra Notes
 `--text-hint-color` is used to add stroking/outline to fonts. You can set this to transparent to remove it, but it's recommended to leave as is.  
