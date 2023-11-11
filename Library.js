@@ -176,7 +176,7 @@ class InoriUILibrary{
         this.dragElement(this.watermark,titleBar);
     }
 
-    changeWatermarkAlignment(alignment = 'auto'){
+    setWatermarkAlignment(alignment = 'auto'){
         this.watermark.style = 'left: unset; right: unset;';
         if (alignment == 'auto'){
         this.watermarkAlignment = this.watermarkAlignment == 'right'? 'left' : 'right';

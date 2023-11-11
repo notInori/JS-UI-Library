@@ -199,7 +199,7 @@ setInterval(function(){
 })
 
 exampleWindow.addDropdown("Watermark Alignment",["Left","Right"],"Right",(selectedOption) => {
-    exampleWindow.changeWatermarkAlignment(selectedOption.toLowerCase());
+    exampleWindow.setWatermarkAlignment(selectedOption.toLowerCase());
 })
 
 // Buttons for linking back to repo and documentation

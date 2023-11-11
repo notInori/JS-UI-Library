@@ -59,8 +59,8 @@
 | [window.createEventLogWindow()](#creating-an-event-log-window)                    | Creates the event log window for the UI Library. | window.createEventLogWindow()              |
 | [window.clearEventLog()](#clearing-the-event-log)                                 | Clears all messages in the Event Log             | window.clearEventLog()                     |
 | [window.createWatermark()](#creating-a-watermark)                                 | Creates the watermark for the UI Library.        | window.createWatermark(text,autoShow)      |  
-| [window.setWatermarkText()](#changing-the-watermark-text)                         | Changes the text of the watermark                | window.setWatermarkText(text)           |
-| [window.changeWatermarkAlignment()](#changing-watermark-alignment-after-creation) | Changes the watermark alignment.                 | window.changeWatermarkAlignment(alignment) |
+| [window.setWatermarkText()](#changing-the-watermark-text)                         | Changes the text of the watermark                | window.setWatermarkText(text)              |
+| [window.setWatermarkAlignment()](#changing-watermark-alignment-after-creation)    | Changes the watermark alignment.                 | window.setWatermarkAlignment(alignment)    |
 | [window.dragElement()](#dragelement)                                              | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle)  |
 | [window.show()](#showing-and-hiding-windows)                                      | Shows/Hides UI Windows                           | window.show(targetWindow,visible)          |
 | [window.log()](#creating-a-log)                                                   | Creates a log entry in the Event Log.            | window.log(Message,logType)                |
@@ -370,11 +370,11 @@ window.setWatermarkText(text)
 The alignment of the watermark can be set on creation to `right` or `left`. This controls the alignment of the text in the control and also the horizontal direction the watermark expands. It can also be changed after it has been created from two methods:
 
 #### Recommended
-The recommended way of changing the alignment of the watermark is by using the `window.changeWatermarkAlignment()` function. This will change the alignment as well as reposition the watermark to the left or right edges of the screen.
+The recommended way of changing the alignment of the watermark is by using the `window.setWatermarkAlignment()` function. This will change the alignment as well as reposition the watermark to the left or right edges of the screen.
 
 ##### Function
 ```js
-window.changeWatermarkAlignment(alignment)
+window.setWatermarkAlignment(alignment)
 ```
 ##### Arguments
 `alignment`(optional) - This can be set to `'left'`, `'right'` or `'auto'`. It defaults to auto which switches to the opposite of it's current alignment. i.e if `window.watermarkAlignment` is `'left'` it will be changed to `'right'`.
