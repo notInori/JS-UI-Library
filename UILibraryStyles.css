@@ -96,7 +96,7 @@
 }
 
 .Inori-UI-Library input[type="text"]::placeholder {
-    color: grey;
+    color: #bfbfbf;
 }
 
 .Inori-UI-Library input[type="text"]:hover, input[type="text"]:focus{
