@@ -190,3 +190,9 @@ background: var(--secondary-control-color);
 .Inori-UI-Library .show{
     display: block;
 }
+
+.disabled{
+    filter:brightness();
+    pointer-events: none;
+}
+
