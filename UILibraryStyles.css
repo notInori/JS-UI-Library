@@ -192,7 +192,7 @@ background: var(--secondary-control-color);
 }
 
 .disabled{
-    filter:brightness();
+    filter:brightness(0.75);
     pointer-events: none;
 }
 
