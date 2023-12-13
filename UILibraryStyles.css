@@ -20,6 +20,7 @@
     user-select: none;
     color: var(--font-color);
     font-family: monospace;
+    font-size: 13px;
     text-shadow: -1px -1px 0 var(--font-stroke-color), 1px -1px 0 var(--font-stroke-color), -1px 1px 0 var(--font-stroke-color), 1px 1px 0 var(--font-stroke-color), -1px 0 var(--font-stroke-color), 1px 0 var(--font-stroke-color), 0 -1px var(--font-stroke-color), 0 1px var(--font-stroke-color);
     overflow: hidden;
     position: fixed;
