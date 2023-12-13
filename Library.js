@@ -185,7 +185,7 @@ class InoriUILibrary{
         }
         else if (alignment == 'left'){
             this.watermarkAlignment = 'left';
-            this.watermark.left = '10px';
+            this.watermark.style.left = '10px';
         }
         else{
             this.watermarkAlignment = 'right'
