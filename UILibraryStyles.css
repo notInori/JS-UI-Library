@@ -21,7 +21,7 @@
     color: var(--font-color) !important;
     font-family: monospace !important;
     font-size: 13px !important;
-    line-height: unset !important;
+    line-height: 1.15 !important;
     text-shadow: -1px -1px 0 var(--font-stroke-color), 1px -1px 0 var(--font-stroke-color), -1px 1px 0 var(--font-stroke-color), 1px 1px 0 var(--font-stroke-color), -1px 0 var(--font-stroke-color), 1px 0 var(--font-stroke-color), 0 -1px var(--font-stroke-color), 0 1px var(--font-stroke-color) !important;
     overflow: hidden;
     position: fixed;
