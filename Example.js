@@ -200,7 +200,7 @@ exampleWindow.controls[21][2].addEventListener('click', (event) =>{
 // ----- Images
 
 // Creating an image container and providing it with a url and using 100% width and 100px height 
-exampleWindow.addImage('https://images.scrolller.com/atto/bun-on-the-bed-codyblue-731-9p6j69l8l5-901x1280.jpg', undefined, 100)
+exampleWindow.addImage('https://i.pinimg.com/originals/80/07/89/8007897740592f98baabd85f2b6b806e.jpg', undefined, 100)
 
 // ----- Settings
 
