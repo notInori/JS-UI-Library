@@ -188,6 +188,7 @@ background: var(--secondary-control-color);
 }
 
 .Inori-UI-Library img{
+    box-sizing: border-box;
     border: 1px solid var(--outline-color);
     box-shadow: var(--control-box-shadow);
     object-fit: contain;
