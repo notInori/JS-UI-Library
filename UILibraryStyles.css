@@ -194,5 +194,6 @@ background: var(--secondary-control-color);
 .disabled{
     filter:brightness(0.75);
     pointer-events: none;
+    user-select: none;
 }
 
