@@ -13,8 +13,8 @@
     /*--control-box-shadow: -1px -1px 0 var(--font-stroke-color), 1px -1px 0 var(--font-stroke-color), -1px 1px 0 var(--font-stroke-color), 1px 1px 0 var(--font-stroke-color), -1px 0 var(--font-stroke-color), 1px 0 var(--font-stroke-color), 0 -1px var(--font-stroke-color), 0 1px var(--font-stroke-color);*/
     display: flex;
     flex-direction: column;
-    box-sizing: border-box !important;
-    background: var(--secondary-color) !important;
+    box-sizing: border-box;
+    background: var(--secondary-color); 
     border: 1px solid var(--accent-color) !important;
     box-shadow: var(--control-box-shadow) !important;
     user-select: none !important;
