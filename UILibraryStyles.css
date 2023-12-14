@@ -187,6 +187,13 @@ background: var(--secondary-control-color);
     display: none;;
 }
 
+.Inori-UI-Library img{
+    border: 1px solid var(--outline-color);
+    box-shadow: var(--control-box-shadow);
+    object-fit: contain;
+    background: var(--secondary-control-color);
+}
+
 .Inori-UI-Library .show{
     display: block;
 }

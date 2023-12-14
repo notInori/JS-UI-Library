@@ -430,6 +430,17 @@ class InoriUILibrary{
         this.controls.push([dropdownContainer,dropdownLabel,dropdownButton]);
         this.controlsContainer.appendChild(dropdownContainer);
     }
+    
+    addImage(url="",width='fill',height='auto'){
+        const image = document.createElement('img')
+        image.src = url;
+        
+        image.style.width= width == 'fill'? "100%" : width + 'px';
+        image.style.height = height == 'auto'? 'auto' : height + 'px';
+        
+        this.controls.push(image);
+        this.controlsContainer.appendChild(image);
+    }
 
     getCurrentTime() {
         const now = new Date();
