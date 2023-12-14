@@ -431,13 +431,13 @@ class InoriUILibrary{
         this.controlsContainer.appendChild(dropdownContainer);
     }
     
-    addImage(url="",width='fill',height='auto'){
+    addImage(url="",width='fill',height='auto', imageCover='contain'){
         const image = document.createElement('img')
         image.src = url;
         
         image.style.width= width == 'fill'? "100%" : width + 'px';
         image.style.height = height == 'auto'? 'auto' : height + 'px';
-        
+        image.style.objectFit = imageCover == 'stretch'? 'unset' : imageCover
         this.controls.push(image);
         this.controlsContainer.appendChild(image);
     }
