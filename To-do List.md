@@ -2,7 +2,6 @@
 Just a short list of updates that i plan to add to the UI Library
 
 ## Features to do
-- Add image support
 - Add modal screens
 - Add notification prompts
 
