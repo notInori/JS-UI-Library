@@ -67,7 +67,7 @@
 | [window.setAccentColor](#setaccentcolor)                                          | Changes the accent color for the UI              | window.changeAccentColor(newColor)         |
 | [window.getCurrentTime()](#getcurrenttime)                                        | Returns the current time in the format HH:MM:SS  | window.getCurrentTime()                    |
 | [window.bindMenuKey()](#binding-show-menu-key)                                    | Binds a key for showing/hiding the menu          | window.bindMenuKey(key)                    |
-| [window.destroy](#destroying-the-ui)                                              | Destroys all UI                                  | window.destroy()                           |
+| [window.destroy()](#destroying-the-ui)                                            | Destroys all UI                                  | window.destroy()                           |
 
 ## Importing the UI Library
 Firstly, to create a new UI Class instance you must import the UI library. It is recommended that you download a copy of [Library.js](https://github.com/notInori/JS-UI-Library/blob/main/Library.js) and [UILibraryStyles.css](https://github.com/notInori/JS-UI-Library/blob/main/UILibraryStyles.css) and host them both alongside your website.
@@ -134,6 +134,7 @@ If you need to find the proper key value for a key. They are all listed [here](h
 | [Checkbox](#checkbox) | A control that has a true and false state      | addCheckbox() | label, checkboxName, isChecked, onClick |
 | [Section](#section)   | Creates a divider for seperating sections      | addSection()  | text                                    |
 | [Dropdown](#dropdown) | Allow the user to pick from a list of options  | addDropDown() | text, options, firstOption, onSelect    |
+| [Image](#images)      | Displays an image                              | addImage()    | URL, width, height                      |
 
 ### Adding Controls
 
@@ -199,6 +200,16 @@ window.addDropdown(text, options,firstOption, onSelect)
 `options` - Object list for the options given in dropdown.  
 `firstOption` - Sets first option set in dropdown on load.  
 `onSelect`(optional) - Callback function for when an option is picked. Can pass the selected option as parameter.  
+
+#### Image
+##### Function
+```js
+window.addImage(URL, width, height, imageCover)
+```
+`URL` - Sets the URL that image is fetched from.  
+`width`(optional) - Sets the width of the image container. Default is `'fill'` which fills the width of the UI window.  
+`height`(optional) - Sets the height of the image container . Default is `'auto'` which maintains the aspect ratio of the image.  
+`imageCover` - Sets how the image covers the container. Default is `'contain'` which fill the container as much without stretching. There is also `'cover'` and `'stretch'`.  
 
 ### Removing Controls
 
