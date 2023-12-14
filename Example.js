@@ -197,6 +197,11 @@ exampleWindow.controls[21][2].addEventListener('click', (event) =>{
     exampleWindow.log("Astolfo Background set to "+event.target.checked) 
 });
 
+// ----- Images
+
+// Creating an image container and providing it with a url and using 100% width and 100px height 
+exampleWindow.addImage('https://images.scrolller.com/atto/bun-on-the-bed-codyblue-731-9p6j69l8l5-901x1280.jpg', undefined, 100)
+
 // ----- Settings
 
 // Create section for settings
@@ -234,7 +239,7 @@ exampleWindow.addTextbox(undefined,'Watermark Text');
 
 // Function for auto updating watermark text with clock
 setInterval(function(){
-    const watermarkText = exampleWindow.controls[26][2].value != ""? exampleWindow.controls[26][2].value : exampleWindow.title;
+    const watermarkText = exampleWindow.controls[27][2].value != ""? exampleWindow.controls[27][2].value : exampleWindow.title;
     // set watermark to watermark input text + ' v1.0' + current time
     exampleWindow.setWatermarkText(watermarkText + " | v1.0 | " + exampleWindow.getCurrentTime());
 })
