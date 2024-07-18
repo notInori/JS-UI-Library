@@ -90,13 +90,17 @@ We will be using `window` as the name of your object for storing an instance of 
 
 ### Constructor
 ```js
-const window = new InoriUILibrary(titleName, width, height, autoShow)
+const window = new InoriUILibrary(titleName, width, height, autoShow, minWidth, maxWidth, minHeight, maxHeight)
 ```
 #### Arguments  
 `titleName` - The title of the window that will be created.  
-`width` - Sets the width of the window.  
-`height` - Sets the height of the window.  
+`width` - Sets the width of the window. Set to `auto` by default. It is recommneded to set an initial width as using auto disables window resizing.  
+`height` - Sets the height of the window. It is recommneded to set an initial height as using auto disables window resizing.  
 `autoShow`(optional) - Whether the watermark should be displayed when it's created. Set to `True` by default.
+`minWidth`(optional) - This defines the minmum width of the UI window. This can be set in the window UI constructor. By default it's the same as the inital ui window size. This can't be larger than the initial width.  
+`maxWidth`(optional) - This defines the maxmimum width of the UI window. This can be set in the window UI constructor. By default it's unlocked. This can't be smaller than the initial width.  
+`minHeight`(optional) - This defines the minmum height of the UI window. This can be set in the window UI constructor. By default it's the same as the inital ui window size. This can't be larger than the initial height. 
+`maxHeight`(optional) - This defines the maxmimum width of the UI window. This can be set in the window UI constructor. By default it's unlocked.  This can't be smaller than the initial width.
 
 This also creates a shadow DOM which is used to isolate the CSS for the UI Library from any website you want to use the UI Library inside of. The object reference for the root of this shadow DOM is `window.shadowRoot`. The object reference for the shadow DOM container div is `window.shadowDOMContainer`.  
 
