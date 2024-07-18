@@ -1,5 +1,5 @@
 class InoriUILibrary{
-    constructor(title, width, height, autoShow = true) {
+    constructor(title, width, height, autoShow = true, minWidth=width, maxWidth=10000, minHeight=height, maxHeight=10000) {
         this.title = title;
         this.width = width;
         this.height = height;
@@ -10,6 +10,11 @@ class InoriUILibrary{
         this.eventLogContainer = null;
         this.controls = [];
         this.watermark = null;
+        this.dragHandle = null;
+        this.minHeight = minHeight;
+        this.maxHeight = maxHeight;
+        this.minWidth = minWidth;
+        this.maxWidth = maxWidth
         this.watermarkAlignment = 'right';
         this.shadowDOMContainer = document.createElement('div');
         this.shadowRoot = this.shadowDOMContainer.attachShadow({ mode: 'open' });
@@ -56,6 +61,16 @@ class InoriUILibrary{
 
         // Make the DIV element draggable:
         this.dragElement(this.container, titleBar);
+        
+        this.dragHandle = document.createElement('div');
+        this.dragHandle.className = 'dragHandle';
+        this.dragHandle.textContent = '≡';
+        this.container.appendChild(this.dragHandle);
+        const minWidth = Math.min(this.width, this.minWidth)
+        const maxWidth = Math.max(this.width, this.maxWidth)
+        const minHeight = Math.min(this.height, this.minHeight)
+        const maxHeight = Math.max(this.height, this.maxHeight)
+        this.startResize(this.container, this.dragHandle, minWidth, maxWidth, minHeight, maxHeight);
 
         const container = this.container
             container.style.top = window.innerHeight / 2- (container.offsetHeight / 2) + "px";
@@ -73,6 +88,36 @@ class InoriUILibrary{
                 container.show()  
             }
         });
+    }
+
+    startResize(parent, dragHandle, minWidth, maxWidth, minHeight, maxHeight){
+        const resizable = parent;
+        const handle = dragHandle;
+
+        handle.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+
+            document.addEventListener('mousemove', resize);
+            document.addEventListener('mouseup', stopResize);
+        });
+
+
+        function stopResize() {
+            document.removeEventListener('mousemove', resize);
+            document.removeEventListener('mouseup', stopResize);
+          }
+          
+        function resize(e) { 
+            const newWidth = e.clientX - resizable.offsetLeft;
+            const newHeight = e.clientY - resizable.offsetTop;
+    
+            if (newWidth > minWidth && newWidth < maxWidth) {
+                resizable.style.width = newWidth + 'px';
+            }
+            if (newHeight > minHeight && newHeight < maxHeight) {
+                resizable.style.height = newHeight + 'px';
+            }
+        }
     }
 
     createEventLogWindow(title = "Event Log", width = 300,height = 300, autoShow=false) {
@@ -235,6 +280,8 @@ class InoriUILibrary{
             document.onmousemove = null;
         }
     }
+
+   
 
     setAccentColor(newColor){
         const windowInstances = this.shadowRoot.querySelectorAll('.Inori-UI-Library'); // All window instances are isolated and therefore the accent color must be changed for each window individually

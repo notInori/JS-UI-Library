@@ -200,6 +200,19 @@ background: var(--secondary-control-color);
     display: block;
 }
 
+.Inori-UI-Library .dragHandle{
+    position: absolute;
+    height: 14px;
+    width: 13px;
+    z-index: 1000;
+    right:0;
+    bottom: 0;
+    text-align: center;
+    user-select: none;
+    color: var(--font-color);
+    background: var(--outline-color)
+}
+
 .disabled{
     filter:brightness(0.75);
     pointer-events: none;
