@@ -205,13 +205,27 @@ background: var(--secondary-control-color);
     height: 0px;
     width: 0px;
     z-index: 1000;
-    right:2px;
-    bottom: 2px;
+    right: 1px;
+    bottom: 1px;
+    text-align: center;
+    user-select: none;
+    border-bottom: 11px solid black;
+    border-left: 11px solid transparent;
+}
+
+.Inori-UI-Library .dragHandle:before{
+    content: "";
+    position: absolute; 
+    height: 0px;
+    width: 0px;
+    z-index: 1000;
+    right: 1px;
+    bottom: -10px;
     text-align: center;
     user-select: none;
     color: var(--font-color);
-    border-bottom: 10px solid var(--outline-color);
-    border-left: 10px solid transparent;
+    border-bottom: 8px solid white;
+    border-left: 8px solid transparent;
 }
 
 .disabled{
