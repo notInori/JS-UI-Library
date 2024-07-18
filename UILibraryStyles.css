@@ -193,6 +193,7 @@ background: var(--secondary-control-color);
     box-shadow: var(--control-box-shadow);
     object-fit: contain;
     background: var(--secondary-control-color);
+    box-sizing: border-box;
 }
 
 .Inori-UI-Library .show{
