@@ -202,15 +202,16 @@ background: var(--secondary-control-color);
 
 .Inori-UI-Library .dragHandle{
     position: absolute;
-    height: 14px;
-    width: 13px;
+    height: 0px;
+    width: 0px;
     z-index: 1000;
-    right:0;
-    bottom: 0;
+    right:2px;
+    bottom: 2px;
     text-align: center;
     user-select: none;
     color: var(--font-color);
-    background: var(--outline-color)
+    border-bottom: 10px solid var(--outline-color);
+    border-left: 10px solid transparent;
 }
 
 .disabled{

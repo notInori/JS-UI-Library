@@ -64,7 +64,6 @@ class InoriUILibrary{
         
         this.dragHandle = document.createElement('div');
         this.dragHandle.className = 'dragHandle';
-        this.dragHandle.textContent = '≡';
         this.container.appendChild(this.dragHandle);
         const minWidth = Math.min(this.width, this.minWidth)
         const maxWidth = Math.max(this.width, this.maxWidth)
