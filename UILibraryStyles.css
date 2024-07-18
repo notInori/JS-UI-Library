@@ -228,6 +228,9 @@ background: var(--secondary-control-color);
     border-left: 8px solid transparent;
 }
 
+.Inori-UI-Library .dragHandle:hover:before{
+    border-bottom: 8px solid var(--accent-color);
+}
 .disabled{
     filter:brightness(0.75);
     pointer-events: none;
