@@ -21,6 +21,7 @@
     - [setAccentColor()](#setaccentcolor)
     - [dragElement()](#dragelement)
     - [getCurrentTime()](#getcurrenttime)
+    - [startResize()](#startresize)
 - [Watermark](#watermark)
     - [Referencing the watermark](#referencing-the-watermark)
     - [Creating a watermark](#creating-a-watermark)
@@ -51,6 +52,7 @@
 | window.eventLogContainer | HTML Object     |                                                       | Object for Event Log Window Logs                                                                                            |
 | window.watermark         | HTML Object     |                                                       | Object for watermark                                                                                                        |  
 |window.watermarkAlignment | String          |                                                       | Sets alignment of text in the watermark.
+|window.dragHandle         | HTML Object     |                                                       | Visual Handle for resizing UI Window.
 
 ## Functions
 | Function                                                                          | Purpose                                          | Usage                                      |
@@ -62,6 +64,7 @@
 | [window.setWatermarkText()](#changing-the-watermark-text)                         | Changes the text of the watermark                | window.setWatermarkText(text)              |
 | [window.setWatermarkAlignment()](#changing-watermark-alignment-after-creation)    | Changes the watermark alignment.                 | window.setWatermarkAlignment(alignment)    |
 | [window.dragElement()](#dragelement)                                              | Makes any HTML element draggable.                | window.dragElement(parent,dragableHandle)  |
+| [window.startResize()](#startresize)                                              | Makes UI Window element resizable by user.       | window.startResize(parent, titlebar, minWidth, maxWidth, minHeight, maxHeight)  |
 | [window.show()](#showing-and-hiding-windows)                                      | Shows/Hides UI Windows                           | window.show(targetWindow,visible)          |
 | [window.log()](#creating-a-log)                                                   | Creates a log entry in the Event Log.            | window.log(Message,logType)                |
 | [window.setAccentColor](#setaccentcolor)                                          | Changes the accent color for the UI              | window.changeAccentColor(newColor)         |
@@ -331,12 +334,31 @@ It uses css properties `top` and `left` for positioning elements on screen.
 #### Function
 
 ```js
-window.dragElement(draggableElement,draggableHandle)
+window.dragElement(draggableElement, draggableHandle)
 ```
 
 #### Arguments
 `draggableElement` - This is the element that is made draggable. It must have `fixed` positioning to be able to be moved.  
 `draggableHandle` - This is the element that is used to drag the `draggableElement` around. It is recommended that this be a static element within the `draggableElement`.
+
+### startResize()
+
+This function make a ui window resizable allowing the user to resize the window by moving a dedicated resize handle which was passed to the function along with it's parent window. It supports maximum and minumum sizing. 
+
+#### Function
+
+```js
+window.startResize(parent, titlebar, minWidth, maxWidth, minHeight, maxHeight)
+```
+
+#### Arguments
+`parent` - This is the UI Window element that will be resized.
+`dragHandle` - This is the element that is used to drag resize the parent element. It is recommended that this be a static element within the `draggableElement`.  
+`minWidth` - This defines the minmum width of the UI window. This can be set in the window UI constructor. By default it's the same as the inital ui window size. This can't be larger than the initial width.  
+`maxWidth` - This defines the maxmimum width of the UI window. This can be set in the window UI constructor. By default it's unlocked. This can't be smaller than the initial width.  
+`minHeight` - This defines the minmum height of the UI window. This can be set in the window UI constructor. By default it's the same as the inital ui window size. This can't be larger than the initial height. 
+`maxHeight` - This defines the maxmimum width of the UI window. This can be set in the window UI constructor. By default it's unlocked.  This can't be smaller than the initial width.
+
 
 ### getCurrentTime()
 
