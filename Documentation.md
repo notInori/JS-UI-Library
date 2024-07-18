@@ -96,8 +96,8 @@ const window = new InoriUILibrary(titleName, width, height, autoShow, minWidth, 
 `titleName` - The title of the window that will be created.  
 `width` - Sets the width of the window. Set to `auto` by default. It is recommneded to set an initial width as using auto disables window resizing.  
 `height` - Sets the height of the window. It is recommneded to set an initial height as using auto disables window resizing.  
-`autoShow`(optional) - Whether the watermark should be displayed when it's created. Set to `True` by default.
-`minWidth`(optional) - This defines the minmum width of the UI window. This can be set in the window UI constructor. By default it's the same as the inital ui window size. This can't be larger than the initial width.  
+`autoShow`(optional) - Whether the watermark should be displayed when it's created. Set to `True` by default.  
+`minWidth`(optional) - This defines the minmum width of the UI window. This can be set in the window UI constructor. By default it's the same as the inital ui window size. This can't be larger than the initial width.    
 `maxWidth`(optional) - This defines the maxmimum width of the UI window. This can be set in the window UI constructor. By default it's unlocked. This can't be smaller than the initial width.  
 `minHeight`(optional) - This defines the minmum height of the UI window. This can be set in the window UI constructor. By default it's the same as the inital ui window size. This can't be larger than the initial height. 
 `maxHeight`(optional) - This defines the maxmimum width of the UI window. This can be set in the window UI constructor. By default it's unlocked.  This can't be smaller than the initial width.
