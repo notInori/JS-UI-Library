@@ -180,6 +180,8 @@ class InoriUILibrary{
             this.watermarkAlignment = 'right'
             this.watermark.style.right = '10px'
         }
+        const accentColor = this.container.style.getPropertyValue('--accent-color');
+        this.setAccentColor(accentColor);
     }
 
     setWatermarkText(text = ""){
