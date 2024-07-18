@@ -11,13 +11,13 @@ But you're here soo :3
 
 ## Screenshots
 ### Example Menu
-![Screenshot Of Example Menu](https://github.com/user-attachments/assets/7feffa9f-7f4f-4ae4-b091-f4e6d2a99273)
+![Screenshot Of Example Menu](https://github.com/user-attachments/assets/8a5fcd5c-c240-4357-863e-578f24da6148)
 
 ### Event Log
-![Screenshot Of Event Log](https://github.com/user-attachments/assets/218f9206-fd9b-4d0b-8bf7-942c098ff000)
+![Screenshot Of Event Log](https://github.com/user-attachments/assets/db7c8295-a33c-4a84-9ee3-70879b5ebe8c)
 
 ### Watermark
-![Screenshot Of Watermark](https://github.com/user-attachments/assets/10c33dc4-853a-4b29-abdc-ff0c81de8dc5)
+![Screenshot Of Watermark](https://github.com/user-attachments/assets/7dde55a8-a03d-4750-bb17-b540a94d1774)
 
 ## Example
 [Example Repl](https://js-ui-library.notinori.repl.co)  
