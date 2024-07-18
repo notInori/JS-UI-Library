@@ -8,6 +8,7 @@ class InoriUILibrary{
         this.controlsContainer = null;
         this.eventLogWindow = null;
         this.eventLogContainer = null;
+        this.eventLogDragHandle = null;
         this.controls = [];
         this.watermark = null;
         this.dragHandle = null;
@@ -145,6 +146,15 @@ class InoriUILibrary{
         this.eventLogContainer.className = 'controls-container';
 
         this.eventLogWindow.appendChild(this.eventLogContainer)
+
+        this.eventLogDragHandle = document.createElement('div');
+        this.eventLogDragHandle.className = 'dragHandle';
+        this.eventLogWindow.appendChild(this.eventLogDragHandle);
+        const minWidth = width
+        const maxWidth = 10000
+        const minHeight = height
+        const maxHeight = 10000
+        this.startResize(this.eventLogWindow, this.eventLogDragHandle, minWidth, maxWidth, minHeight, maxHeight);
 
         // Make the DIV element draggable:
         this.dragElement(this.eventLogWindow, titleBar);
