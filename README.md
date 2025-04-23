@@ -20,7 +20,7 @@ But you're here soo :3
 ![Screenshot Of Watermark](https://github.com/user-attachments/assets/7dde55a8-a03d-4750-bb17-b540a94d1774)
 
 ## Example
-[Example Repl](https://js-ui-library.notinori.repl.co)  
+[Live Example](https://hazie.gay/demos/js-ui-lib)  
 [Example Script](https://github.com/notInori/JS-UI-Library/blob/main/Example.js)
 
 ## UI Library
